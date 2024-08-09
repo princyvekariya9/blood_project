@@ -10,7 +10,8 @@ Version: 1.0.0
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&amp;display=swap");
 
 :root {
-  --primary-color: #ea062b;
+  --primary-color: #D60033;
+  --light_clr:#FBE5EB;
   --secondary-color: #111111;
   --white: #fff;
   --gray: #e7e7e7;
@@ -2854,8 +2855,20 @@ footer .footer_bottom p {
 
 /******************km__register__box **********************/
 .km__form__box {
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
   padding: 48px 40px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  box-shadow: 0 0 20px var(--light_clr);
+}
+.km__form__box textarea{
+  resize: none;
+  &:focus{
+    box-shadow: none;
+  }
 }
 
 .km__form__box form input {
@@ -6164,3 +6177,55 @@ footer .footer_bottom p {
 .nice-select:focus {
   border: 1px solid var(--primary-color);
 }
+
+
+
+/* ------------------------ header ----------------------------------------- */
+.btn-close{
+  background: none !important;
+}
+.btn-close:focus {  
+  outline: 0;
+  box-shadow: none;
+}
+
+.form-control:focus{
+  border-color: var(--primary-color);
+}
+
+.login_btn{
+  font-weight: 600;
+  background-color: var(--secondary-color);
+  color: white;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  padding: 10px 20px !important;
+  transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  &:hover
+{
+    background-color: var(--primary-color);
+    color: white;
+  }
+}
+.modal-header ,.modal-body {
+  border-bottom: none;
+  padding: 25px;
+}
+.modal-footer{
+  border-top: none;
+ }
+ .register_link:hover{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+ }
+ .modal-content{
+  border:none;
+ }

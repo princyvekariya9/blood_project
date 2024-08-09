@@ -44,7 +44,7 @@ if(isset($_POST['submit']))
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">admin form</h3>
+                <h3 class="card-title">Camp form</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -83,7 +83,7 @@ if(isset($_POST['submit']))
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">description</label>
+                    <label for="exampleInputEmail1">Time</label>
                     <input type="time" class="form-control" id="exampleInputEmail1"  name="time" value="<?php echo @$data['time'] ?>">
                   </div>
                   

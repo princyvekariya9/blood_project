@@ -44,14 +44,14 @@
  
     <div class="header_bottom">
       <div class="container">
-        <div class="row align-items-center position-relative">
+        <div class="row align-items-center  position-relative">
           <div class="col-xl-2 col-lg-2 col-md-4 col-6">
             <div class="header_logo">
               <a href="index.php"><img src="assets/images/logo.png" alt="images not founds" class="img-fluid"></a>
             </div>
           </div>
           <div class="col-xl-10 col-lg-10 d-none d-xxl-block d-xl-block">
-            <ul class="main_menu">
+            <ul class="main_menu align-items-center ">
               <li class="position-relative">
                 <a href="index.php">Home </a>
             
@@ -74,7 +74,7 @@
               </li> 
               <li><a href="contact.php">Contact</a></li>
               <li><a href="#">
-              <button class="btn btn-danger" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Login</button>
+              <button class="btn p-0 login_btn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Login</button>
               </a></li>
             </ul>
           </div>
@@ -106,3 +106,41 @@
       </div>
     </div>
   </header>
+
+   <!-- --------- login register modal start -->
+  
+   <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5  text-danger" id="exampleModalToggleLabel">Login in to Blood Cloud</h1>
+        <button type="button" class="btn-close text-danger d-flex align-items-center justify-content-center " data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form method="post">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="name@example.com">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="name@example.com">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Password</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="password" placeholder="name@example.com">
+          </div>
+          <div class="mb-3">
+            <input type="submit" value="submit" name="submit" class="btn p-0 login_btn">
+          </div>
+        </div>
+        </form>
+      <div class="modal-footer text-center">
+        <span>Don't Have Account? </span>
+       <a href="register.php" class="fw-semibold text-danger register_link">Register</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- --------- login register modal end -->
