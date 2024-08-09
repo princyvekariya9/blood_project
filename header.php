@@ -29,15 +29,6 @@
 
 <body>
 
-  <!--preloader start-->
-  <!-- <div class="preloader">
-    <h1>Blad Ai</h1>
-    <div class="preload-progress">
-      <span></span>
-    </div>
-  </div> -->
-  <!--preloader end-->
-
   <!-- scroll to top -->
   <div class="progress-wrap cursor-pointer active-progress">
     <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
@@ -50,41 +41,7 @@
 
   <!-- header start -->
   <header>
-    <!-- <div class="header_top d-none d-lg-block d-xl-block d-xxl-block">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-3 col-lg-3">
-            <div class="header_top_content">
-              <span><i class="fa-solid fa-phone"></i></span>
-              <a href="tel:917048531203">+91 70485 31203</a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-3">
-            <div class="header_top_content">
-              <span><i class="fa-solid fa-envelope"></i></span>
-              <a href="mailto:company@domin.com">blood@gmil.com</a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-3">
-            <div class="header_top_content">
-              <span><i class="fa-solid fa-location-dot"></i></span>
-              <a href="#">3146 Koontz Lane, USA</a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-3">
-            <div class="header_top_social">
-              <p>Follow Now</p>
-              <ul class="d-flex">
-                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
+ 
     <div class="header_bottom">
       <div class="container">
         <div class="row align-items-center position-relative">
