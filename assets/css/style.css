@@ -6164,3 +6164,18 @@ footer .footer_bottom p {
 .nice-select:focus {
   border: 1px solid var(--primary-color);
 }
+
+
+
+/* ------------------------ header ----------------------------------------- */
+.btn-close{
+  background: none !important;
+}
+.btn-close:focus {  
+  outline: 0;
+  box-shadow: none;
+}
+
+.form-control:focus{
+  border-color: var(--primary-color);
+}
