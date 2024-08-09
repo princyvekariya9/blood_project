@@ -24,6 +24,8 @@
   <link rel="stylesheet" href="assets/css/slick.css">
   <link rel="stylesheet" href="assets/css/fancybox.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
 </head>
 
 
@@ -90,7 +92,7 @@
         <div class="row align-items-center  position-relative">
           <div class="col-xl-2 col-lg-2 col-md-4 col-6">
             <div class="header_logo">
-              <a href="index.php"><img src="assets/images/logo.png" alt="images not founds" class="img-fluid"></a>
+              <a href="index.php"><img src="assets/images/main_logo.png" alt="images not founds" class="img-fluid"></a>
             </div>
           </div>
           <div class="col-xl-10 col-lg-10 d-none d-xxl-block d-xl-block">

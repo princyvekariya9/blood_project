@@ -1303,7 +1303,7 @@ header .header_top .header_top_content a {
   }
 }
 
-.header_bottom::before {
+/* .header_bottom::before {
   content: "";
   position: absolute;
   top: 0;
@@ -1312,13 +1312,13 @@ header .header_top .header_top_content a {
   height: 100%;
   width: 33%;
   z-index: -1;
-}
+} */
 
-@media (max-width: 991.98px) {
+/* @media (max-width: 991.98px) {
   .header_bottom::before {
     width: 50%;
   }
-}
+} */
 
 .header_bottom .main_menu {
   display: -webkit-box;
