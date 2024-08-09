@@ -117,10 +117,7 @@
               </li> 
               <li><a href="contact.php">Contact</a></li>
               <li><a href="#">
-                
-                <button type="button" class="btn p-0 fw-semibold "  data-bs-toggle="modal" data-bs-target="#exampleModal">
-               Register
-                </button>
+              <button class="btn btn-danger" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Login</button>
               </a></li>
             </ul>
           </div>

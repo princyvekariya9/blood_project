@@ -18,16 +18,49 @@ if(isset($_POST['submit']))
  ?>
 
   <!-- header end -->
-
-  <!-- --------- register modal start -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Register</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <!-- --------- login register modal start -->
+  
+  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-center text-danger" id="exampleModalToggleLabel">Login in to Blood Cloud</h1>
+        <button type="button" class="btn-close text-danger d-flex align-items-center justify-content-center " data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form method="post">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="name@example.com">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="name@example.com">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Password</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="password" placeholder="name@example.com">
+          </div>
+          <div class="mb-3">
+            <input type="submit" value="submit" name="submit" class="btn btn-danger">
+          </div>
         </div>
-        <form method="post">
+        </form>
+      <div class="modal-footer">
+        <button class="btn " data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Register</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-center text-danger" id="exampleModalToggleLabel2">Register</h1>
+        <button type="button" class="btn-close text-danger d-flex align-items-center justify-content-center " data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+
+      </div>
+      <form method="post">
         <div class="modal-body">
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Name</label>
@@ -46,14 +79,18 @@ if(isset($_POST['submit']))
             <input type="text" class="form-control" id="exampleFormControlInput1" name="password" placeholder="name@example.com">
           </div>
           <div class="mb-3">
-            <input type="submit" value="submit" name="submit">
+            <input type="submit" value="submit" name="submit" class="btn btn-danger">
           </div>
         </div>
         </form>
+      <div class="modal-footer">
+        <button class="btn btn-danger" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Login</button>
       </div>
     </div>
   </div>
-  <!-- --------- register modal end -->
+</div>
+  <!-- --------- login register modal end -->
+
   
 
 
