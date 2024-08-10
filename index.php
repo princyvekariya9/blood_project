@@ -1,6 +1,9 @@
 <?php
-include_once 'db.php';
+$con = mysqli_connect("localhost" , "root" , "" , "blood");
 include_once 'header.php';
+
+$sql= "SELECT * FROM slider where status=1";
+$res = mysqli_query($con,$sql);
 
 if (isset($_POST['submit'])) {
   $name = $_POST['name'];
@@ -17,32 +20,15 @@ if (isset($_POST['submit'])) {
 ?>
 
 <!-- ----------- slider start -------- -->
-<!-- <div class="owl-carousel owl-theme">
-  <div class="item">
-    <img src="assets/images/hm1.jpg" alt="">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores veniam impedit rem, aperiam perspiciatis asperiores cupiditate eum. Nisi rem molestias ea eveniet odit, corporis minima iure reiciendis tempore. Quisquam, rem.</p>
-  </div>
-  <div class="item">
-    <img src="assets/images/hm2.jpg" alt="">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores veniam impedit rem, aperiam perspiciatis asperiores cupiditate eum. Nisi rem molestias ea eveniet odit, corporis minima iure reiciendis tempore. Quisquam, rem.</p>
-  </div>
-  <div class="item">
-    <img src="assets/images/hm3.jpg" alt="">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores veniam impedit rem, aperiam perspiciatis asperiores cupiditate eum. Nisi rem molestias ea eveniet odit, corporis minima iure reiciendis tempore. Quisquam, rem.</p>
-  </div>
-</div> -->
 
 <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
+    <?php while($data= mysqli_fetch_assoc($res)){ ?>
     <div class="carousel-item active">
-      <img src="assets/images/hm1.png" class="d-block w-100" alt="...">
+      <img src="admin/image/slider_img/<?php echo $data['image']; ?>" class="d-block w-100" alt="...">
     </div>
-    <div class="carousel-item">
-      <img src="assets/images/hm2.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="assets/images/hm3.jpg" class="d-block w-100" alt="...">
-    </div>
+   <?php } ?>
+
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
