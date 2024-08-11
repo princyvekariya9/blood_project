@@ -24,24 +24,6 @@ if (isset($_POST['submit'])) {
 
 <!-- ----------- slider start -------- -->
 
-<div id="carouselExample" class="carousel slide">
-  <div class="carousel-inner">
-    <?php while($data= mysqli_fetch_assoc($res)){ ?>
-    <div class="carousel-item active">
-      <img src="admin/image/slider_img/<?php echo $data['image']; ?>" class="d-block w-100" alt="...">
-    </div>
-   <?php } ?>
-
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
 
 
 <!-- ----------- slider end -------- -->
@@ -539,7 +521,6 @@ if (isset($_POST['submit'])) {
     </div>
   </div>
 </section>
-<!-- blood doner end -->
 <!--our news start -->
 <section class="news gray ptb-115">
   <div class="container">

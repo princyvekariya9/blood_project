@@ -1,28 +1,37 @@
 <?php
 include("header.php");
-require_once ('db.php');
+require_once('db.php');
 
-if(isset($_GET['id'])) {
+if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "DELETE FROM news WHERE id = $id"; 
-    mysqli_query($con, $sql);
+    $sql = "DELETE FROM news WHERE id = $id";
+    
+    if (!mysqli_query($con, $sql)) {
+        die('Error: ' . mysqli_error($con));
+    }
 }
 
 // Pagination logic
 $limit = 5;
 
-if(isset($_GET['search'])) {
+if (isset($_GET['search'])) {
     $search = $_GET['search'];
     $sql = "SELECT * FROM news WHERE name LIKE '%$search%'";
 } else {
     $sql = "SELECT * FROM news";
-}   
+}
 
 $res = mysqli_query($con, $sql);
+
+// Check if query execution was successful
+if (!$res) {
+    die('Error: ' . mysqli_error($con));
+}
+
 $total_records = mysqli_num_rows($res);
 $total_pages = ceil($total_records / $limit);
 
-if(isset($_GET['page'])) {
+if (isset($_GET['page'])) {
     $page = $_GET['page'];
 } else {
     $page = 1;
@@ -30,14 +39,19 @@ if(isset($_GET['page'])) {
 
 $start = ($page - 1) * $limit;
 
-if(isset($_GET['search'])) {
+if (isset($_GET['search'])) {
     $search = $_GET['search'];
     $sql = "SELECT * FROM news WHERE name LIKE '%$search%' LIMIT $start, $limit";
 } else {
     $sql = "SELECT * FROM news LIMIT $start, $limit";
-}   
+}
 
 $res = mysqli_query($con, $sql);
+
+// Check if query execution was successful
+if (!$res) {
+    die('Error: ' . mysqli_error($con));
+}
 
 ?>
 <!-- Content Wrapper. Contains page content -->
@@ -87,17 +101,13 @@ $res = mysqli_query($con, $sql);
                                 </thead>
                                 <tbody>
                                     <?php 
-                                    while($data= mysqli_fetch_assoc($res)) {
+                                    while ($data = mysqli_fetch_assoc($res)) {
                                     ?>
                                     <tr>
                                         <td><?php echo $data['id']; ?></td>
                                         <td><?php echo $data['title']; ?></td>
-                                        
                                         <td><?php echo $data['description']; ?></td>
-
-                                        <td><img src="image/news_img/<?php echo $data['image'] ?>" width="100px"></td>
-                                        
-                                        
+                                        <td><img src="image/news_img/<?php echo $data['image']; ?>" width="100px"></td>
                                         <td>
                                             <a href="view_news.php?id=<?php echo $data['id']; ?>">delete</a>
                                         </td>
@@ -110,7 +120,7 @@ $res = mysqli_query($con, $sql);
                                 <tfoot>
                                 </tfoot>
                             </table>
-                            <div style="margin: 20px 0px  ;" class="btn">
+                            <div style="margin: 20px 0px;" class="btn">
                                 <?php if ($page > 1) { ?>
                                     <a href="?page=<?php echo ($page - 1); ?>">Prev</a>
                                 <?php } ?>
