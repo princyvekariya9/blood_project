@@ -1,12 +1,12 @@
 <?php
-$con = mysqli_connect("localhost" , "root" , "" , "blood");
+$con = mysqli_connect("localhost", "root", "", "blood");
 include_once 'header.php';
 
-$sql= "SELECT * FROM slider where status=1";
-$res = mysqli_query($con,$sql);
+$sql = "SELECT * FROM slider where status=1";
+$res = mysqli_query($con, $sql);
 
-$sql= "SELECT * FROM news LIMIT 3";
-$res1 = mysqli_query($con,$sql);
+$sql = "SELECT * FROM news LIMIT 3";
+$res1 = mysqli_query($con, $sql);
 
 if (isset($_POST['submit'])) {
   $name = $_POST['name'];
@@ -23,26 +23,42 @@ if (isset($_POST['submit'])) {
 ?>
 
 <!-- ----------- slider start -------- -->
-
-<div id="carouselExample" class="carousel slide">
-  <div class="carousel-inner">
-    <?php while($data= mysqli_fetch_assoc($res)){ ?>
-    <div class="carousel-item active">
-      <img src="admin/image/slider_img/<?php echo $data['image']; ?>" class="d-block w-100" alt="...">
+<section class="hm1_hero_slider">
+<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false" data-bs-interval="5000">
+    <div class="carousel-inner">
+      <div class="hm1_content position-relative carousel-item active">
+        <img src="assets/images/hm1.png" alt="">
+        <div class="slider_contain position-absolute ">
+          <h3>Donate blood,save life !</h3>
+          <h1>The phrase "Donate Blood, Save Life!" is a heartfelt call to action, encouraging individuals to
+            participate in blood donation. It highlights the critical role that blood donors play in saving lives,
+            especially in emergency situations, surgeries, and for patients with certain medical conditions.</h1>
+        </div>
+      </div>
+      <div class="hm1_content position-relative carousel-item ">
+        <img src="assets/images/hm1.png" alt="">
+        <div class="slider_contain position-absolute ">
+          <h3>Donate blood,save life !</h3>
+          <h1>The phrase "Donate Blood, Save Life!" is a heartfelt call to action, encouraging individuals to
+            participate in blood donation. It highlights the critical role that blood donors play in saving lives,
+            especially in emergency situations, surgeries, and for patients with certain medical conditions.</h1>
+        </div>
+      </div>
+      <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button> -->
     </div>
-   <?php } ?>
-
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
 
+
+</section>
 
 
 
@@ -51,11 +67,11 @@ if (isset($_POST['submit'])) {
   <div class="container">
     <div class="row g-0 register_top">
       <div class="col-xl-6 col-lg-6 col-12">
-        <div class="register red_bg">
+        <div class="register red_bg ">
           <div class="register_content">
-            <h4>Register Now</h4>
-            <p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is
-              pain,
+            <h4>Become a Lifesaver—Register Now!</h4>
+            <p>
+            Register now to join our life-saving community, connecting you with patients in need. Your quick signup could save lives and prevent blood shortages—be a hero today!
             </p>
           </div>
           <div class="register_icon black_hover">
@@ -66,9 +82,8 @@ if (isset($_POST['submit'])) {
       <div class="col-xl-6 col-lg-6  col-12">
         <div class="register black_bg">
           <div class="register_content">
-            <h4>Donate Now</h4>
-            <p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is
-              pain,
+            <h4>Donate Now—Save Lives Today!</h4>
+            <p>Donating blood is quick, safe, and life-saving. Help prevent blood shortages and give someone a second chance. Donate today!
             </p>
           </div>
           <div class="register_icon red_hover">
@@ -89,11 +104,9 @@ if (isset($_POST['submit'])) {
               <a href="#">
                 <h5>Become a donate</h5>
               </a>
-              <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was
-                born and I will give</p>
+              <p>Become a donor at our blood bank and help save lives by volunteering. Your contribution provides people in need of blood a regular supply. Join us today to contribute to our community's long-term impact!</p>
             </div>
           </div>
-          <a href="blog-details.php" class="d-block black_bg text-center">Read More</a>
         </div>
       </div>
       <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
@@ -107,11 +120,9 @@ if (isset($_POST['submit'])) {
               <a href="#">
                 <h5>Why give blood?</h5>
               </a>
-              <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was
-                born and I will give</p>
+              <p>Giving blood is a simple way to make a big difference. Each donation can save up to three lives and supports surgeries, treatments, and emergencies. It’s quick, safe, and a powerful way to help your community and those in need.</p>
             </div>
           </div>
-          <a href="blog-details.php" class="d-block black_bg text-center">Read More</a>
         </div>
       </div>
       <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
@@ -125,11 +136,11 @@ if (isset($_POST['submit'])) {
               <a href="#">
                 <h5>How Denations Help?</h5>
               </a>
-              <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was
-                born and I will give</p>
+              <p>
+             
+Donations are essential for keeping a reliable blood supply. They support life-saving treatments and emergency care, ensuring hospitals have the resources needed for patients in critical situations.</p>
             </div>
           </div>
-          <a href="blog-details.php" class="d-block black_bg text-center">Read More</a>
         </div>
       </div>
     </div>
@@ -150,24 +161,20 @@ if (isset($_POST['submit'])) {
       <div class="col-xl-6 col-lg-6 col-md-6 col-12">
         <div class="help_content">
           <p class="red_color">Help The People in Need</p>
-          <h2>Welcome to Blood
-            Donors Organization</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut labore et
-            dolore magna aliqua.
-            suspendisse the gravida. Risus commodo viverra maecenas</p>
+          <h2>Welcome to the Organisation of Blood Donors!</h2>
+          <p> Our goal is to save lives by securing a reliable and continuous blood supply from committed donors. Your help is essential in ensuring that patients in need get the blood they need.</p>
           <div class="d-flex justify-content-between">
             <ul>
-              <li><i class="fa-solid fa-angles-right"></i> Good Service</li>
-              <li><i class="fa-solid fa-angles-right"></i> Help People</li>
-              <li><i class="fa-solid fa-angles-right"></i> Hugine Tools</li>
+              <li><i class="fa-solid fa-angles-right"></i> Save Lives</li>
+              <li><i class="fa-solid fa-angles-right"></i> Community Support</li>
+              <li><i class="fa-solid fa-angles-right"></i> Health Benefits</li>
             </ul>
             <ul>
               <li><i class="fa-solid fa-angles-right"></i> 24h Service</li>
-              <li><i class="fa-solid fa-angles-right"></i> Health Check</li>
-              <li><i class="fa-solid fa-angles-right"></i> Blood Bank</li>
+              <li><i class="fa-solid fa-angles-right"></i> Easy Process</li>
+              <li><i class="fa-solid fa-angles-right"></i> Donor Care</li>
             </ul>
           </div>
-          <a href="about.php" class="explore_now red_btn">Explore Now</a>
         </div>
       </div>
     </div>
@@ -352,7 +359,7 @@ if (isset($_POST['submit'])) {
             </div>
           </div>
         </div>
-        <div class="campaign_slier_item">
+        <!-- <div class="campaign_slier_item">
           <div class="row g-0 ">
             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12 col-5">
               <div class="campaign_img">
@@ -401,7 +408,7 @@ if (isset($_POST['submit'])) {
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
 
     </div>
@@ -682,29 +689,29 @@ if (isset($_POST['submit'])) {
     </div>
 
     <div class="row justify-content-center">
-      <?php 
-      while($data = mysqli_fetch_assoc($res1)){
-       ?>
-       <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-4 mb-xl-0 mb-lg-0">
-        <div class="news_content_item">
-          <div class="news_img ">
-            <img src="admin/image/news_img/<?php echo $data['image'] ?>" alt="">
-            <a href="blog-details.php"><i class="fa-solid fa-plus"></i></a>
-          </div>
-          <div class="news_content">
-            <div class="meta d-flex gap-4">
-              <span><i class="fa-regular fa-clock"></i> 18 Feb, 2022</span>
-              <span><i class="fa-solid fa-comments"></i> 3 Comments</span>
+      <?php
+      while ($data = mysqli_fetch_assoc($res1)) {
+        ?>
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-4 mb-xl-0 mb-lg-0">
+          <div class="news_content_item">
+            <div class="news_img ">
+              <img src="admin/image/news_img/<?php echo $data['image'] ?>" alt="">
+              <a href="blog-details.php"><i class="fa-solid fa-plus"></i></a>
             </div>
-            <a href="blog-details.php">
-              <h5><?php echo $data['title'] ?></h5>
-            </a>
-            <p><?php echo $data['description'] ?></p>
-            <a href="blog-details.php">Read More <i class="fa-solid fa-angles-right"></i></a>
+            <div class="news_content">
+              <div class="meta d-flex gap-4">
+                <span><i class="fa-regular fa-clock"></i> 18 Feb, 2022</span>
+                <span><i class="fa-solid fa-comments"></i> 3 Comments</span>
+              </div>
+              <a href="blog-details.php">
+                <h5><?php echo $data['title'] ?></h5>
+              </a>
+              <p><?php echo $data['description'] ?></p>
+              <a href="blog-details.php">Read More <i class="fa-solid fa-angles-right"></i></a>
+            </div>
           </div>
         </div>
-      </div>
-    <?php } ?>
+      <?php } ?>
 
     </div>
   </div>
