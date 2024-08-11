@@ -110,7 +110,7 @@ $res1 = mysqli_query($con, $sql);
                                 <a href="view_slider.php?id=<?php echo $data['id'];  ?>">delete</a>
                             </td>
                              <td>
-                             <a href="der.php?id=<?php echo $data['id'];  ?>">edit</a>
+                             <a href="slider.php?id=<?php echo $data['id'];  ?>">edit</a>
                             </td>
                                      <td>
                 <input type="checkbox" attr-value="<?php if($data['status']==0) { echo "1"; }else{ echo "0"; }?>"  class="check" attr-id="<?php echo $data['id']; ?>" <?php if($data['status']==1) { echo "checked"; } ?>>
