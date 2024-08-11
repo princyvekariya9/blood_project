@@ -44,7 +44,6 @@ if (isset($_POST['submit'])) {
 </div>
 
 
-<!-- ----------- slider end -------- -->
 
 
 <!-- register & donate start -->

@@ -122,7 +122,7 @@
         <div class="modal-body">
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Name</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="name@example.com">
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Enter Your Name">
           </div>
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Email address</label>
@@ -130,7 +130,7 @@
           </div>
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Password</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" name="password" placeholder="name@example.com">
+            <input type="password" class="form-control" id="exampleFormControlInput1" name="password" placeholder="Enter Your Password  ">
           </div>
           <div class="mb-3">
             <input type="submit" value="submit" name="submit" class="btn p-0 login_btn">
