@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
 <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false" data-bs-interval="5000">
     <div class="carousel-inner">
       <div class="hm1_content position-relative carousel-item active">
-        <img src="assets/images/hm1.png" alt="">
+        <img src="assets/images/hm1.png" alt="" class="img-fluid">
         <div class="slider_contain position-absolute ">
           <h3>Donate blood,save life !</h3>
           <h1>The phrase "Donate Blood, Save Life!" is a heartfelt call to action, encouraging individuals to
@@ -35,29 +35,8 @@ if (isset($_POST['submit'])) {
             especially in emergency situations, surgeries, and for patients with certain medical conditions.</h1>
         </div>
       </div>
-      <div class="hm1_content position-relative carousel-item ">
-        <img src="assets/images/hm1.png" alt="">
-        <div class="slider_contain position-absolute ">
-          <h3>Donate blood,save life !</h3>
-          <h1>The phrase "Donate Blood, Save Life!" is a heartfelt call to action, encouraging individuals to
-            participate in blood donation. It highlights the critical role that blood donors play in saving lives,
-            especially in emergency situations, surgeries, and for patients with certain medical conditions.</h1>
-        </div>
-      </div>
-      <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button> -->
     </div>
   </div>
-
-
 </section>
 
 
@@ -333,7 +312,7 @@ Donations are essential for keeping a reliable blood supply. They support life-s
         </div>
       </div>
 
-      <div class="campaign_slider slider-spacing custom_dots">
+      <div class="campaign_slider slider-spacing  ">
         <div class="campaign_slier_item">
           <div class="row g-0">
             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12 col-5">
