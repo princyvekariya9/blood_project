@@ -24,6 +24,23 @@ if (isset($_POST['submit'])) {
 
 <!-- ----------- slider start -------- -->
 
+<section class="hm1_hero_slider">
+<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false" data-bs-interval="3000">
+    <div class="carousel-inner">
+      <?php 
+      while($data= mysqli_fetch_assoc($res)){
+      ?>
+      <div class="hm1_content position-relative carousel-item active">
+        <img src="admin/image/slider_img/<?php echo $data['image']?>" alt="" class="img-fluid">
+        <div class="slider_contain position-absolute ">
+          <h3><?php echo $data['title']?></h3>
+          <h1><?php echo $data['description'] ?></h1>
+        </div>
+      </div>
+      <?php } ?>
+    </div>
+  </div>
+</section>
 
 
 <!-- ----------- slider end -------- -->
@@ -309,7 +326,7 @@ if (isset($_POST['submit'])) {
         </div>
       </div>
 
-      <div class="campaign_slider slider-spacing custom_dots">
+      <div class="campaign_slider slider-spacing  ">
         <div class="campaign_slier_item">
           <div class="row g-0">
             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12 col-5">
