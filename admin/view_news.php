@@ -4,7 +4,7 @@ require_once ('db.php');
 
 if(isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "DELETE FROM campe WHERE id = $id"; 
+    $sql = "DELETE FROM news WHERE id = $id"; 
     mysqli_query($con, $sql);
 }
 
@@ -13,9 +13,9 @@ $limit = 5;
 
 if(isset($_GET['search'])) {
     $search = $_GET['search'];
-    $sql = "SELECT * FROM campe WHERE name LIKE '%$search%'";
+    $sql = "SELECT * FROM news WHERE name LIKE '%$search%'";
 } else {
-    $sql = "SELECT * FROM campe";
+    $sql = "SELECT * FROM news";
 }   
 
 $res = mysqli_query($con, $sql);
@@ -32,9 +32,9 @@ $start = ($page - 1) * $limit;
 
 if(isset($_GET['search'])) {
     $search = $_GET['search'];
-    $sql = "SELECT * FROM campe WHERE name LIKE '%$search%' LIMIT $start, $limit";
+    $sql = "SELECT * FROM news WHERE name LIKE '%$search%' LIMIT $start, $limit";
 } else {
-    $sql = "SELECT * FROM campe LIMIT $start, $limit";
+    $sql = "SELECT * FROM news LIMIT $start, $limit";
 }   
 
 $res = mysqli_query($con, $sql);
@@ -79,11 +79,8 @@ $res = mysqli_query($con, $sql);
                                     <tr>
                                         <th>id</th>
                                         <th>title</th>
-                                        <th>date</th>
                                         <th>description</th>
                                         <th>image</th>
-                                        <th>time</th>
-
                                         <th>delete</th>
                                         <th>edit</th>
                                     </tr>
@@ -95,18 +92,17 @@ $res = mysqli_query($con, $sql);
                                     <tr>
                                         <td><?php echo $data['id']; ?></td>
                                         <td><?php echo $data['title']; ?></td>
-                                        <td><?php echo $data['date']; ?></td>
+                                        
                                         <td><?php echo $data['description']; ?></td>
 
-                                        <td><img src="image/campe_img/<?php echo $data['image'] ?>" width="100px"></td>
-                                        <td><?php echo $data['time'] ?></td>
-                                        <td><?php echo $data['location'] ?></td>
-
+                                        <td><img src="image/news_img/<?php echo $data['image'] ?>" width="100px"></td>
+                                        
+                                        
                                         <td>
-                                            <a href="view_campe.php?id=<?php echo $data['id']; ?>">delete</a>
+                                            <a href="view_news.php?id=<?php echo $data['id']; ?>">delete</a>
                                         </td>
                                         <td>
-                                            <a href="campe.php?id=<?php echo $data['id']; ?>">edit</a>
+                                            <a href="news.php?id=<?php echo $data['id']; ?>">edit</a>
                                         </td>
                                     </tr>
                                     <?php } ?>                

@@ -5,6 +5,9 @@ include_once 'header.php';
 $sql= "SELECT * FROM slider where status=1";
 $res = mysqli_query($con,$sql);
 
+$sql= "SELECT * FROM news LIMIT 3";
+$res1 = mysqli_query($con,$sql);
+
 if (isset($_POST['submit'])) {
   $name = $_POST['name'];
   $email = $_POST['email'];
@@ -42,51 +45,7 @@ if (isset($_POST['submit'])) {
 
 
 <!-- ----------- slider end -------- -->
-<!-- hero section start -->
-<!-- <section class="hm1_hero_slider">
-    <div class="hm1_hero hm1 hm_bg">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="hm1_content">
-              <div class="video_play d-flex gap-2 align-items-center">
-                <a href="https://youtu.be/K87aFjB7Ff0?si=kpgANQNewn8DSOtq" data-fancybox=""
-                  class="red_bg d-inline-flex align-items-center justify-content-center"><i
-                    class="fa-solid fa-play"></i></a>
-                <h6>Intro Video</h6>
-              </div>
-              <h3>Donate blood,save life !</h3>
-              <h1>Donate Blood And Inspires Others.</h1>
-              <a href="donate.php" class="explore_now red_btn">Explore Now</a>
-            </div>
-          </div>
-        </div>
 
-      </div>
-    </div>
-
-    <div class="hm1_hero hm13  hm_bg">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="hm1_content">
-              <div class="video_play d-flex gap-2 align-items-center">
-                <a href="https://youtu.be/K87aFjB7Ff0?si=kpgANQNewn8DSOtq" data-fancybox=""
-                  class="red_bg d-inline-flex align-items-center justify-content-center"><i
-                    class="fa-solid fa-play"></i></a>
-                <h6>Intro Video</h6>
-              </div>
-              <h3>Donate blood,save life !</h3>
-              <h1>Donate Blood And Inspires Others.</h1>
-              <a href="#" class="explore_now red_btn">Explore Now</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section> -->
-<!-- hero section end -->
 
 <!-- register & donate start -->
 <section class="register_donate ptb-115 gray">
@@ -724,10 +683,13 @@ if (isset($_POST['submit'])) {
     </div>
 
     <div class="row justify-content-center">
-      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-4 mb-xl-0 mb-lg-0">
+      <?php 
+      while($data = mysqli_fetch_assoc($res1)){
+       ?>
+       <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-4 mb-xl-0 mb-lg-0">
         <div class="news_content_item">
           <div class="news_img ">
-            <img src="assets/images/n1.jpg" alt="">
+            <img src="admin/image/news_img/<?php echo $data['image'] ?>" alt="">
             <a href="blog-details.php"><i class="fa-solid fa-plus"></i></a>
           </div>
           <div class="news_content">
@@ -736,54 +698,15 @@ if (isset($_POST['submit'])) {
               <span><i class="fa-solid fa-comments"></i> 3 Comments</span>
             </div>
             <a href="blog-details.php">
-              <h5>Donation is hope for poor helpless children</h5>
+              <h5><?php echo $data['title'] ?></h5>
             </a>
-            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, magni eos
-              qui ratione voluptatem</p>
+            <p><?php echo $data['description'] ?></p>
             <a href="blog-details.php">Read More <i class="fa-solid fa-angles-right"></i></a>
           </div>
         </div>
       </div>
-      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-4 mb-xl-0 mb-lg-0">
-        <div class="news_content_item">
-          <div class="news_img ">
-            <img src="assets/images/n2.jpg" alt="">
-            <a href="blog-details.php"><i class="fa-solid fa-plus"></i></a>
-          </div>
-          <div class="news_content">
-            <div class="meta d-flex gap-4">
-              <span><i class="fa-regular fa-clock"></i> 18 Feb, 2022</span>
-              <span><i class="fa-solid fa-comments"></i> 3 Comments</span>
-            </div>
-            <a href="blog-details.php">
-              <h5>Donation is hope for poor helpless children</h5>
-            </a>
-            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, magni eos
-              qui ratione voluptatem</p>
-            <a href="blog-details.php">Read More <i class="fa-solid fa-angles-right"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
-        <div class="news_content_item">
-          <div class="news_img ">
-            <img src="assets/images/n3.jpg" alt="">
-            <a href="blog-details.php"><i class="fa-solid fa-plus"></i></a>
-          </div>
-          <div class="news_content">
-            <div class="meta d-flex gap-4">
-              <span><i class="fa-regular fa-clock"></i> 18 Feb, 2022</span>
-              <span><i class="fa-solid fa-comments"></i> 3 Comments</span>
-            </div>
-            <a href="blog-details.php">
-              <h5>Donation is hope for poor helpless children</h5>
-            </a>
-            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, magni eos
-              qui ratione voluptatem</p>
-            <a href="blog-details.php">Read More <i class="fa-solid fa-angles-right"></i></a>
-          </div>
-        </div>
-      </div>
+    <?php } ?>
+
     </div>
   </div>
 </section>

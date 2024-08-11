@@ -2,40 +2,53 @@
 $con = mysqli_connect("localhost", "root", "", "blood");
 include 'header.php';
 
+if (mysqli_connect_errno()) {
+    die("Failed to connect to MySQL: " . mysqli_connect_error());
+}
+
+// Fetch existing data if ID is provided
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
-    $sql = "SELECT * FROM admin WHERE id = $id";
-    $res = mysqli_query($con, $sql);
+    $sql = "SELECT * FROM news WHERE id = ?";
+    $stmt = mysqli_prepare($con, $sql);
+    mysqli_stmt_bind_param($stmt, 'i', $id);
+    mysqli_stmt_execute($stmt);
+    $res = mysqli_stmt_get_result($stmt);
     $data1 = mysqli_fetch_assoc($res);
+    mysqli_stmt_close($stmt);
 }
 
 if (isset($_POST['submit'])) {
-    $name = mysqli_real_escape_string($con, $_POST['name']);
-    $email = mysqli_real_escape_string($con, $_POST['email']);
-    $password = mysqli_real_escape_string($con, $_POST['password']);
+    $title = mysqli_real_escape_string($con, $_POST['title']);
+    $description = mysqli_real_escape_string($con, $_POST['description']);
     $image = $_FILES['image']['name'];
-    $path = "image/admin_img/".$image;
+    $image_tmp = $_FILES['image']['tmp_name'];
+    $path = "image/news_img/" . $image;
 
-    if (move_uploaded_file($_FILES['image']['tmp_name'], $path)) {
-        // Image upload was successful
-        $image_sql = ", image='$image'";
+    if (!empty($image)) {
+        move_uploaded_file($image_tmp, $path);
     } else {
-        // If no new image is uploaded, retain the old image
-        $image_sql = "";
+        // If no new image is uploaded, use the existing one if editing
+        $image = isset($data1['image']) ? $data1['image'] : '';
     }
 
     if (isset($_GET['id'])) {
         $id = intval($_GET['id']);
-        $sql = "UPDATE admin SET name='$name', email='$email', password='$password'$image_sql WHERE id=$id";
+        $sql = "UPDATE news SET title=?, description=?, image=? WHERE id=?";
+        $stmt = mysqli_prepare($con, $sql);
+        mysqli_stmt_bind_param($stmt, 'sssi', $title, $description, $image, $id);
     } else {
-        $sql = "INSERT INTO admin (name, email, password, image) VALUES ('$name', '$email', '$password', '$image')";
+        $sql = "INSERT INTO news (title, description, image) VALUES (?, ?, ?)";
+        $stmt = mysqli_prepare($con, $sql);
+        mysqli_stmt_bind_param($stmt, 'sss', $title, $description, $image);
     }
 
-    if (mysqli_query($con, $sql)) {
+    if (mysqli_stmt_execute($stmt)) {
         echo "<p>Record saved successfully!</p>";
     } else {
         echo "<p>Error: " . mysqli_error($con) . "</p>";
     }
+    mysqli_stmt_close($stmt);
 }
 ?>
 
@@ -67,35 +80,34 @@ if (isset($_POST['submit'])) {
                     <h3><?php echo @$msg; ?></h3>
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Admin Form</h3>
+                            <h3 class="card-title">News Form</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
                         <form method="post" enctype="multipart/form-data">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Name</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail" placeholder="Enter Name" name="name" value="<?php echo htmlspecialchars(@$data1['name']); ?>">
+                                    <label for="title">Title</label>
+                                    <input type="text" class="form-control" id="title" placeholder="Enter title" name="title" value="<?php echo htmlspecialchars(@$data1['title']); ?>">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Email Address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Email" name="email" value="<?php echo htmlspecialchars(@$data1['email']); ?>">
+                                    <label for="description">Description</label>
+                                    <textarea class="form-control" id="description" placeholder="Enter description" name="description"><?php echo htmlspecialchars(@$data1['description']); ?></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" value="<?php echo htmlspecialchars(@$data1['password']); ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputFile">File Input</label>
+                                    <label for="image">Image</label>
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="exampleInputFile" name="image">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            <input type="file" class="custom-file-input" id="image" name="image">
+                                            <label class="custom-file-label" for="image">Choose file</label>
                                         </div>
                                         <div class="input-group-append">
                                             <span class="input-group-text">Upload</span>
                                         </div>
                                     </div>
+                                    <?php if (!empty($data1['image'])): ?>
+                                        <p>Current Image: <img src="image/news_img/<?php echo htmlspecialchars($data1['image']); ?>" alt="Current Image" style="max-width: 100px;"></p>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <!-- /.card-body -->
