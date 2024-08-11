@@ -44,6 +44,7 @@ if (isset($_POST['submit'])) {
 </div>
 
 
+<!-- ----------- slider end -------- -->
 
 
 <!-- register & donate start -->
@@ -539,136 +540,6 @@ if (isset($_POST['submit'])) {
   </div>
 </section>
 <!-- blood doner end -->
-
-<!-- request & appoinment start -->
-<section class="request">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-4 mb-xl-0 mb-lg-0">
-        <div class="current1">
-          <h4>Current Blood Request</h4>
-          <ul>
-            <li><i class="fa-solid fa-heart"></i> B+ Washington, USA (13.02.2022)</li>
-            <li><i class="fa-solid fa-heart"></i> O+ Washington, USA (13.02.2022)</li>
-            <li><i class="fa-solid fa-heart"></i> A+ Washington, USA (13.02.2022)</li>
-            <li><i class="fa-solid fa-heart"></i> A- Washington, USA (13.02.2022)</li>
-            <li><i class="fa-solid fa-heart"></i> AB+ Washington, USA (13.02.2022)</li>
-            <li><i class="fa-solid fa-heart"></i> B- Washington, USA (13.02.2022)</li>
-            <li><i class="fa-solid fa-heart"></i> O- Washington, USA (13.02.2022)</li>
-            <li><i class="fa-solid fa-heart"></i> AB- Washington, USA (13.02.2022)</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-xl-6 col-lg-6 col-md-6 col-12">
-        <div class="appointment">
-          <h4>Request Appointment Here</h4>
-
-          <form action="#" class="row hm1_contact_form">
-            <div class="col-xl-6 col-12 mb-4">
-              <input type="text" class="form-control" placeholder="Your Name">
-            </div>
-            <div class="col-xl-6 col-12 mb-4">
-              <input type="text" class="form-control" placeholder="Phone Number">
-            </div>
-            <div class="col-12 mb-4">
-              <input type="text" class="form-control" placeholder="Your Email">
-            </div>
-            <div class="col-12 mb-4">
-              <select class="form-select">
-                <option value="d">Donation Type</option>
-                <option value="d">Donation Type</option>
-                <option value="d">Donation Type</option>
-                <option value="d">Donation Type</option>
-              </select>
-            </div>
-            <div class="col-12 mb-4">
-              <textarea class="form-control">Your Message</textarea>
-            </div>
-            <div class="col-12">
-              <button type="submit" class="red_btn">Submit Now</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- request & appoinment end -->
-
-<!-- team start -->
-<section class="team ptb-115">
-  <div class="container">
-    <div class="row mb-5">
-      <div class="col-12">
-        <div class="common_title text-center">
-          <p>Team members</p>
-          <h2>Meet Volunteers</h2>
-        </div>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-xl-4 col-lg-4 col-md-6 col-12 mb-4">
-        <div class="team_details">
-          <div class="team_img">
-            <img src="assets/images/t1.jpg" alt="" class="w-100">
-            <ul class="d-flex">
-              <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
-            </ul>
-          </div>
-          <div class="team_content text-center">
-            <a href="team-member.php">
-              <h5>Nora Khaypeia</h5>
-            </a>
-            <p>Co-Founder</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-4 col-lg-4 col-md-6 col-12 mb-4">
-        <div class="team_details">
-          <div class="team_img ">
-            <img src="assets/images/t2.jpg" alt="" class="w-100">
-            <ul class="d-flex">
-              <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
-            </ul>
-          </div>
-          <div class="team_content text-center">
-            <a href="team-member.php">
-              <h5>Alex Joshan Deo</h5>
-            </a>
-            <p>Co-Founder</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-4 col-lg-4 col-md-6 col-12 mb-4">
-        <div class="team_details">
-          <div class="team_img ">
-            <img src="assets/images/t3.jpg" alt="" class="w-100">
-            <ul class="d-flex">
-              <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
-            </ul>
-          </div>
-          <div class="team_content text-center">
-            <a href="team-member.php">
-              <h5>Joshan Khaypeia</h5>
-            </a>
-            <p>Co-Founder</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- team end -->
-
 <!--our news start -->
 <section class="news gray ptb-115">
   <div class="container">
@@ -688,7 +559,7 @@ if (isset($_POST['submit'])) {
        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-4 mb-xl-0 mb-lg-0">
         <div class="news_content_item">
           <div class="news_img ">
-            <img src="admin/image/news_img/<?php echo $data['image'] ?>" alt="">
+            <img src="admin/image/news_img/<?php echo $data['image']; ?>" alt="">
             <a href="blog-details.php"><i class="fa-solid fa-plus"></i></a>
           </div>
           <div class="news_content">

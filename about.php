@@ -129,7 +129,7 @@ include_once 'header.php';
         </div>
       </div>
       <div class="row g-4 justify-content-center">
-        <div class="col-xl-6 col-lg-6 col-12">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
           <div class="km__blog position-relative">
             <div class="feature-image  img mb-30">
               <a href="campaign-details.php">

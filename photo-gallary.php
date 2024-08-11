@@ -30,60 +30,20 @@ include_once 'header.php';
         </div>
       </div>
       <div class="row justify-content-center">
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-4">
+        <?php 
+            $con= mysqli_connect("localhost","root","","blood");
+            $sql="SELECT * FROM gallery";
+            $res= mysqli_query($con,$sql);
+            while($data= mysqli_fetch_assoc($res)){
+         ?>
+         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-4">
           <div class="gallary_item">
-            <img src="assets/images/h2_g1.jpg" alt="">
-            <a href="assets/images/h2_g1.jpg" data-fancybox="gallery"><i class="fa-solid fa-plus"></i></a>
+            <img src="admin/image/gallery_img/<?php echo $data['image'] ?>" alt="">
+            <a href="admin/image/gallery_img/<?php echo $data['image'] ?>" data-fancybox="gallery"><i class="fa-solid fa-plus"></i></a>
           </div>
         </div>
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-4">
-          <div class="gallary_item">
-            <img src="assets/images/h2_g2.jpg" alt="">
-            <a href="assets/images/h2_g2.jpg" data-fancybox="gallery"><i class="fa-solid fa-plus"></i></a>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-4">
-          <div class="gallary_item">
-            <img src="assets/images/h2_g3.jpg" alt="">
-            <a href="assets/images/h2_g3.jpg" data-fancybox="gallery"><i class="fa-solid fa-plus"></i></a>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-4">
-          <div class="gallary_item">
-            <img src="assets/images/g1.jpg" alt="">
-            <a href="assets/images/g1.jpg" data-fancybox="gallery"><i class="fa-solid fa-plus"></i></a>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-4">
-          <div class="gallary_item">
-            <img src="assets/images/g2.jpg" alt="">
-            <a href="assets/images/g2.jpg" data-fancybox="gallery"><i class="fa-solid fa-plus"></i></a>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-4">
-          <div class="gallary_item">
-            <img src="assets/images/g3.jpg" alt="">
-            <a href="assets/images/g3.jpg" data-fancybox="gallery"><i class="fa-solid fa-plus"></i></a>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-4 mb-xl-0 mb-lg-0 mb-md-0">
-          <div class="gallary_item">
-            <img src="assets/images/h2_g1.jpg" alt="">
-            <a href="assets/images/h2_g1.jpg" data-fancybox="gallery"><i class="fa-solid fa-plus"></i></a>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-4 mb-xl-0 mb-lg-0 mb-md-0">
-          <div class="gallary_item">
-            <img src="assets/images/h2_g2.jpg" alt="">
-            <a href="assets/images/h2_g2.jpg" data-fancybox="gallery"><i class="fa-solid fa-plus"></i></a>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
-          <div class="gallary_item">
-            <img src="assets/images/h2_g3.jpg" alt="">
-            <a href="assets/images/h2_g3.jpg" data-fancybox="gallery"><i class="fa-solid fa-plus"></i></a>
-          </div>
-        </div>
+      <?php } ?>
+        
       </div>
     </div>
     </div>
