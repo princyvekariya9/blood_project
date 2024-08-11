@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
 </div>
 
 
-<!-- ----------- slider end -------- -->
+<!-- ----------- slider end --------  -->
 <!-- hero section start -->
 <!-- <section class="hm1_hero_slider">
     <div class="hm1_hero hm1 hm_bg">
