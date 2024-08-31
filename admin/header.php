@@ -251,29 +251,7 @@ $data= mysqli_fetch_assoc($res);
             </ul>
           </li>
           <!-- location -->
-           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                location
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="add_location.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>add location</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="view_location.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>view location</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+           
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
@@ -297,53 +275,7 @@ $data= mysqli_fetch_assoc($res);
               </li>
             </ul>
           </li>
-          
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                camp 
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="campe.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>add camp</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="view_campe.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>view camp</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                news
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="news.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>add news</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="view_news.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>view news</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+         
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
@@ -413,14 +345,29 @@ $data= mysqli_fetch_assoc($res);
               </li>
             </ul>
           </li>
-        
-          
- 
-          
- 
- 
- 
-            
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                camp plan
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="camp_plan.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>camp plan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="view_gallery.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p></p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

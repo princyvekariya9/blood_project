@@ -8,6 +8,9 @@ $res = mysqli_query($con,$sql);
 $sql= "SELECT * FROM news LIMIT 3";
 $res1 = mysqli_query($con,$sql);
 
+$sql= "SELECT * FROM campe ";
+$result = mysqli_query($con,$sql);
+
 if (isset($_POST['submit'])) {
   $name = $_POST['name'];
   $email = $_POST['email'];
@@ -327,81 +330,36 @@ if (isset($_POST['submit'])) {
       </div>
 
       <div class="campaign_slider slider-spacing  ">
-        <div class="campaign_slier_item">
+        <?php 
+        while($data= mysqli_fetch_assoc($result)){
+         ?>
+         <div class="campaign_slier_item">
           <div class="row g-0">
             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12 col-5">
               <div class="campaign_img">
-                <img src="assets/images/c1.png" alt="">
+                <img src="admin/image/campe_img/<?php echo $data['image'] ;?>" alt="">
                 <a href="campaign-details.php">Read More</a>
               </div>
             </div>
             <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-12">
               <div class="campaign_content">
                 <div class="meta_date">
-                  <span><i class="fa-regular fa-calendar-days"></i> 13 February, 2022</span>
+                  <span><i class="fa-regular fa-calendar-days"></i><?php echo $data['date'] ;?></span>
                 </div>
                 <a href="campaign-details.php">
-                  <h6>Free Group Checking</h6>
+                  <h6><?php echo $data['title'] ;?></h6>
                 </a>
-                <p>Lorem ipsum dolor sit consectetur adipiscing elit, sed do incididunt et dolore magna aliqua.</p>
+                <p><?php echo $data['description'] ;?></p>
                 <div class="meta_time d-flex gap-4">
-                  <span><i class="fa-regular fa-clock"></i> 10.00 - 4.00</span>
-                  <span><i class="fa-solid fa-location-dot"></i>Broklyn 40, USA</span>
+                  <span><i class="fa-regular fa-clock"></i><?php echo $data['time'] ;?></span>
+                  <span><i class="fa-solid fa-location-dot"></i><?php echo $data['location'] ;?></span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="campaign_slier_item">
-          <div class="row g-0 ">
-            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12 col-5">
-              <div class="campaign_img">
-                <img src="assets/images/c2.png" alt="">
-                <a href="campaign-details.php">Read More</a>
-              </div>
-            </div>
-            <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-12">
-              <div class="campaign_content">
-                <div class="meta_date">
-                  <span><i class="fa-regular fa-calendar-days"></i> 13 February, 2022</span>
-                </div>
-                <a href="campaign-details.php">
-                  <h6>Blood Donation Camp</h6>
-                </a>
-                <p>Lorem ipsum dolor sit consectetur adipiscing elit, sed do incididunt et dolore magna aliqua.</p>
-                <div class="meta_time d-flex gap-4">
-                  <span><i class="fa-regular fa-clock"></i> 10.00 - 4.00</span>
-                  <span><i class="fa-solid fa-location-dot"></i>Broklyn 40, USA</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="campaign_slier_item">
-          <div class="row g-0">
-            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12 col-5">
-              <div class="campaign_img">
-                <img src="assets/images/c1.png" alt="">
-                <a href="campaign-details.php">Read More</a>
-              </div>
-            </div>
-            <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-12">
-              <div class="campaign_content">
-                <div class="meta_date">
-                  <span><i class="fa-regular fa-calendar-days"></i> 13 February, 2022</span>
-                </div>
-                <a href="campaign-details.php">
-                  <h6>Free Group Checking</h6>
-                </a>
-                <p>Lorem ipsum dolor sit consectetur adipiscing elit, sed do incididunt et dolore magna aliqua.</p>
-                <div class="meta_time d-flex gap-4">
-                  <span><i class="fa-regular fa-clock"></i> 10.00 - 4.00</span>
-                  <span><i class="fa-solid fa-location-dot"></i>Broklyn 40, USA</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <?php } ?>
+        
       </div>
 
     </div>
