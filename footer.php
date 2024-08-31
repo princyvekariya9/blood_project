@@ -4,13 +4,9 @@
         <div class="row border-bottom justify-content-center">
           <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
             <div class="footer_content">
-              <h5>About Us</h5>
-              <p>Duis aute irure dolor in reprehenderit velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                sint occaecat</p>
-              <ul>
-                <li><span>Phone:</span> +1(456)657-887, 999</li>
-                <li><span>Email:</span> contactblood@gmail.com</li>
-              </ul>
+              <h5>Who We Are</h5>
+              <p>We are dedicated to improving healthcare through efficient blood bank management. Our team focuses on ensuring a steady and safe supply of blood through our comprehensive management system, designed to streamline donation, storage, and distribution processes.</p>
+            
             </div>
           </div>
           <div class="col-xl-2 col-lg-2 col-md-6 col-6 mb-4">
@@ -77,43 +73,13 @@
             </div>
           </div>
         </div>
-        <div class="row footer_middle">
-          <div class="col-xl-6 col-lg-6 col-12 mb-5">
-            <div class="footer_subscrive">
-              <h6>Subscribe us for more update & news !!</h6>
-              <form action="#">
-                <input type="email" placeholder="Enter Your Email">
-                <button class="red_btn" type="submit">Subscribe</button>
-              </form>
-            </div>
-          </div>
-          <div class="col-xl-6 col-lg-6 col-12">
-            <div class="footer_social">
-              <ul
-                class="social_icon d-flex justify-content-xxl-end justify-content-xl-end justify-content-lg-end justify-content-center  gap-2">
-                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
-              </ul>
-              <ul
-                class="page_link d-flex justify-content-xxl-end justify-content-xl-end justify-content-lg-end justify-content-center gap-2 flex-wrap">
-                <li><a href="privacypolicy.php">Privacy Policy</a></li>
-                <li><a href="#">/</a></li>
-                <li><a href="terms.php">Terms & Condition</a></li>
-                <li><a href="#">/</a></li>
-                <li><a href="faq.php">FAQ</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <div class="footer_bottom">
       <div class="container">
         <div class="row">
           <div class="col-12 text-center">
-            <p>Copyright &copy; 2020 Blad Ai. All rights reserved</p>
+            <p>All © by Blood Cloud. All Rights Reserved.</p>
           </div>
         </div>
       </div>

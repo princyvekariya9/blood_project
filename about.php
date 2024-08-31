@@ -25,13 +25,8 @@ include_once 'header.php';
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
           <div class="km__who__content">
             <h2 class="mb-30">Who We Are</h2>
-            <h5 class="mb-30">We are here not for income, but for outcome</h5>
-            <p class="mb-30">
-              Which is the same as saying through shrinking from toil and
-              pain. These cases are perfectly simple and easy to distinguish.
-              In a free hour, when untrammelled and when nothing prevents
+            <p class="mb-30">We are dedicated to improving healthcare through efficient blood bank management. Our team focuses on ensuring a steady and safe supply of blood through our comprehensive management system, designed to streamline donation, storage, and distribution processes.
             </p>
-            <a href="about.php" class="primary__btn">Explore Now</a>
           </div>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
