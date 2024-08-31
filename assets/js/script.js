@@ -234,12 +234,91 @@
 
 
 
+// leave apply  
+const COMMENTS_PER_PAGE = 3;
+let currentPage = 0;
 
+window.addEventListener('DOMContentLoaded', function() {
+  loadComments();
+});
 
+document.getElementById('commentForm').addEventListener('submit', function(event) {
+  event.preventDefault();
 
+  // Get form values
+  const name = document.getElementById('name').value;
+  const comment = document.getElementById('comment').value;
 
+  // Get current date and time
+  const date = new Date();
+  const formattedDate = `${date.toLocaleDateString()} at ${date.toLocaleTimeString()}`;
 
+  // Create a comment object
+  const newComment = {
+    name: name,
+    date: formattedDate,
+    text: comment
+  };
 
+  // Save the comment to local storage
+  saveComment(newComment);
 
+  // Reload comments to reflect the new addition
+  loadComments();
 
+  // Clear the form
+  document.getElementById('commentForm').reset();
+});
 
+document.getElementById('showMoreBtn').addEventListener('click', function() {
+  currentPage++;
+  loadComments();
+});
+
+function saveComment(comment) {
+  // Get existing comments from local storage
+  const comments = JSON.parse(localStorage.getItem('comments')) || [];
+
+  // Add the new comment to the array
+  comments.push(comment);
+
+  // Save the updated comments array back to local storage
+  localStorage.setItem('comments', JSON.stringify(comments));
+}
+
+function loadComments() {
+  // Get comments from local storage
+  const comments = JSON.parse(localStorage.getItem('comments')) || [];
+
+  // Calculate the start and end index for the current page
+  const start = currentPage * COMMENTS_PER_PAGE;
+  const end = start + COMMENTS_PER_PAGE;
+
+  // Clear the comments section
+  document.getElementById('commentsSection').innerHTML = '';
+
+  // Display the relevant comments
+  comments.slice(0, end).forEach(addCommentToPage);
+
+  // Show or hide the "Show More" button
+  if (end < comments.length) {
+    document.getElementById('showMoreBtn').style.display = 'block';
+  } else {
+    document.getElementById('showMoreBtn').style.display = 'none';
+  }
+}
+
+function addCommentToPage(comment) {
+  // Create a new comment block
+  const commentBlock = document.createElement('div');
+  commentBlock.classList.add('comments__text');
+
+  commentBlock.innerHTML = `
+    <span><b class="me-3">${comment.name}</b>Says ${comment.date}</span>
+    <p class="mt-3">${comment.text}</p>
+    <button class="mt-3 r__btn">Reply</button>
+  `;
+
+  // Add the new comment to the comments section
+  document.getElementById('commentsSection').appendChild(commentBlock);
+}

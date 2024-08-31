@@ -1932,13 +1932,10 @@ header .header_top .header_top_content a {
   -webkit-transition: var(--transition);
   -o-transition: var(--transition);
   transition: var(--transition);
-  position: relative;
-  z-index: 1;
   font-weight: 500;
-  position: relative;
+  position: relative;;
   z-index: 1;
-  position: relative;
-  z-index: 1;
+  cursor: pointer;
 }
 
 .primary__btn:hover::before {
@@ -2789,23 +2786,35 @@ footer .footer_bottom p {
 
 /**************************Donate Now*********************/
 .km__donate__form {
-  padding: 30px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+  padding: 48px 40px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  box-shadow: 0 0 20px var(--light_clr);
 }
 
-.km__donate__form form input {
+.km__donate__form form input , .km__donate__form form select {
   width: 100%;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin-bottom: 30px;
-  padding: 13px;
+  padding: 8px 15px;
   color: #8c8c8c;
   font-weight: 400;
   text-transform: capitalize;
   border: 1px solid var(--border-color);
+  background-color: transparent;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
 }
 
-.km__donate__form form input:focus {
+.km__donate__form form input:focus , .km__donate__form form select:focus {
   border: 1px solid var(--primary-color);
 }
 
