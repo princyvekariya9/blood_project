@@ -11,24 +11,45 @@ $res1 = mysqli_query($con,$sql);
 $sql= "SELECT * FROM campe ";
 $result = mysqli_query($con,$sql);
 
-if (isset($_POST['submit'])) {
-  $name = $_POST['name'];
-  $email = $_POST['email'];
-  $password = $_POST['password'];
+// if(isset($_SESSION['userid']))
+// {
+//   header("location:dashboard.php");
+// }
+if(isset($_POST['submit']))
+{
+  $email= $_POST['email'];
+  $password= $_POST['password'];
 
-  $sql = "insert into admin (name,email,password)values('$name','$email','$password')";
-  mysqli_query($con, $sql);
-  $_SESSION['user_email'] = $email;
-  // header('location:smtp.php');
+     $sql= "select * from user_ragister where `email`='$email' and `password`='$password'";
+    $res= mysqli_query($con,$sql);
+
+    $_SESSION['user_email'] = $email;
+  header('location:smtp.php');
+    $cnt= mysqli_num_rows($res);
+
+    if($cnt ==1)
+    {
+      $data = mysqli_fetch_assoc($res);
+      $_SESSION['userid'] = $data['id'];
+      // header("location:dashboard.php");
+    }else
+    {
+      echo "password and email not match......!";
+    }
+
+
 
 }
 
+
+
 ?>
+
 
 <!-- ----------- slider start -------- -->
 
 <section class="hm1_hero_slider">
-<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false" data-bs-interval="3000">
+<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false" data-bs-interval="2000">
     <div class="carousel-inner">
       <?php 
       while($data= mysqli_fetch_assoc($res)){

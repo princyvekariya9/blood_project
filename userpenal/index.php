@@ -48,7 +48,7 @@ if(isset($_POST['submit']))
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="index.php"><b>yom</b>project</a>
+    <a href="index.php"><b>blood bank management</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">

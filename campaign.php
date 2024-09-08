@@ -1,5 +1,9 @@
 <?php
 include_once 'header.php';
+$con= mysqli_connect("localhost","root","","blood");
+
+$sql= "select * from campe";
+$res= mysqli_query($con,$sql);
 ?>
 
   <!-- breadcrumb start -->
@@ -31,138 +35,30 @@ include_once 'header.php';
       </div>
 
       <div class="row justify-content-center">
-        <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
+        <?php 
+        while($data=mysqli_fetch_assoc($res)){
+         ?>
+         <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
           <div class="km__blog position-relative">
             <div class="feature-image img mb-30">
               <a href="campaign-details.php">
-                <img class="w-100" src="assets/images/cm1.jpg" alt="images not found" />
+                <img class="w-100" src="admin/image/campe_img/<?php echo $data['image']?>" alt="images not found" />
               </a>
               <span class="data-tags d-flex justify-content-center align-items-center">
-                <b>13</b>
-                feb
               </span>
             </div>
             <div class="km__post__content">
               <a href="campaign-details.php">
-                <h4 class="mb-3">Blood Group Collection</h4>
+                <h4 class="mb-3"><?php echo $data['title'] ?></h4>
               </a>
               <p class="mb-30">
-                Lorem ipsum dolor sit consectetur adipiscing elit, sed do
-                incididunt et dolore magna aliqua.
+                <?php echo $data['description']?>
               </p>
             </div>
           </div>
         </div>
-        <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
-          <div class="km__blog position-relative">
-            <div class="feature-image img mb-30">
-              <a href="campaign-details.php">
-                <img class="w-100" src="assets/images/cm2.jpg" alt="images not found" />
-              </a>
-              <span class="data-tags d-flex justify-content-center align-items-center">
-                <b>13</b>
-                feb
-              </span>
-            </div>
-            <div class="km__post__content">
-              <a href="campaign-details.php">
-                <h4 class="mb-3">Free Group Checking</h4>
-              </a>
-              <p class="mb-30">
-                Lorem ipsum dolor sit consectetur adipiscing elit, sed do
-                incididunt et dolore magna aliqua.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
-          <div class="km__blog position-relative">
-            <div class="feature-image img mb-30">
-              <a href="campaign-details.php">
-                <img class="w-100" src="assets/images/cm3.jpg" alt="images not found" />
-              </a>
-              <span class="data-tags d-flex justify-content-center align-items-center">
-                <b>13</b>
-                feb
-              </span>
-            </div>
-            <div class="km__post__content">
-              <a href="campaign-details.php">
-                <h4 class="mb-3">Blood Donation Camp</h4>
-              </a>
-              <p class="mb-30">
-                Lorem ipsum dolor sit consectetur adipiscing elit, sed do
-                incididunt et dolore magna aliqua.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
-          <div class="km__blog position-relative">
-            <div class="feature-image img mb-30">
-              <a href="campaign-details.php">
-                <img class="w-100" src="assets/images/cm4.jpg" alt="images not found" />
-              </a>
-              <span class="data-tags d-flex justify-content-center align-items-center">
-                <b>13</b>
-                feb
-              </span>
-            </div>
-            <div class="km__post__content">
-              <a href="campaign-details.php">
-                <h4 class="mb-3">Free Group Checking</h4>
-              </a>
-              <p class="mb-30">
-                Lorem ipsum dolor sit consectetur adipiscing elit, sed do
-                incididunt et dolore magna aliqua.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-4 mb-xl-0 mb-lg-0 mb-md-0">
-          <div class="km__blog position-relative">
-            <div class="feature-image img mb-30">
-              <a href="campaign-details.php">
-                <img class="w-100" src="assets/images/cm1.jpg" alt="images not found" />
-              </a>
-              <span class="data-tags d-flex justify-content-center align-items-center">
-                <b>13</b>
-                feb
-              </span>
-            </div>
-            <div class="km__post__content">
-              <a href="campaign-details.php">
-                <h4 class="mb-3">Blood Donation Camp</h4>
-              </a>
-              <p class="mb-30">
-                Lorem ipsum dolor sit consectetur adipiscing elit, sed do
-                incididunt et dolore magna aliqua.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-6 col-lg-6 col-md-6 col-12">
-          <div class="km__blog position-relative">
-            <div class="feature-image img mb-30">
-              <a href="campaign-details.php">
-                <img class="w-100" src="assets/images/cm2.jpg" alt="images not found" />
-              </a>
-              <span class="data-tags d-flex justify-content-center align-items-center">
-                <b>13</b>
-                feb
-              </span>
-            </div>
-            <div class="km__post__content">
-              <a href="campaign-details.php">
-                <h4 class="mb-3">Blood Group Collection</h4>
-              </a>
-              <p class="mb-30">
-                Lorem ipsum dolor sit consectetur adipiscing elit, sed do
-                incididunt et dolore magna aliqua.
-              </p>
-            </div>
-          </div>
-        </div>
+      <?php } ?>
+        
       </div>
     </div>
   </section>
@@ -259,7 +155,7 @@ include_once 'header.php';
         </div>
       </div>
       <div class="row">
-        <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-4 mb-xl-0 mb-lg-0">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-4 mb-xl-0 mb-lg-0" style="text-align: center; margin: auto;">
           <div class="current1">
             <h4>Good To Know Blood Donate</h4>
             <div class="payment">
@@ -348,37 +244,7 @@ include_once 'header.php';
             </div>
           </div>
         </div>
-        <div class="col-xl-6 col-lg-6 col-md-6 col-12">
-          <div class="appointment">
-            <h4>Request Appointment Here</h4>
-
-            <form action="#" class="row hm1_contact_form">
-              <div class="col-xl-6 col-12 mb-4">
-                <input type="text" class="form-control" placeholder="Your Name" />
-              </div>
-              <div class="col-xl-6 col-12 mb-4">
-                <input type="text" class="form-control" placeholder="Phone Number" />
-              </div>
-              <div class="col-12 mb-4">
-                <input type="text" class="form-control" placeholder="Your Email" />
-              </div>
-              <div class="col-12 mb-4">
-                <select class="form-select">
-                  <option value="d">Donation Type</option>
-                  <option value="d">Donation Type</option>
-                  <option value="d">Donation Type</option>
-                  <option value="d">Donation Type</option>
-                </select>
-              </div>
-              <div class="col-12 mb-4">
-                <textarea class="form-control">Your Message</textarea>
-              </div>
-              <div class="col-12">
-                <button type="submit" class="red_btn">Submit Now</button>
-              </div>
-            </form>
-          </div>
-        </div>
+        
       </div>
     </div>
   </section>

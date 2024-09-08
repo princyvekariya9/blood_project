@@ -275,10 +275,8 @@ $data= mysqli_fetch_assoc($res);
               </li>
             </ul>
           </li>
-<<<<<<< HEAD
          
           <li class="nav-item">
-=======
           
           <li class="nav-item">
             <a href="#" class="nav-link">

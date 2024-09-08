@@ -1,6 +1,30 @@
 <?php
 include_once 'header.php';
+$con= mysqli_connect("localhost","root","","blood");
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $donorName = $_POST['donorName'];
+    $dob = $_POST['dob'];
+    $gender = $_POST['gender'];
+    $contactNumber = $_POST['contactNumber'];
+    $email = $_POST['email'];
+    $bloodType = $_POST['bloodType'];
+
+    $stmt = $con->prepare("INSERT INTO donations (donor_name, dob, gender, contact_number, email, blood_type) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssss", $donorName, $dob, $gender, $contactNumber, $email, $bloodType);
+
+    if ($stmt->execute()) {
+         "<p>Donation successfully recorded!</p>";
+    } else {
+        echo "<p>Error: " . $stmt->error . "</p>";
+    }
+
+    $stmt->close();
+}
+
+$con->close();
 ?>
+
 <!-- breadcrumb start -->
 <div class="breadcrumb_section overflow-hidden ptb-150">
   <div class="container">
@@ -33,7 +57,7 @@ include_once 'header.php';
         <div class="km__donate__form">
           <h6 class="mb-30">Details</h6>
           <div class="km__form__donat">
-            <form action="#">
+            <form action="" method="POST">
               <div class="row g-4">
                 <div class="col-12 col-sm-6">
                   <input type="text" id="donorName" name="donorName" placeholder="John Doe" required>
@@ -62,7 +86,7 @@ include_once 'header.php';
               </div>
               <div class="row">
                 <div class="col">
-                <select id="bloodType" name="bloodType" required>
+                  <select id="bloodType" name="bloodType" required>
                     <option value="" disabled selected>Select Blood Type</option>
                     <option value="A+">A+</option>
                     <option value="A-">A-</option>
