@@ -6278,3 +6278,65 @@ textarea{
   border:none;
  }
  
+  /* --------------- serach donor ---------- */
+  .donor_box{
+    background-color: var(--light_clr);
+    padding: 20px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    transition: .4s;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -ms-transition: .4s;
+    -o-transition: .4s;
+
+    &:hover{
+      box-shadow: 0 0  20px #ccc;
+    }
+}
+.donor_box a{
+  color: #666666;
+}
+.donor_box b {
+  color: var(--primary-color);
+}
+.call a{
+  color:  var(--primary-color);
+  background-color: #ffbbcd;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.donor_search button{
+  background-color: #fbe5eb5f;
+  color: var(--primary-color);
+  margin-right: 20px;
+}
+.nav-tabs{
+  border-bottom: none;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  color: var(--primary-color);
+  background-color: #FBE5EB;
+  border-color: transparent;
+}
+.nav-tabs .nav-link{
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border: none;
+}
+.nav-link:focus, .nav-link:hover {
+  color: var(--primary-color);
+}

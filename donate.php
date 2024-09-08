@@ -32,7 +32,7 @@ $con->close();
       <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10 col-12 text-center">
         <h2>Donate Now</h2>
         <ul>
-          <li><a href="index-2.php">Home</a></li>
+          <li><a href="index.php">Home</a></li>
           <li class="active">Donate Now</li>
         </ul>
       </div>

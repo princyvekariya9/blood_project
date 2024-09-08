@@ -193,7 +193,7 @@ include_once 'header.php';
         <div class="call_content text-center">
           <span class="call_over"><i class="fa-solid fa-phone"></i></span>
           <p>START DONATING</p>
-          <a href="tell:7048531207">
+          <a href="tel:+7048531207">
             <h2>Call Now: <span>70485 31207</span></h2>
           </a>
           <ul class="d-flex gap-4 justify-content-center flex-wrap">

@@ -85,6 +85,7 @@ $con = mysqli_connect("localhost", "root", "", "blood");
                 <a href="index.php">Home </a>
               </li>
               <li><a href="about.php">About Us</a></li>
+              <li><a href="search_donate.php">Search Donor</a></li>
               <li class="position-relative">
                 <a href="campaign.php">Campaign</a>
               </li>
