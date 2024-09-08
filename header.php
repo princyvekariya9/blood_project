@@ -86,11 +86,7 @@ $con = mysqli_connect("localhost", "root", "", "blood");
               </li>
               <li><a href="about.php">About Us</a></li>
               <li class="position-relative">
-                <a href="javascript:void(0)">Campaign <i class="fa-solid fa-angle-down"></i></a>
-                <ul class="submenu_wrapper">
-                  <li><a href="campaign.php">Campaign </a></li>
-                  <li><a href="campaign-details.php">Campaign Details</a></li>
-                </ul>
+                <a href="campaign.php">Campaign</a>
               </li>
               <li class="position-relative">
                 <a href="javascript:void(0)">Pages <i class="fa-solid fa-angle-down"></i></a>

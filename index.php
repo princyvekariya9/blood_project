@@ -249,9 +249,7 @@ if(isset($_POST['submit']))
           <a href="#">
             <h4>Blood Donation</h4>
           </a>
-          <p>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit. Ut elit
-            tellus, luctus nec ullamcorpe matti pulvinar dapibus leo.</p>
+          <p>Blood Donation Service is a critical feature. It facilitates managing blood donations efficiently and providing necessary services to donors and recipients</p>
           <a href="service-details.php" class="red_btn service_btn">Read More</a>
         </div>
       </div>
@@ -261,9 +259,7 @@ if(isset($_POST['submit']))
           <a href="#">
             <h4>Health Check</h4>
           </a>
-          <p>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit. Ut elit
-            tellus, luctus nec ullamcorpe matti pulvinar dapibus leo.</p>
+          <p>The Health Check service  is essential for ensuring the safety and eligibility of blood donors. It helps assess the donor's health before and after donation to minimize any risks for both the donor and the recipient.</p>
           <a href="service-details.php" class="red_btn service_btn">Read More</a>
         </div>
       </div>
@@ -284,12 +280,10 @@ if(isset($_POST['submit']))
       <div class="col-xl-6 col-lg-6 col-md-6  col-12 order_6">
         <div class="service_content ps-5">
           <h1>03</h1>
-          <a href="#">
+          <a href="service-details.php">
             <h4>Blood Bank</h4>
           </a>
-          <p>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit. Ut elit
-            tellus, luctus nec ullamcorpe matti pulvinar dapibus leo.</p>
+          <p>The Blood Bank services is responsible for managing the storage, tracking, and distribution of blood. It ensures that blood units are safely collected, stored, and made available when needed, while maintaining proper records for both donors and recipients. </p>
           <a href="service-details.php" class="red_btn service_btn">Read More</a>
         </div>
       </div>
@@ -306,14 +300,10 @@ if(isset($_POST['submit']))
         <div class="call_content text-center">
           <span class="call_over"><i class="fa-solid fa-phone"></i></span>
           <p>START DONATING</p>
-          <a href="tell:3335559090">
-            <h2>Call Now: <span>333 555 9090</span></h2>
+          <a href="tell:7048531207">
+            <h2>Call Now: <span>70485 31207</span></h2>
           </a>
           <ul class="d-flex gap-4 justify-content-center flex-wrap">
-            <li>
-              <span><i class="fa-solid fa-location-dot"></i></span>
-              <span>New York - 1075 Firs Avenue</span>
-            </li>
             <li>
               <span><i class="fa-solid fa-envelope"></i></span>
               <a href="mailto:company@domin.com">Donate@gmail.com</a>
@@ -345,7 +335,7 @@ if(isset($_POST['submit']))
          ?>
          <div class="campaign_slier_item">
           <div class="row g-0">
-            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12 col-5">
+            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12 col-5 ">
               <div class="campaign_img">
                 <img src="admin/image/campe_img/<?php echo $data['image'] ;?>" alt="">
                 <a href="campaign-details.php">Read More</a>
@@ -354,12 +344,12 @@ if(isset($_POST['submit']))
             <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-12">
               <div class="campaign_content">
                 <div class="meta_date">
-                  <span><i class="fa-regular fa-calendar-days"></i><?php echo $data['date'] ;?></span>
+                  <span><i class="fa-regular fa-calendar-days me-2"></i><?php echo $data['date'] ;?></span>
                 </div>
                 <a href="campaign-details.php">
                   <h6><?php echo $data['title'] ;?></h6>
                 </a>
-                <p><?php echo $data['description'] ;?></p>
+                <p class="three-line-ellipsis"><?php echo $data['description'] ;?></p>
                 <div class="meta_time d-flex gap-4">
                   <span><i class="fa-regular fa-clock"></i><?php echo $data['time'] ;?></span>
                   <span><i class="fa-solid fa-location-dot"></i><?php echo $data['location'] ;?></span>
@@ -377,137 +367,8 @@ if(isset($_POST['submit']))
 </section>
 <!-- campaign end -->
 
-<!-- testimonial start -->
-<section class="testimonial ptb-115">
-  <div class="container">
-    <div class="row ">
-      <div class="col-12 mb-5">
-        <div class="common_title text-center">
-          <p>testimonial</p>
-          <h2>What Our Clients Say</h2>
-        </div>
-      </div>
-
-      <div class="testi_slider slider-spacing">
-        <div class="testi_slider_item">
-          <div class="testi_content">
-            <div class="star">
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-            </div>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore pariatur. Excepteur
-              cupidatatproident,
-              culpa qui officia deserunt mollit</p>
-          </div>
-          <div class="testi_owner d-flex gap-4 align-items-center">
-            <div class="testi_img img">
-              <a href="#"><img src="assets/images/ts1.png" alt=""></a>
-            </div>
-            <div class="testi_name">
-              <h5>Nora Fateha</h5>
-              <p>Designer</p>
-            </div>
-          </div>
-        </div>
-        <div class="testi_slider_item">
-          <div class="testi_content">
-            <div class="star">
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-            </div>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore pariatur. Excepteur
-              cupidatatproident,
-              culpa qui officia deserunt mollit</p>
-          </div>
-          <div class="testi_owner d-flex gap-4 align-items-center">
-            <div class="testi_img img">
-              <a href="#"><img src="assets/images/ts2.png" alt=""></a>
-            </div>
-            <div class="testi_name">
-              <h5>Niro Markusa</h5>
-              <p>Designer</p>
-            </div>
-          </div>
-        </div>
-        <div class="testi_slider_item">
-          <div class="testi_content">
-            <div class="star">
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-            </div>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore pariatur. Excepteur
-              cupidatatproident,
-              culpa qui officia deserunt mollit</p>
-          </div>
-          <div class="testi_owner d-flex gap-4 align-items-center">
-            <div class="testi_img img">
-              <a href="#"><img src="assets/images/ts3.png" alt=""></a>
-            </div>
-            <div class="testi_name">
-              <h5>Nicolas Mark</h5>
-              <p>Designer</p>
-            </div>
-          </div>
-        </div>
-        <div class="testi_slider_item">
-          <div class="testi_content">
-            <div class="star">
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-            </div>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore pariatur. Excepteur
-              cupidatatproident,
-              culpa qui officia deserunt mollit</p>
-          </div>
-          <div class="testi_owner d-flex gap-4 align-items-center">
-            <div class="testi_img img">
-              <a href="#"><img src="assets/images/ts1.png" alt=""></a>
-            </div>
-            <div class="testi_name">
-              <h5>Nora Fateha</h5>
-              <p>Designer</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- testimonial end -->
-
-<!-- blood doner start -->
-<section class="blood ptb-115">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="common_title1 text-center">
-          <p>blood owner</p>
-          <h2>We Are Blood Donor Group</h2>
-          <div class="blood_play position-relative">
-            <a href="https://youtu.be/K87aFjB7Ff0?si=kpgANQNewn8DSOtq" data-fancybox=""
-              class="red_bg d-inline-flex align-items-center justify-content-center"><i
-                class="fa-solid fa-play"></i></a>
-            <img src="assets/images/b1.png" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 <!--our news start -->
-<section class="news gray ptb-115">
+<section class="news gray ptb-115 pt-0">
   <div class="container">
     <div class="row mb-5">
       <div class="col-12">
@@ -529,14 +390,14 @@ if(isset($_POST['submit']))
             <a href="blog-details.php"><i class="fa-solid fa-plus"></i></a>
           </div>
           <div class="news_content">
-            <div class="meta d-flex gap-4">
+            <!-- <div class="meta d-flex gap-4">
               <span><i class="fa-regular fa-clock"></i> 18 Feb, 2022</span>
               <span><i class="fa-solid fa-comments"></i> 3 Comments</span>
-            </div>
+            </div> -->
             <a href="blog-details.php">
-              <h5><?php echo $data['title'] ?></h5>
+              <h5 class="one-line-ellipsis"><?php echo $data['title'] ?></h5>
             </a>
-            <p><?php echo $data['description'] ?></p>
+            <p class="three-line-ellipsis"><?php echo $data['description'] ?></p>
             <a href="blog-details.php">Read More <i class="fa-solid fa-angles-right"></i></a>
           </div>
         </div>
@@ -555,9 +416,8 @@ if(isset($_POST['submit']))
       <div class="col-xl-9 col-lg-9  col-12">
         <div class="change_content">
           <h2>Let's change the world, Join us now!</h2>
-          <p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain,
-            but occasionally
-            circumstances occur in which toil and pain can procure reat pleasure.</p>
+          <p>Be a Lifesaver Today!
+          Every drop of blood you donate can be a step toward changing the world for someone in need. Together, we can create a healthier, safer future—one donation at a time.</p>
         </div>
       </div>
       <div class="col-xl-3 col-lg-3  col-12 text-xl-end text-lg-end text-center">
