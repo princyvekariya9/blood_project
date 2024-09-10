@@ -417,6 +417,76 @@ $data= mysqli_fetch_assoc($res);
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                information
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="information.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>add information</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="view_information.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>view information</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                service
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="service.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>add service</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="view_service.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>view service</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+           <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                service orgenization
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="service_Organization.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> service orgenization</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="view_service.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>view service orgenization</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

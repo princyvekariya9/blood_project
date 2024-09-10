@@ -6,31 +6,28 @@ $con = mysqli_connect("localhost", "root", "", "blood");
 // Initialize the $msg variable
 // $msg = "";
 
-// if (isset($_POST['submit'])) {
-//     $email = $_POST['email'];
-//     $password = $_POST['password'];
+if (isset($_POST['submit'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-//     // Prepare the SQL query to avoid SQL injection
-//     $stmt = $con->prepare("SELECT * FROM user_ragister WHERE email = ? AND password = ?");
-//     $stmt->bind_param("ss", $email, $password);
-//     $stmt->execute();
-//     $res = $stmt->get_result();
+    $stmt = $con->prepare("SELECT * FROM user_ragister WHERE email = ? AND password = ?");
+    $stmt->bind_param("ss", $email, $password);
+    $stmt->execute();
+    $res = $stmt->get_result();
     
-//     // Check the number of rows returned
-//     if ($res->num_rows == 1) {
-//         $data = $res->fetch_assoc();
-//         $_SESSION['userid'] = $data['id'];
-//         $_SESSION['user_email'] = $email;
-//         // Redirect to the dashboard or another page
-//         header('Location: dashboard.php');
-//         exit();
-//     } else {
-//         $msg = "Email and password do not match!";
-//     }
+    if ($res->num_rows == 1) {
+        $data = $res->fetch_assoc();
+        $_SESSION['userid'] = $data['id'];
+        $_SESSION['user_email'] = $email;
+        header('Location: donate.php');
+        exit();
+    } else {
+        $msg = "Email and password do not match!";
+    }
 
-//     $stmt->close();
-//     $con->close();
-// }
+    $stmt->close();
+    $con->close();
+}
 ?>
 
 <!DOCTYPE html>

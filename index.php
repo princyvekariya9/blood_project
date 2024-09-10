@@ -11,6 +11,11 @@ $res1 = mysqli_query($con,$sql);
 $sql= "SELECT * FROM campe ";
 $result = mysqli_query($con,$sql);
 
+$sql= "SELECT * FROM information LIMIT 3";
+$resin = mysqli_query($con,$sql);
+
+$sql="select * from service";
+$service= mysqli_query($con,$sql);
 // if(isset($_SESSION['userid']))
 // {
 //   header("location:dashboard.php");
@@ -100,54 +105,27 @@ if(isset($_POST['submit']))
       </div>
     </div>
     <div class="row justify-content-center">
+      <?php
+      while($data= mysqli_fetch_assoc($resin)){
+      ?>
       <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
         <div class="register_donate_item">
           <div class="donate_item_top">
             <div class="donate_img">
-              <img src="assets/images/r1.jpg" alt="">
+              <img src="admin/image/information_img/<?php echo $data['image']?>" alt="">
             </div>
             <div class="donate_content text-center">
               <span><img src="assets/images/icon/d1.png" alt=""></span>
               <a href="#">
-                <h5>Become a Donor</h5>
+                <h5><?php echo $data['title']?></h5>
               </a>
-              <p>Join our blood bank as a donor and play a crucial role in saving lives. Your donation ensures a steady supply of blood for those in need. Sign up today and help us make a lasting impact in our community!</p>
+              <p><?php echo $data['description']?></p>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
-        <div class="register_donate_item">
-          <div class="donate_item_top">
-            <div class="donate_img">
-              <img src="assets/images/r2.jpg" alt="">
-            </div>
-            <div class="donate_content text-center">
-              <span><img src="assets/images/icon/d2.png" alt=""></span>
-              <a href="#">
-                <h5>Why give blood?</h5>
-              </a>
-              <p>Giving blood is a simple way to make a big difference. Each donation can save up to three lives and supports surgeries, treatments, and emergencies. It’s quick, safe, and a powerful way to help your community and those in need.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
-        <div class="register_donate_item">
-          <div class="donate_item_top">
-            <div class="donate_img">
-              <img src="assets/images/r3.jpg" alt="">
-            </div>
-            <div class="donate_content text-center">
-              <span><img src="assets/images/icon/d3.png" alt=""></span>
-              <a href="#">
-                <h5>How Denations Help?</h5>
-              </a>
-              <p>Donations are essential for keeping a reliable blood supply. They support life-saving treatments and emergency care, ensuring hospitals have the resources needed for patients in critical situations.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <?php }?>
+      
     </div>
   </div>
 </section>
@@ -235,65 +213,29 @@ if(isset($_POST['submit']))
         </div>
       </div>
     </div>
-    <div class="row align-items-center g-0 service_wrap">
-      <div class="col-xl-6 col-lg-6 col-md-6  col-12 mb-5 order_1">
-        <div class="service_item">
-          <div class="img">
-            <img src="assets/images/s1.jpg" alt="">
+         <div class="testi_slider slider-spacing">
+        <?php 
+        while($data= mysqli_fetch_assoc($service)){
+         ?>
+          <div class="testi_slider_item">
+          <div class="testi_content">
+            <div class="star">
+              <h3 style="color: #d60033;"><?php echo $data['service']?></h3>
+            </div>
+            <p><?php echo $data['description']?></p>
           </div>
+          
+        </div>
+        <?php }?>
         </div>
       </div>
-      <div class="col-xl-6 col-lg-6 col-md-6  col-12 mb-5 order_2">
-        <div class="service_content ps-5">
-          <h1>01</h1>
-          <a href="#">
-            <h4>Blood Donation</h4>
-          </a>
-          <p>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit. Ut elit
-            tellus, luctus nec ullamcorpe matti pulvinar dapibus leo.</p>
-          <a href="service-details.php" class="red_btn service_btn">Read More</a>
-        </div>
-      </div>
-      <div class="col-xl-6 col-lg-6 col-md-6  col-12 mb-5 order_3">
-        <div class="service_content text-end pe-5">
-          <h1>02</h1>
-          <a href="#">
-            <h4>Health Check</h4>
-          </a>
-          <p>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit. Ut elit
-            tellus, luctus nec ullamcorpe matti pulvinar dapibus leo.</p>
-          <a href="service-details.php" class="red_btn service_btn">Read More</a>
-        </div>
-      </div>
-      <div class="col-xl-6 col-lg-6 col-md-6  col-12 mb-5 order_4">
-        <div class="service_item">
-          <div class="img">
-            <img src="assets/images/s2.jpg" alt="">
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-6 col-lg-6 col-md-6  col-12 mb-5 order_5">
-        <div class="service_item">
-          <div class="img">
-            <img src="assets/images/s3.jpg" alt="">
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-6 col-lg-6 col-md-6  col-12 order_6">
-        <div class="service_content ps-5">
-          <h1>03</h1>
-          <a href="#">
-            <h4>Blood Bank</h4>
-          </a>
-          <p>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit. Ut elit
-            tellus, luctus nec ullamcorpe matti pulvinar dapibus leo.</p>
-          <a href="service-details.php" class="red_btn service_btn">Read More</a>
-        </div>
-      </div>
+      
+      
+      
+      
+     
     </div>
+    <?php?>
   </div>
 </section>
 <!-- service end -->
@@ -481,7 +423,7 @@ if(isset($_POST['submit']))
             </div>
           </div>
         </div>
-      </div>
+      </div> 
     </div>
   </div>
 </section>

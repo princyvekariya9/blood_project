@@ -1,6 +1,7 @@
 <?php
 include_once 'header.php';
 
+// Database connection
 $con = mysqli_connect("localhost", "root", "", "blood");
 
 if (!$con) {
@@ -13,6 +14,9 @@ if (isset($_POST['submit'])) {
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
     
+    // Hash the password before storing it
+    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+    
     // Prepare an SQL statement
     $stmt = $con->prepare("INSERT INTO user_ragister (name, location, email, password) VALUES (?, ?, ?, ?)");
     
@@ -20,10 +24,17 @@ if (isset($_POST['submit'])) {
         die("Prepare failed: " . htmlspecialchars($con->error));
     }
     
-    $stmt->bind_param("ssss", $name, $location, $email, $password);
+    $stmt->bind_param("ssss", $name, $location, $email, $hashed_password);
     
+    // Execute the statement
     if ($stmt->execute()) {
-        echo "<p>Registration successful!</p>";
+        // Include the email sending script
+        include 'smtp.php';
+        
+        // Call the function to send email
+        sendApprovalEmail($email, $name, "Your Registration");
+
+        echo "<p>Registration successful! A confirmation email has been sent to your address.</p>";
     } else {
         echo "<p>Registration failed: " . htmlspecialchars($stmt->error) . "</p>";
     }
@@ -33,8 +44,7 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-
-<!-- breadcrumb start -->
+<!-- HTML for the registration form -->
 <div class="breadcrumb_section overflow-hidden ptb-150">
   <div class="container">
     <div class="row justify-content-center">
@@ -50,7 +60,7 @@ if (isset($_POST['submit'])) {
 </div>
 <!-- breadcrumb end -->
 
-<!-- resister box section start -->
+<!-- register box section start -->
 <section class="km__register__box ptb-120">
   <div class="container">
     <div class="row">
@@ -69,19 +79,19 @@ if (isset($_POST['submit'])) {
           <form method="post">
             <div class="mb-3">
               <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name">
+              <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name" required>
             </div>
             <div class="mb-3">
               <label for="location" class="form-label">Location</label>
-              <textarea class="form-control" id="location" name="location" rows="3"></textarea>
+              <textarea class="form-control" id="location" name="location" rows="3" required></textarea>
             </div>
             <div class="mb-3">
               <label for="email" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+              <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
             </div>
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" name="password" placeholder="Enter Your Password">
+              <input type="password" class="form-control" id="password" name="password" placeholder="Enter Your Password" required>
             </div>
             <div class="row align-items-center g-4">
               <div class="col-md-5">
@@ -97,9 +107,9 @@ if (isset($_POST['submit'])) {
     </div>
   </div>
 </section>
-<!-- resister box section end -->
+<!-- register box section end -->
 
 <!-- footer section start -->
 <?php
-include_once 'footer.php';  
+include_once 'footer.php';
 ?>

@@ -1,5 +1,8 @@
 <?php
 include_once 'header.php';
+$con =mysqli_connect("localhost","root","","blood");
+$sql ="select * from information";
+$res=mysqli_query($con,$sql);
 ?>
 
   <!-- breadcrumb start -->
@@ -119,136 +122,36 @@ include_once 'header.php';
         <div class="col-12">
           <div class="common_title text-center">
             <p>Donate Now</p>
-            <h2>Popular Campaigns</h2>
+            <h2>information </h2>
           </div>
         </div>
       </div>
-      <div class="row g-4 justify-content-center">
-        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-          <div class="km__blog position-relative">
-            <div class="feature-image  img mb-30">
-              <a href="campaign-details.php">
-                <img class="w-100" src="assets/images/about/blog.jpg" alt="images not found">
-              </a>
-              <span class="data-tags d-flex justify-content-center align-items-center">
-                <b>13</b>
-                feb
-              </span>
+      <div class="testi_slider slider-spacing">
+        <?php 
+        while($data= mysqli_fetch_assoc($res)){
+         ?>
+          <div class="testi_slider_item">
+          <div class="testi_content">
+            <div class="star">
+              <h3><?php echo $data['title']?></h3>
             </div>
-            <div class="km__post__content">
-              <a href="campaign-details.php">
-                <h4 class="mb-30">Blood Group Collection</h4>
-              </a>
-              <p class="mb-30">Lorem ipsum dolor sit consectetur adipiscing elit, sed do incididunt et dolore magna
-                aliqua.</p>
-            </div>
+            <p><?php echo $data['description']?></p>
+            <div>
+            <img src="admin/image/information_img/<?php echo $data['image']?>" style="height: 100px; width: 100px; border-radius: 50%; padding-top: 10px;">
           </div>
-        </div>
-        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
-          <div class="km__blog">
-            <div class="feature-image img mb-30">
-              <a href="campaign-details.php">
-                <img class="w-100" src="assets/images/about/blog-2.jpg" alt="images not found">
-              </a>
-            </div>
-            <div class="km__post__content">
-              <span class="mb-30 d-inline-block">
-                <i class="fas fa-calendar-days"></i>
-                13 February, 2022
-              </span>
-              <a href="campaign-details.php">
-                <h6 class="mb-30">Free Group Checking</h6>
-              </a>
-              <p class="mb-0">Lorem ipsum dolor sit consectetur adipiscing elit, sed do incididunt et dolore magna
-                aliqua.</p>
-            </div>
           </div>
+          
+          
         </div>
-        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
-          <div class="km__blog">
-            <div class="feature-image img mb-30">
-              <a href="campaign-details.php">
-                <img class="w-100" src="assets/images/about/blog-3.jpg" alt="images not found">
-              </a>
-            </div>
-            <div class="km__post__content">
-              <span class="mb-30 d-inline-block">
-                <i class="fas fa-calendar-days"></i>
-                13 February, 2022
-              </span>
-              <a href="campaign-details.php">
-                <h6 class="mb-30">Blood Donation Camp</h6>
-              </a>
-              <p class="mb-0">Lorem ipsum dolor sit consectetur adipiscing elit, sed do incididunt et dolore magna
-                aliqua.</p>
-            </div>
-          </div>
+        <?php }?>
         </div>
-      </div>
+      
     </div>
   </section>
   <!-- campaigns section ends -->
 
   <!-- Testimonials section start -->
-  <section class="km__testimonials__section ptb-115">
-    <div class="container">
-      <div class="row mb-5 ">
-        <div class="col-12">
-          <div class="common_title text-center">
-            <p>Testimonials</p>
-            <h2>What Our Clients Say</h2>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonials__slider">
-        <div class="slide__items">
-          <div class="km_testimonials__bx text-center">
-            <div class="row justify-content-center">
-              <div class="col-xl-6 col-lg-6 col-md-7 col-sm-8 col-10">
-                <div class="km__testimonial__content">
-                  <span>
-                    "
-                  </span>
-                  <h4 class="text-white mb-30">Professional services all the way</h4>
-                  <p class="text-white mb-30"> These cases are perfectly simple and easy to distinguish. In a free hour,
-                    when our power of choice is untrammelled and when nothing prevents our being able to do what we like
-                    best, every pleasure is to be welcomed and every pain avoided. </p>
-                </div>
-                <div class="user mt-30">
-                  <img src="assets/images/about/user.png" alt="images not found">
-                  <h6 class="mt-30 text-white">Jhon Alexis <span>Marketing Staff</span></h6>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <div class="slide__items">
-          <div class="km_testimonials__bx text-center">
-            <div class="row justify-content-center">
-              <div class="col-xl-6 col-lg-6 col-md-7 col-sm-8 col-10">
-                <div class="km__testimonial__content">
-                  <span>
-                    "
-                  </span>
-                  <h4 class="text-white mb-30">Professional services all the way</h4>
-                  <p class="text-white mb-30"> These cases are perfectly simple and easy to distinguish. In a free hour,
-                    when our power of choice is untrammelled and when nothing prevents our being able to do what we like
-                    best, every pleasure is to be welcomed and every pain avoided. </p>
-                </div>
-                <div class="user mt-30">
-                  <img src="assets/images/about/user.png" alt="images not found">
-                  <h6 class="mt-30 text-white">Jhon Alexis <span>Marketing Staff</span></h6>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  
   <!-- Testimonials section ends -->
 
   <!-- call now start -->
@@ -368,77 +271,7 @@ include_once 'header.php';
   <!-- what we do end -->
 
   <!-- team start -->
-  <section class="team ptb-115">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-12">
-          <div class="common_title text-center">
-            <p>Team members</p>
-            <h2>Meet Volunteers</h2>
-          </div>
-        </div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-xl-4 col-lg-4 col-md-6 col-12 mb-4">
-          <div class="team_details">
-            <div class="team_img ">
-              <img src="assets/images/t1.jpg" alt="" class="w-100">
-              <ul class="d-flex">
-                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
-              </ul>
-            </div>
-            <div class="team_content text-center">
-              <a href="team-member.php">
-                <h5>Nora Khaypeia</h5>
-              </a>
-              <p>Co-Founder</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-6 col-12 mb-4">
-          <div class="team_details">
-            <div class="team_img ">
-              <img src="assets/images/t2.jpg" alt="" class="w-100">
-              <ul class="d-flex">
-                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
-              </ul>
-            </div>
-            <div class="team_content text-center">
-              <a href="team-member.php">
-                <h5>Alex Joshan Deo</h5>
-              </a>
-              <p>Co-Founder</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-6 col-12 mb-4">
-          <div class="team_details">
-            <div class="team_img ">
-              <img src="assets/images/t3.jpg" alt="" class="w-100">
-              <ul class="d-flex">
-                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
-              </ul>
-            </div>
-            <div class="team_content text-center">
-              <a href="team-member.php">
-                <h5>Joshan Khaypeia</h5>
-              </a>
-              <p>Co-Founder</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+ 
   <!-- team end -->
 
   <!-- lets change start -->
