@@ -12,7 +12,7 @@ $res=mysqli_query($con,$sql);
         <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10 col-12 text-center">
           <h2>About Us</h2>
           <ul>
-            <li><a href="index-2.php">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li class="active">About Us</li>
           </ul>
         </div>
@@ -87,29 +87,24 @@ $res=mysqli_query($con,$sql);
           </div>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-6 col-12">
-          <div class="help_content">
-            <p class="red_color">Help The People in Need</p>
-            <h2>Welcome to Blood Donors Organization</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              suspendisse the gravida. Risus commodo viverra maecenas
-            </p>
-            <div class="d-flex justify-content-between">
-              <ul>
-                <li><i class="fa-solid fa-angles-right"></i> Good Service</li>
-                <li><i class="fa-solid fa-angles-right"></i> Help People</li>
-                <li><i class="fa-solid fa-angles-right"></i> Hugine Tools</li>
-              </ul>
-              <ul>
-                <li><i class="fa-solid fa-angles-right"></i> 24h Service</li>
-                <li><i class="fa-solid fa-angles-right"></i> Health Check</li>
-                <li><i class="fa-solid fa-angles-right"></i> Blood Bank</li>
-              </ul>
-            </div>
-            <a href="about.php" class="explore_now red_btn">Explore Now</a>
+        <div class="help_content">
+          <p class="red_color">Help The People in Need</p>
+          <h2>Welcome to the Blood Donors Organization!</h2>
+          <p>Our mission is to save lives by ensuring a steady and reliable supply of blood through dedicated donors. Your support is crucial in making sure that patients in need receive the blood they require.</p>
+          <div class="d-flex justify-content-between">
+            <ul>
+              <li><i class="fa-solid fa-angles-right"></i> Save Lives</li>
+              <li><i class="fa-solid fa-angles-right"></i> Community Support</li>
+              <li><i class="fa-solid fa-angles-right"></i> Health Benefits</li>
+            </ul>
+            <ul>
+              <li><i class="fa-solid fa-angles-right"></i> 24h Service</li>
+              <li><i class="fa-solid fa-angles-right"></i> Health Check</li>
+              <li><i class="fa-solid fa-angles-right"></i> Easy Process</li>
+            </ul>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </section>
@@ -150,36 +145,35 @@ $res=mysqli_query($con,$sql);
   </section>
   <!-- campaigns section ends -->
 
+<<<<<<< HEAD
   <!-- Testimonials section start -->
   
   <!-- Testimonials section ends -->
+=======
+>>>>>>> 7053fe2f75458c64dcf6d0919ee790d52f893648
 
   <!-- call now start -->
   <section class="hm1_counter call_now">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="call_content text-center">
-            <span class="call_over"><i class="fa-solid fa-phone"></i></span>
-            <p>START DONATING</p>
-            <a href="tell:3335559090">
-              <h2>Call Now: <span>333 555 9090</span></h2>
-            </a>
-            <ul class="d-flex gap-4 justify-content-center flex-wrap">
-              <li>
-                <span><i class="fa-solid fa-location-dot"></i></span>
-                <span>New York - 1075 Firs Avenue</span>
-              </li>
-              <li>
-                <span><i class="fa-solid fa-envelope"></i></span>
-                <a href="mailto:company@domin.com">Donate@gmail.com</a>
-              </li>
-            </ul>
-          </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 ">
+        <div class="call_content text-center">
+          <span class="call_over"><i class="fa-solid fa-phone"></i></span>
+          <p>START DONATING</p>
+          <a href="tel:+7048531207">
+            <h2>Call Now: <span>70485 31207</span></h2>
+          </a>
+          <ul class="d-flex gap-4 justify-content-center flex-wrap">
+            <li>
+              <span><i class="fa-solid fa-envelope"></i></span>
+              <a href="mailto:company@domin.com">Donate@gmail.com</a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
   <!-- call now end -->
 
   <!-- what we do start -->
@@ -205,8 +199,7 @@ $res=mysqli_query($con,$sql);
                       <div class="p_content_left">
                         <h5>Registration</h5>
                         <p>
-                          Nemo enim ipsam voluptatem quia voluptas sit
-                          aspernatur aut odit aut fugit, sed quia consequuntur
+                        The first step to becoming a life-saving donor is to create a donor profile. This allows us to keep track of your donation history, eligibility, and health status.
                         </p>
                       </div>
                       <span class="progress_number">01</span>
@@ -221,9 +214,7 @@ $res=mysqli_query($con,$sql);
                       <span class="progress_number">02</span>
                       <div class="p_content_left p_content_right">
                         <h5>Screening Test</h5>
-                        <p>
-                          Nemo enim ipsam voluptatem quia voluptas sit
-                          aspernatur aut odit aut fugit, sed quia consequuntur
+                        <p>The Screening Test process  is critical for ensuring that donated blood is safe for transfusion. This process includes a series of tests and evaluations performed both before and after blood donation to check for any health risks.
                         </p>
                       </div>
                     </div>
@@ -237,8 +228,7 @@ $res=mysqli_query($con,$sql);
                       <div class="p_content_left">
                         <h5>Donation</h5>
                         <p>
-                          Nemo enim ipsam voluptatem quia voluptas sit
-                          aspernatur aut odit aut fugit, sed quia consequuntur
+                        Blood donation is a simple yet powerful act that saves lives. By donating just one unit of blood, you can help up to three people in need of transfusions, whether for surgeries, trauma cases, or chronic conditions.
                         </p>
                       </div>
                       <span class="progress_number">03</span>
@@ -253,9 +243,7 @@ $res=mysqli_query($con,$sql);
                       <span class="progress_number">04</span>
                       <div class="p_content_left p_content_right">
                         <h5>Rest &amp; Refresh</h5>
-                        <p>
-                          Nemo enim ipsam voluptatem quia voluptas sit
-                          aspernatur aut odit aut fugit, sed quia consequuntur
+                        <p>After donating blood, it's essential to rest and refresh to ensure a smooth recovery. Donors are typically advised to relax for 10-15 minutes in a designated rest area. During this time, refreshments like juice, water, and light snacks are provided to help replenish fluids and energy.
                         </p>
                       </div>
                     </div>
@@ -270,6 +258,7 @@ $res=mysqli_query($con,$sql);
   </section>
   <!-- what we do end -->
 
+<<<<<<< HEAD
   <!-- team start -->
  
   <!-- team end -->
@@ -296,6 +285,26 @@ $res=mysqli_query($con,$sql);
     </div>
   </section>
   <!-- lets change end -->
+=======
+<!-- lets change start -->
+<section class="change red_bg">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-xl-9 col-lg-9  col-12">
+        <div class="change_content">
+          <h2>Let's change the world, Join us now!</h2>
+          <p>Be a Lifesaver Today!
+          Every drop of blood you donate can be a step toward changing the world for someone in need. Together, we can create a healthier, safer future—one donation at a time.</p>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-3  col-12 text-xl-end text-lg-end text-center">
+        <a href="contact.php">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- lets change end -->
+>>>>>>> 7053fe2f75458c64dcf6d0919ee790d52f893648
 
 
   <!-- footer section start -->

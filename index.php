@@ -229,11 +229,58 @@ if(isset($_POST['submit']))
         <?php }?>
         </div>
       </div>
+<<<<<<< HEAD
       
       
       
       
      
+=======
+      <div class="col-xl-6 col-lg-6 col-md-6  col-12 mb-5 order_2">
+        <div class="service_content ps-5">
+          <h1>01</h1>
+          <a href="#">
+            <h4>Blood Donation</h4>
+          </a>
+          <p>Blood Donation Service is a critical feature. It facilitates managing blood donations efficiently and providing necessary services to donors and recipients</p>
+          <a href="service-details.php" class="red_btn service_btn">Read More</a>
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6  col-12 mb-5 order_3">
+        <div class="service_content text-end pe-5">
+          <h1>02</h1>
+          <a href="#">
+            <h4>Health Check</h4>
+          </a>
+          <p>The Health Check service  is essential for ensuring the safety and eligibility of blood donors. It helps assess the donor's health before and after donation to minimize any risks for both the donor and the recipient.</p>
+          <a href="service-details.php" class="red_btn service_btn">Read More</a>
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6  col-12 mb-5 order_4">
+        <div class="service_item">
+          <div class="img">
+            <img src="assets/images/s2.jpg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6  col-12 mb-5 order_5">
+        <div class="service_item">
+          <div class="img">
+            <img src="assets/images/s3.jpg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6  col-12 order_6">
+        <div class="service_content ps-5">
+          <h1>03</h1>
+          <a href="service-details.php">
+            <h4>Blood Bank</h4>
+          </a>
+          <p>The Blood Bank services is responsible for managing the storage, tracking, and distribution of blood. It ensures that blood units are safely collected, stored, and made available when needed, while maintaining proper records for both donors and recipients. </p>
+          <a href="service-details.php" class="red_btn service_btn">Read More</a>
+        </div>
+      </div>
+>>>>>>> 7053fe2f75458c64dcf6d0919ee790d52f893648
     </div>
     <?php?>
   </div>
@@ -248,14 +295,10 @@ if(isset($_POST['submit']))
         <div class="call_content text-center">
           <span class="call_over"><i class="fa-solid fa-phone"></i></span>
           <p>START DONATING</p>
-          <a href="tell:3335559090">
-            <h2>Call Now: <span>333 555 9090</span></h2>
+          <a href="tel:+7048531207">
+            <h2>Call Now: <span>70485 31207</span></h2>
           </a>
           <ul class="d-flex gap-4 justify-content-center flex-wrap">
-            <li>
-              <span><i class="fa-solid fa-location-dot"></i></span>
-              <span>New York - 1075 Firs Avenue</span>
-            </li>
             <li>
               <span><i class="fa-solid fa-envelope"></i></span>
               <a href="mailto:company@domin.com">Donate@gmail.com</a>
@@ -287,7 +330,7 @@ if(isset($_POST['submit']))
          ?>
          <div class="campaign_slier_item">
           <div class="row g-0">
-            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12 col-5">
+            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12 col-5 ">
               <div class="campaign_img">
                 <img src="admin/image/campe_img/<?php echo $data['image'] ;?>" alt="">
                 <a href="campaign-details.php">Read More</a>
@@ -296,12 +339,12 @@ if(isset($_POST['submit']))
             <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-12">
               <div class="campaign_content">
                 <div class="meta_date">
-                  <span><i class="fa-regular fa-calendar-days"></i><?php echo $data['date'] ;?></span>
+                  <span><i class="fa-regular fa-calendar-days me-2"></i><?php echo $data['date'] ;?></span>
                 </div>
                 <a href="campaign-details.php">
                   <h6><?php echo $data['title'] ;?></h6>
                 </a>
-                <p><?php echo $data['description'] ;?></p>
+                <p class="three-line-ellipsis"><?php echo $data['description'] ;?></p>
                 <div class="meta_time d-flex gap-4">
                   <span><i class="fa-regular fa-clock"></i><?php echo $data['time'] ;?></span>
                   <span><i class="fa-solid fa-location-dot"></i><?php echo $data['location'] ;?></span>
@@ -319,6 +362,7 @@ if(isset($_POST['submit']))
 </section>
 <!-- campaign end -->
 
+<<<<<<< HEAD
 <!-- testimonial start -->
 <section class="testimonial ptb-115">
   <div class="container">
@@ -448,8 +492,10 @@ if(isset($_POST['submit']))
     </div>
   </div>
 </section>
+=======
+>>>>>>> 7053fe2f75458c64dcf6d0919ee790d52f893648
 <!--our news start -->
-<section class="news gray ptb-115">
+<section class="news gray ptb-115 pt-0">
   <div class="container">
     <div class="row mb-5">
       <div class="col-12">
@@ -471,14 +517,14 @@ if(isset($_POST['submit']))
             <a href="blog-details.php"><i class="fa-solid fa-plus"></i></a>
           </div>
           <div class="news_content">
-            <div class="meta d-flex gap-4">
+            <!-- <div class="meta d-flex gap-4">
               <span><i class="fa-regular fa-clock"></i> 18 Feb, 2022</span>
               <span><i class="fa-solid fa-comments"></i> 3 Comments</span>
-            </div>
+            </div> -->
             <a href="blog-details.php">
-              <h5><?php echo $data['title'] ?></h5>
+              <h5 class="one-line-ellipsis"><?php echo $data['title'] ?></h5>
             </a>
-            <p><?php echo $data['description'] ?></p>
+            <p class="three-line-ellipsis"><?php echo $data['description'] ?></p>
             <a href="blog-details.php">Read More <i class="fa-solid fa-angles-right"></i></a>
           </div>
         </div>
@@ -497,9 +543,8 @@ if(isset($_POST['submit']))
       <div class="col-xl-9 col-lg-9  col-12">
         <div class="change_content">
           <h2>Let's change the world, Join us now!</h2>
-          <p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain,
-            but occasionally
-            circumstances occur in which toil and pain can procure reat pleasure.</p>
+          <p>Be a Lifesaver Today!
+          Every drop of blood you donate can be a step toward changing the world for someone in need. Together, we can create a healthier, safer future—one donation at a time.</p>
         </div>
       </div>
       <div class="col-xl-3 col-lg-3  col-12 text-xl-end text-lg-end text-center">

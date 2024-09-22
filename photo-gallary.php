@@ -9,7 +9,7 @@ include_once 'header.php';
         <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10 col-12 text-center">
           <h2>Photo Gallery</h2>
           <ul>
-            <li><a href="index-2.php">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li class="active">Gallery</li>
           </ul>
         </div>
