@@ -102,7 +102,7 @@ $con->close();
                   </select>
                 </div>
                 <div class="col-12 col-sm-6">
-                  <input type="tel" id="contactNumber" name="contactNumber" placeholder="+1 (123) 456-7890" required>
+                  <input type="tel" id="contactNumber" name="contactNumber" placeholder="Enter Your Phone Number" required>
                 </div>
               </div>
               <div class="row">
@@ -114,11 +114,9 @@ $con->close();
                 </div>
               </div>
               <div class="row">
-                <div class="col">
+              <div class="col">
                   <input type="file" id="image" name="image" required> <!-- Corrected name to "image" -->
                 </div>
-              </div>
-              <div class="row">
                 <div class="col">
                   <select id="bloodType" name="bloodType" required>
                     <option value="" disabled selected>Select Blood Type</option>
@@ -131,6 +129,11 @@ $con->close();
                     <option value="O+">O+</option>
                     <option value="O-">O-</option>
                   </select>
+                </div>
+              </div> 
+              <div class="row">
+                <div class="col">
+                  <textarea id="address" name="address" placeholder="Enter Your Location" required></textarea>
                 </div>
               </div>
               <button type="submit" class="primary__btn border-0 ">Donate Now</button>
