@@ -1,6 +1,10 @@
 <?php
 include_once 'header.php';
-$con= mysqli_connect("localhost","root","","blood");
+$con = mysqli_connect("localhost", "root", "", "blood");
+
+if (!$con) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $donorName = $_POST['donorName'];
@@ -9,21 +13,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $contactNumber = $_POST['contactNumber'];
     $email = $_POST['email'];
     $bloodType = $_POST['bloodType'];
+    $age = $_POST['age'];
 
-    $stmt = $con->prepare("INSERT INTO donations (donor_name, dob, gender, contact_number, email, blood_type) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $donorName, $dob, $gender, $contactNumber, $email, $bloodType);
+    // Check if the image file is set and is valid
+    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+        $image = $_FILES['image']['name'];
+        $image_tmp = $_FILES['image']['tmp_name'];
+        $path = "img/donate_img/" . $image;
 
-    if ($stmt->execute()) {
-         "<p>Donation successfully recorded!</p>";
-    } else {
-        echo "<p>Error: " . $stmt->error . "</p>";
-    }
+        // Move the uploaded file to the specified path
+        if (move_uploaded_file($image_tmp, $path)) {
+            // Prepare the statement to insert donation details
+            $stmt = $con->prepare("INSERT INTO donations (donor_name, dob, gender, contact_number, email, blood_type, age, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            if (!$stmt) {
+                die("Prepare failed: " . $con->error);
+            }
 
-    $stmt->close();
+            // Bind parameters
+            $stmt->bind_param("sssssiss", $donorName, $dob, $gender, $contactNumber, $email, $bloodType, $age, $image);
+
+            // Execute the statement
+            
+
+            $stmt->close();
+        } 
+    } 
 }
 
 $con->close();
 ?>
+
+<!-- Your existing HTML form code here -->
+<!-- Make sure the form includes enctype="multipart/form-data" -->
+
+
+<!-- Your existing HTML form code here -->
+
 
 <!-- breadcrumb start -->
 <div class="breadcrumb_section overflow-hidden ptb-150">
@@ -40,6 +65,7 @@ $con->close();
   </div>
 </div>
 <!-- breadcrumb end -->
+
 <!-- donate form start -->
 <div class="gray_bg ptb-120">
   <div class="container">
@@ -57,7 +83,7 @@ $con->close();
         <div class="km__donate__form">
           <h6 class="mb-30">Details</h6>
           <div class="km__form__donat">
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data"> <!-- Added enctype -->
               <div class="row g-4">
                 <div class="col-12 col-sm-6">
                   <input type="text" id="donorName" name="donorName" placeholder="John Doe" required>
@@ -83,6 +109,14 @@ $con->close();
                 <div class="col">
                   <input type="email" id="email" name="email" placeholder="example@example.com" required>
                 </div>
+                <div class="col">
+                  <input type="number" id="age" name="age" placeholder="enter age" required> <!-- Changed input type to number -->
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <input type="file" id="image" name="image" required> <!-- Corrected name to "image" -->
+                </div>
               </div>
               <div class="row">
                 <div class="col">
@@ -107,7 +141,7 @@ $con->close();
     </div>
   </div>
 </div>
-<!-- donate form start -->
+<!-- donate form end -->
 <!-- footer section start -->
 <?php
 include_once 'footer.php';

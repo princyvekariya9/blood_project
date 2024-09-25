@@ -6292,6 +6292,7 @@ textarea{
     -moz-transition: .4s;
     -ms-transition: .4s;
     -o-transition: .4s;
+    margin-bottom: 10px;
 
     &:hover{
       box-shadow: 0 0  20px #ccc;

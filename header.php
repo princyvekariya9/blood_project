@@ -1,33 +1,5 @@
 <?php
-session_start(); // Ensure this is at the top of the script
 
-$con = mysqli_connect("localhost", "root", "", "blood");
-
-// Initialize the $msg variable
-// $msg = "";
-
-if (isset($_POST['submit'])) {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    $stmt = $con->prepare("SELECT * FROM user_ragister WHERE email = ? AND password = ?");
-    $stmt->bind_param("ss", $email, $password);
-    $stmt->execute();
-    $res = $stmt->get_result();
-    
-    if ($res->num_rows == 1) {
-        $data = $res->fetch_assoc();
-        $_SESSION['userid'] = $data['id'];
-        $_SESSION['user_email'] = $email;
-        header('Location: donate.php');
-        exit();
-    } else {
-        $msg = "Email and password do not match!";
-    }
-
-    $stmt->close();
-    $con->close();
-}
 ?>
 
 <!DOCTYPE html>
@@ -95,8 +67,8 @@ if (isset($_POST['submit'])) {
                 </ul>
               </li> 
               <li><a href="contact.php">Contact</a></li>
-              <li><a href="#">
-                <button class="btn p-0 login_btn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Login</button>
+              <li><a href="login.php">
+                <button class="btn p-0 login_btn" data-bs-target="" data-bs-toggle="modal">Login</button>
               </a></li>
             </ul>
           </div>
@@ -128,7 +100,7 @@ if (isset($_POST['submit'])) {
   </header>
 
   <!-- login register modal start -->
-  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal fade" id="" aria-hidden="true" aria-labelledby="" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">

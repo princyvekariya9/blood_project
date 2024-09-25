@@ -1,4 +1,5 @@
 <?php
+ob_start(); // Start output buffering
 include_once 'header.php';
 
 // Database connection
@@ -33,8 +34,10 @@ if (isset($_POST['submit'])) {
         
         // Call the function to send email
         sendApprovalEmail($email, $name, "Your Registration");
-
-        echo "<p>Registration successful! A confirmation email has been sent to your address.</p>";
+        
+        // Redirect to login page after successful registration
+        header("Location: login.php");
+        exit(); // Ensure script termination after redirection
     } else {
         echo "<p>Registration failed: " . htmlspecialchars($stmt->error) . "</p>";
     }
@@ -99,6 +102,7 @@ if (isset($_POST['submit'])) {
                   Submit
                   <span><i class="fas fa-arrow-right"></i></span>
                 </button>
+                <?php echo @$msg ?>
               </div>
             </div>
           </form>
@@ -112,4 +116,5 @@ if (isset($_POST['submit'])) {
 <!-- footer section start -->
 <?php
 include_once 'footer.php';
+ob_end_flush(); // Send output
 ?>

@@ -145,13 +145,6 @@ $res=mysqli_query($con,$sql);
   </section>
   <!-- campaigns section ends -->
 
-<<<<<<< HEAD
-  <!-- Testimonials section start -->
-  
-  <!-- Testimonials section ends -->
-=======
->>>>>>> 7053fe2f75458c64dcf6d0919ee790d52f893648
-
   <!-- call now start -->
   <section class="hm1_counter call_now">
   <div class="container">
@@ -258,34 +251,6 @@ $res=mysqli_query($con,$sql);
   </section>
   <!-- what we do end -->
 
-<<<<<<< HEAD
-  <!-- team start -->
- 
-  <!-- team end -->
-
-  <!-- lets change start -->
-  <section class="change red_bg">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-xl-9 col-lg-9 col-12">
-          <div class="change_content">
-            <h2>Let's change the world, Join us now!</h2>
-            <p>
-              Nor again is there anyone who loves or pursues or desires to
-              obtain pain of itself, because it is pain, but occasionally
-              circumstances occur in which toil and pain can procure reat
-              pleasure.
-            </p>
-          </div>
-        </div>
-        <div class="col-xl-3 col-lg-3 col-12 text-xl-end text-lg-end text-center">
-          <a href="contact.php">Contact Us</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- lets change end -->
-=======
 <!-- lets change start -->
 <section class="change red_bg">
   <div class="container">
@@ -304,7 +269,7 @@ $res=mysqli_query($con,$sql);
   </div>
 </section>
 <!-- lets change end -->
->>>>>>> 7053fe2f75458c64dcf6d0919ee790d52f893648
+
 
 
   <!-- footer section start -->

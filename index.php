@@ -16,35 +16,10 @@ $resin = mysqli_query($con,$sql);
 
 $sql="select * from service";
 $service= mysqli_query($con,$sql);
-// if(isset($_SESSION['userid']))
-// {
-//   header("location:dashboard.php");
-// }
-if(isset($_POST['submit']))
-{
-  $email= $_POST['email'];
-  $password= $_POST['password'];
 
-     $sql= "select * from user_ragister where `email`='$email' and `password`='$password'";
-    $res= mysqli_query($con,$sql);
+$sql="select * from our_client";
+$client= mysqli_query($con,$sql);
 
-    $_SESSION['user_email'] = $email;
-  header('location:smtp.php');
-    $cnt= mysqli_num_rows($res);
-
-    if($cnt ==1)
-    {
-      $data = mysqli_fetch_assoc($res);
-      $_SESSION['userid'] = $data['id'];
-      // header("location:dashboard.php");
-    }else
-    {
-      echo "password and email not match......!";
-    }
-
-
-
-}
 
 
 
@@ -229,62 +204,8 @@ if(isset($_POST['submit']))
         <?php }?>
         </div>
       </div>
-<<<<<<< HEAD
+
       
-      
-      
-      
-     
-=======
-      <div class="col-xl-6 col-lg-6 col-md-6  col-12 mb-5 order_2">
-        <div class="service_content ps-5">
-          <h1>01</h1>
-          <a href="#">
-            <h4>Blood Donation</h4>
-          </a>
-          <p>Blood Donation Service is a critical feature. It facilitates managing blood donations efficiently and providing necessary services to donors and recipients</p>
-          <a href="service-details.php" class="red_btn service_btn">Read More</a>
-        </div>
-      </div>
-      <div class="col-xl-6 col-lg-6 col-md-6  col-12 mb-5 order_3">
-        <div class="service_content text-end pe-5">
-          <h1>02</h1>
-          <a href="#">
-            <h4>Health Check</h4>
-          </a>
-          <p>The Health Check service  is essential for ensuring the safety and eligibility of blood donors. It helps assess the donor's health before and after donation to minimize any risks for both the donor and the recipient.</p>
-          <a href="service-details.php" class="red_btn service_btn">Read More</a>
-        </div>
-      </div>
-      <div class="col-xl-6 col-lg-6 col-md-6  col-12 mb-5 order_4">
-        <div class="service_item">
-          <div class="img">
-            <img src="assets/images/s2.jpg" alt="">
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-6 col-lg-6 col-md-6  col-12 mb-5 order_5">
-        <div class="service_item">
-          <div class="img">
-            <img src="assets/images/s3.jpg" alt="">
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-6 col-lg-6 col-md-6  col-12 order_6">
-        <div class="service_content ps-5">
-          <h1>03</h1>
-          <a href="service-details.php">
-            <h4>Blood Bank</h4>
-          </a>
-          <p>The Blood Bank services is responsible for managing the storage, tracking, and distribution of blood. It ensures that blood units are safely collected, stored, and made available when needed, while maintaining proper records for both donors and recipients. </p>
-          <a href="service-details.php" class="red_btn service_btn">Read More</a>
-        </div>
-      </div>
->>>>>>> 7053fe2f75458c64dcf6d0919ee790d52f893648
-    </div>
-    <?php?>
-  </div>
-</section>
 <!-- service end -->
 
 <!-- call now start -->
@@ -362,7 +283,7 @@ if(isset($_POST['submit']))
 </section>
 <!-- campaign end -->
 
-<<<<<<< HEAD
+
 <!-- testimonial start -->
 <section class="testimonial ptb-115">
   <div class="container">
@@ -375,6 +296,10 @@ if(isset($_POST['submit']))
       </div>
 
       <div class="testi_slider slider-spacing">
+        <?php 
+        while($data= mysqli_fetch_assoc($client)){
+         ?>
+        
         <div class="testi_slider_item">
           <div class="testi_content">
             <div class="star">
@@ -384,89 +309,22 @@ if(isset($_POST['submit']))
               <span><i class="fa-solid fa-star"></i></span>
               <span><i class="fa-solid fa-star"></i></span>
             </div>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore pariatur. Excepteur
-              cupidatatproident,
-              culpa qui officia deserunt mollit</p>
+            <p><?php echo $data['description'] ?></p>
           </div>
           <div class="testi_owner d-flex gap-4 align-items-center">
             <div class="testi_img img">
-              <a href="#"><img src="assets/images/ts1.png" alt=""></a>
+              <a href="#"><img src="admin/image/curclient_img/<?php echo $data['image'] ;?>" alt=""></a>
             </div>
             <div class="testi_name">
-              <h5>Nora Fateha</h5>
-              <p>Designer</p>
+              <h5><?php echo $data['name'] ?></h5>
+              <p><?php echo $data['role'] ?></p>
             </div>
           </div>
         </div>
-        <div class="testi_slider_item">
-          <div class="testi_content">
-            <div class="star">
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-            </div>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore pariatur. Excepteur
-              cupidatatproident,
-              culpa qui officia deserunt mollit</p>
-          </div>
-          <div class="testi_owner d-flex gap-4 align-items-center">
-            <div class="testi_img img">
-              <a href="#"><img src="assets/images/ts2.png" alt=""></a>
-            </div>
-            <div class="testi_name">
-              <h5>Niro Markusa</h5>
-              <p>Designer</p>
-            </div>
-          </div>
-        </div>
-        <div class="testi_slider_item">
-          <div class="testi_content">
-            <div class="star">
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-            </div>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore pariatur. Excepteur
-              cupidatatproident,
-              culpa qui officia deserunt mollit</p>
-          </div>
-          <div class="testi_owner d-flex gap-4 align-items-center">
-            <div class="testi_img img">
-              <a href="#"><img src="assets/images/ts3.png" alt=""></a>
-            </div>
-            <div class="testi_name">
-              <h5>Nicolas Mark</h5>
-              <p>Designer</p>
-            </div>
-          </div>
-        </div>
-        <div class="testi_slider_item">
-          <div class="testi_content">
-            <div class="star">
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-              <span><i class="fa-solid fa-star"></i></span>
-            </div>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore pariatur. Excepteur
-              cupidatatproident,
-              culpa qui officia deserunt mollit</p>
-          </div>
-          <div class="testi_owner d-flex gap-4 align-items-center">
-            <div class="testi_img img">
-              <a href="#"><img src="assets/images/ts1.png" alt=""></a>
-            </div>
-            <div class="testi_name">
-              <h5>Nora Fateha</h5>
-              <p>Designer</p>
-            </div>
-          </div>
-        </div>
+      <?php } ?>
+        
+        
+        
       </div> 
     </div>
   </div>
@@ -492,8 +350,6 @@ if(isset($_POST['submit']))
     </div>
   </div>
 </section>
-=======
->>>>>>> 7053fe2f75458c64dcf6d0919ee790d52f893648
 <!--our news start -->
 <section class="news gray ptb-115 pt-0">
   <div class="container">
