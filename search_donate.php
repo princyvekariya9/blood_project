@@ -42,7 +42,7 @@ $res1 = mysqli_query($con, $sql);
                         while ($donor = mysqli_fetch_assoc($donorsRes)) { ?>
                             <div class="d-flex align-items-center donor_box">
                                 <div class="">
-                                    <img src="img/donate_img/<?php echo $doner['image'] ?>" alt="">
+                                <img src="img/donate_img/<?php echo $donor['image']; ?>" alt="">
                                 </div>
                                 <div class="ms-3">
                                     <p class="fw-bold text-black"><?php echo $donor['donor_name']; ?></p>

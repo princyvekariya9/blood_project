@@ -6,16 +6,15 @@ if (!$con) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $donorName = $_POST['donorName'];
+if (isset($_POST['submit'])) {
+    $donor_name = $_POST['donor_name'];
     $dob = $_POST['dob'];
     $gender = $_POST['gender'];
-    $contactNumber = $_POST['contactNumber'];
+    $contact_number = $_POST['contact_number'];
     $email = $_POST['email'];
     $bloodType = $_POST['bloodType'];
     $age = $_POST['age'];
 
-    // Check if the image file is set and is valid
     if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         $image = $_FILES['image']['name'];
         $image_tmp = $_FILES['image']['tmp_name'];
@@ -30,25 +29,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
 
             // Bind parameters
-            $stmt->bind_param("sssssiss", $donorName, $dob, $gender, $contactNumber, $email, $bloodType, $age, $image);
+            $stmt->bind_param("sssssiss", $donor_name, $dob, $gender, $contact_number, $email, $bloodType, $age, $image);
 
             // Execute the statement
-            
+            if ($stmt->execute()) {
+                echo "<p>Donation record inserted successfully.</p>"; // Confirmation message
+            } else {
+                echo "<p>Error inserting record: " . $stmt->error . "</p>"; // Error message
+            }
 
             $stmt->close();
-        } 
-    } 
+        } else {
+            echo "<p>Failed to upload image.</p>"; // Upload failure message
+        }
+    } else {
+        echo "<p>No image uploaded or image upload error.</p>"; // Image error message
+    }
 }
 
 $con->close();
 ?>
-
-<!-- Your existing HTML form code here -->
-<!-- Make sure the form includes enctype="multipart/form-data" -->
-
-
-<!-- Your existing HTML form code here -->
-
 
 <!-- breadcrumb start -->
 <div class="breadcrumb_section overflow-hidden ptb-150">
@@ -78,15 +78,15 @@ $con->close();
     </div>
     <div class="row justify-content-center">
     </div>
-    <div class="row justify-content-center ">
+    <div class="row justify-content-center">
       <div class="col-xl-8 col-lg-8 col-md-11 col-12">
         <div class="km__donate__form">
           <h6 class="mb-30">Details</h6>
           <div class="km__form__donat">
-            <form action="" method="POST" enctype="multipart/form-data"> <!-- Added enctype -->
+            <form action="" method="POST" enctype="multipart/form-data">
               <div class="row g-4">
                 <div class="col-12 col-sm-6">
-                  <input type="text" id="donorName" name="donorName" placeholder="John Doe" required>
+                  <input type="text" id="donor_name" name="donor_name" placeholder="John Doe" required>
                 </div>
                 <div class="col-12 col-sm-6">
                   <input type="date" id="dob" name="dob" required>
@@ -102,7 +102,7 @@ $con->close();
                   </select>
                 </div>
                 <div class="col-12 col-sm-6">
-                  <input type="tel" id="contactNumber" name="contactNumber" placeholder="+1 (123) 456-7890" required>
+                  <input type="tel" id="contact_number" name="contact_number" placeholder="+1 (123) 456-7890" required>
                 </div>
               </div>
               <div class="row">
@@ -110,12 +110,12 @@ $con->close();
                   <input type="email" id="email" name="email" placeholder="example@example.com" required>
                 </div>
                 <div class="col">
-                  <input type="number" id="age" name="age" placeholder="enter age" required> <!-- Changed input type to number -->
+                  <input type="number" id="age" name="age" placeholder="Enter age" required>
                 </div>
               </div>
               <div class="row">
                 <div class="col">
-                  <input type="file" id="image" name="image" required> <!-- Corrected name to "image" -->
+                  <input type="file" id="image" name="image" required>
                 </div>
               </div>
               <div class="row">
@@ -133,7 +133,7 @@ $con->close();
                   </select>
                 </div>
               </div>
-              <button type="submit" class="primary__btn border-0 ">Donate Now</button>
+              <button type="submit" name="submit" class="primary__btn border-0">Donate Now</button>
             </form>
           </div>
         </div>
