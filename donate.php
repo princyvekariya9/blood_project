@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
     $gender = $_POST['gender'];
     $contact_number	= $_POST['contact_number'];
     $email = $_POST['email'];
-    $bloodType = $_POST['bloodType'];
+    $blood_type = $_POST['blood_type'];
     $age = $_POST['age'];
 
     if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
             }
 
             // Bind parameters
-            $stmt->bind_param("sssssiss", $donor_name, $dob, $gender, $contact_number		, $email, $bloodType, $age, $image);
+            $stmt->bind_param("sssssiss", $donor_name, $dob, $gender, $contact_number		, $email, $blood_type, $age, $image);
 
             // Execute the statement
             
@@ -101,7 +101,7 @@ $con->close();
                   </select>
                 </div>
                 <div class="col-12 col-sm-6">
-                  <input type="tel" id="contact_number		" name="contact_number		" placeholder="+91 70892 54367" required>
+                  <input type="tel" id="contact_number" name="contact_number" placeholder="+91 70892 54367" required>
                 </div>
               </div>
               <div class="row">
@@ -117,7 +117,7 @@ $con->close();
                   <input type="file" id="image" name="image" required> <!-- Corrected name to "image" -->
                 </div>
                 <div class="col-12 col-sm-6">
-                  <select id="bloodType" name="bloodType" required>
+                  <select id="bloodType" name="blood_type" required>
                     <option value="" disabled selected>Select Blood Type</option>
                     <option value="A+">A+</option>
                     <option value="A-">A-</option>
@@ -131,9 +131,9 @@ $con->close();
                 </div>
               </div>
               <div class="row">
-                <div class="col-12">
+                <!-- <div class="col-12">
                   <textarea name="address" id="address" cols="10" rows="3" id="" placeholder="Enter Your Location"></textarea>
-                </div>
+                </div> -->
               </div>
               <button type="submit" name="submit" class="primary__btn border-0 ">Donate Now</button>
             </form>
