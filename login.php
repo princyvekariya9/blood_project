@@ -41,8 +41,13 @@ if (isset($_POST['submit'])) {
         margin: auto; /* Center the box */
         border: 1px solid #dc3545; /* Border color matching button */
         border-radius: 10px; /* Rounded corners for the box */
-        padding: 20px; /* Padding inside the box */
+        padding: 20px;
+        margin: 100px auto;
     }
+    .main_loginbox h2{
+  font-size: 30px;
+  color:var(--primary-color);
+}
     .login_btn {
         background-color: #dc3545; /* Custom color for the button */
         color: white; /* Text color */
@@ -53,10 +58,26 @@ if (isset($_POST['submit'])) {
     }
 </style>
 
+ <!-- breadcrumb start -->
+ <div class="breadcrumb_section overflow-hidden ptb-150">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10 col-12 text-center">
+          <h2>Login</h2>
+          <ul>
+            <li><a href="index.php">Home</a></li>
+            <li class="active">Login</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- breadcrumb end -->
+
 <div class="main_loginbox">
-    <h2 class="text-center mb-4">Login to Your Account</h2>
+    <h2 class="text-center mb-4">Login to  Blood Bank</h2>
     <form method="post">
-        <div class="modal-body">
+        <div class="">
             <div class="mb-3">
                 <label for="email" class="form-label">Email Address</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>

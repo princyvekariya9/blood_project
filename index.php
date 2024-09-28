@@ -351,7 +351,7 @@ $client= mysqli_query($con,$sql);
   </div>
 </section>
 <!--our news start -->
-<section class="news gray ptb-115 pt-0">
+<section class="news gray ptb-115 ">
   <div class="container">
     <div class="row mb-5">
       <div class="col-12">

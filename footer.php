@@ -56,7 +56,7 @@
                   <i class="fa-solid fa-envelope  text-danger me-3"></i>
                   </div>
                   <div class="fblog_content">
-                    <a href="mailto:donate@gmail.com">donate@gmail.com</a>
+                    <a href="mailto:cloudblood261@gmail.com">cloudblood261@gmail.com</a>
                   </div>
                 </div>
               </div>
@@ -163,35 +163,7 @@
   </div>
 </div>
 
-<!-- right side offcanvas -->
-<div class="offcanvas offcanvas-end right_canvas" tabindex="-1" id="offcanvasRight">
-  <div class="offcanvas-header">
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <div class="content-top mb-100">
-      <a href="index-2.php">Blad Ai</a>
-      <p>Distrak Street 2SK Line, Germanygalore@inside-support.com (+125)
-        2156-2145</p>
-    </div>
-    <div class="offcanvus-gallery d-flex align-items-center flex-wrap">
-      <a class="img" href="#"><img src="assets/images/r1.jpg" alt="not found"></a>
-      <a class="img" href="#"><img src="assets/images/r2.jpg" alt="not found"></a>
-      <a class="img" href="#"><img src="assets/images/r1.jpg" alt="not found"></a>
-      <a class="img" href="#"><img src="assets/images/r3.jpg" alt="not found"></a>
-      <a class="img" href="#"><img src="assets/images/r1.jpg" alt="not found"></a>
-      <a class="img" href="#"><img src="assets/images/r2.jpg" alt="not found"></a>
-    </div>
-    <div class="offcanvus-newsletter">
-      <h4 class="mb-4 text-center">Newsletter</h4>
-      <form action="#">
-        <input type="email" placeholder="Enter your e-mail" class="theme-input mb-3">
-        <button type="submit" class="black_btn w-100 border-0 p-3"><span>SUBSCRIBE
-            NOW</span></button>
-      </form>
-    </div>
-  </div>
-</div>
+
 
 <!-- Javascript Files -->
 
