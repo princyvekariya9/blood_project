@@ -798,7 +798,11 @@ select:focus {
 .gap-15 {
   gap: 15px;
 }
+.space{
+  padding-top: 100px;
+  padding-bottom: 100px;
 
+}
 .spacer {
   display: inline-block;
   margin: 20px 0;
@@ -2799,13 +2803,13 @@ textarea{
   box-shadow: 0 0 20px var(--light_clr);
 }
 
-.km__donate__form form input , .km__donate__form form select {
+.km__donate__form form input , .km__donate__form form select , .km__donate__form form textarea , .s_location{
   width: 100%;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin-bottom: 30px;
   padding: 8px 15px;
-  color: #8c8c8c;
+  color: #5c5b5b;
   font-weight: 400;
   text-transform: capitalize;
   border: 1px solid var(--border-color);
@@ -2816,8 +2820,11 @@ textarea{
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
 }
+.s_location{
+  margin-bottom: 0;
+}
 
-.km__donate__form form input:focus , .km__donate__form form select:focus {
+.km__donate__form form input:focus , .km__donate__form form select:focus ,.s_location:focus {
   border: 1px solid var(--primary-color);
 }
 
@@ -6339,5 +6346,8 @@ textarea{
     border: none;
 }
 .nav-link:focus, .nav-link:hover {
+  color: var(--primary-color);
+}
+.total p{
   color: var(--primary-color);
 }

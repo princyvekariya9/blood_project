@@ -23,6 +23,7 @@ if (isset($_GET['id'])) {
 }
 
 if (isset($_POST['submit'])) {
+     $userid = $_SESSION['userid'];
     $name = mysqli_real_escape_string($con, $_POST['name']);
     $description = mysqli_real_escape_string($con, $_POST['description']);
     $role = mysqli_real_escape_string($con, $_POST['role']);
@@ -46,12 +47,12 @@ if (isset($_POST['submit'])) {
         }
         mysqli_stmt_bind_param($stmt, "ssssi", $name, $description, $role, $image, $id);
     } else {
-        $sql = "INSERT INTO our_client (name, description, role, image) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO our_client (name, description, role, image,userid) VALUES (?, ?, ?, ?,?)";
         $stmt = mysqli_prepare($con, $sql);
         if (!$stmt) {
             die("Prepare failed: " . mysqli_error($con));
         }
-        mysqli_stmt_bind_param($stmt, "ssss", $name, $description, $role, $image);
+     mysqli_stmt_bind_param($stmt, "sssss", $name, $description, $role, $image,$userid);
     }
 
     if (mysqli_stmt_execute($stmt)) {

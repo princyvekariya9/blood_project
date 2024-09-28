@@ -20,6 +20,7 @@ if (isset($_GET['id'])) {
 }
 
 if (isset($_POST['submit'])) {
+     $userid = $_SESSION['userid'];
     $title = mysqli_real_escape_string($con, $_POST['title']);
     $date = mysqli_real_escape_string($con, $_POST['date']);
     $description = mysqli_real_escape_string($con, $_POST['description']);
@@ -43,9 +44,9 @@ if (isset($_POST['submit'])) {
         $stmt = mysqli_prepare($con, $sql);
         mysqli_stmt_bind_param($stmt, "ssssssi", $title, $date, $description, $image, $time, $location, $id);
     } else {
-        $sql = "INSERT INTO campe (title, date, description, image, time, location) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO campe (title, date, description, image, time, location,userid) VALUES (?, ?, ?, ?, ?, ?,?)";
         $stmt = mysqli_prepare($con, $sql);
-        mysqli_stmt_bind_param($stmt, "ssssss", $title, $date, $description, $image, $time, $location);
+        mysqli_stmt_bind_param($stmt, "sssssss", $title, $date, $description, $image, $time, $location,$userid);
     }
 
     if (mysqli_stmt_execute($stmt)) {

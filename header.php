@@ -64,6 +64,8 @@
                   <li><a href="photo-gallary.php">Photo Gallery</a></li>
                   <li><a href="donate.php">Donate</a></li>
                   <li><a href="register.php">Register</a></li>
+                  <li><a href="faq.php">FAQ'S</a></li>
+
                 </ul>
               </li> 
               <li><a href="contact.php">Contact</a></li>

@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
     $path = "image/admin_img/".$image;
 
     if (move_uploaded_file($_FILES['image']['tmp_name'], $path)) {
-        // Image upload was successful
+        
         $image_sql = ", image='$image'";
     } else {
         // If no new image is uploaded, retain the old image

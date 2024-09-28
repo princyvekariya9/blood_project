@@ -19,6 +19,7 @@ if (isset($_GET['id'])) {
 }
 
 if (isset($_POST['submit'])) {
+     $userid = $_SESSION['userid'];
     $title = mysqli_real_escape_string($con, $_POST['title']);
     $description = mysqli_real_escape_string($con, $_POST['description']);
     $image = $_FILES['image']['name'];
@@ -38,9 +39,9 @@ if (isset($_POST['submit'])) {
         $stmt = mysqli_prepare($con, $sql);
         mysqli_stmt_bind_param($stmt, 'sssi', $title, $description, $image, $id);
     } else {
-        $sql = "INSERT INTO news (title, description, image) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO news (title, description, image,userid) VALUES (?, ?, ?,?)";
         $stmt = mysqli_prepare($con, $sql);
-        mysqli_stmt_bind_param($stmt, 'sss', $title, $description, $image);
+        mysqli_stmt_bind_param($stmt, 'ssss', $title, $description, $image,$userid);
     }
 
     if (mysqli_stmt_execute($stmt)) {

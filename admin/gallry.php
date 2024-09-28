@@ -19,6 +19,7 @@ if (isset($_GET['id'])) {
 }
 
 if (isset($_POST['submit'])) {
+     $userid = $_SESSION['userid'];
     $image = $_FILES['image']['name'];
     $image_tmp = $_FILES['image']['tmp_name'];
     $path = "image/gallery_img/" . $image;
@@ -36,9 +37,9 @@ if (isset($_POST['submit'])) {
         $stmt = mysqli_prepare($con, $sql);
         mysqli_stmt_bind_param($stmt, 'si', $image, $id);
     } else {
-        $sql = "INSERT INTO gallery (image) VALUES (?)";
+        $sql = "INSERT INTO gallery (image,userid) VALUES (?,?)";
         $stmt = mysqli_prepare($con, $sql);
-        mysqli_stmt_bind_param($stmt, 's', $image);
+        mysqli_stmt_bind_param($stmt, 'ss', $image,$userid);
     }
 
     if (mysqli_stmt_execute($stmt)) {

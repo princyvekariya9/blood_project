@@ -10,6 +10,7 @@ if(isset($_GET['id'])) {
 }
 if(isset($_POST['submit']))
 {
+   $userid = $_SESSION['userid'];
   $service=$_POST['service'];
   $description  =$_POST['description'];
   if(isset($_GET['id']))
@@ -18,7 +19,7 @@ if(isset($_POST['submit']))
 
   }else
   {
-  $sql = "INSERT INTO service (service,description) VALUES ('$service','$description')";
+  $sql = "INSERT INTO service (service,description,userid) VALUES ('$service','$description','$userid')";
   }
 
   

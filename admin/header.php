@@ -465,6 +465,29 @@ $data= mysqli_fetch_assoc($res);
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                  FAQ
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="faq.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>add faq</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="view_faq.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>view faq</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

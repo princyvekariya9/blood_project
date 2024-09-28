@@ -10,6 +10,7 @@ if(isset($_GET['id'])) {
 }
 if(isset($_POST['submit']))
 {
+   $userid = $_SESSION['userid'];
   $title=$_POST['title'];
   $description  =$_POST['description'];
   $image=$_FILES['image']['name'];
@@ -21,7 +22,7 @@ if(isset($_POST['submit']))
 
   }else
   {
-  $sql = "INSERT INTO slider (title,description ,image) VALUES ('$title','$description', '$image')";
+  $sql = "INSERT INTO slider (title,description ,image,userid) VALUES ('$title','$description', '$image','$userid')";
   }
 
   
