@@ -11,7 +11,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <!-- Page Title -->
-  <title>Blad Cloud - Blood Donation</title>
+  <title>Cloud Blood - Blood Donation</title>
 
   <!-- Favicon Icon -->
   <link rel="shortcut icon" href="assets/images/favicon.php">

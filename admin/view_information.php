@@ -16,7 +16,7 @@ $limit = 5;
 
 if (isset($_GET['search'])) {
     $search = $_GET['search'];
-    $sql = "SELECT * FROM information WHERE name LIKE '%$search%'";
+    $sql = "SELECT * FROM information WHERE title LIKE '%$search%'";
 } else {
     $sql = "SELECT * FROM information";
 }
@@ -41,7 +41,7 @@ $start = ($page - 1) * $limit;
 
 if (isset($_GET['search'])) {
     $search = $_GET['search'];
-    $sql = "SELECT * FROM information WHERE name LIKE '%$search%' LIMIT $start, $limit";
+    $sql = "SELECT * FROM information WHERE title LIKE '%$search%' LIMIT $start, $limit";
 } else {
     $sql = "SELECT * FROM information LIMIT $start, $limit";
 }
@@ -65,8 +65,7 @@ if (!$res) {
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">DataTables</li>
+                        <li class="breadcrumb-item"><a href="information.php">Home</a></li>
                     </ol>
                 </div>
             </div>

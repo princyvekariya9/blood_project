@@ -41,14 +41,14 @@ $res= mysqli_query($con,$sql);
          <div class="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
           <div class="km__blog position-relative">
             <div class="feature-image img mb-30">
-              <a href="campaign-details.php">
+              <a href="javascript:void(0)">
                 <img class="w-100" src="admin/image/campe_img/<?php echo $data['image']?>" alt="images not found" />
               </a>
-              <span class="data-tags d-flex justify-content-center align-items-center">
+              <span class=" d-flex justify-content-center align-items-center">
               </span>
             </div>
             <div class="km__post__content">
-              <a href="campaign-details.php">
+              <a href="javascript:void(0)">
                 <h4 class="mb-3"><?php echo $data['title'] ?></h4>
               </a>
               <p class="mb-30">

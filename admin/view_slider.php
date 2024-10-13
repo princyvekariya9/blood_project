@@ -16,8 +16,6 @@ if(isset($_GET['id'])) {
             unlink($img_path);
         }
     }
-
-    // Delete entry from database
     $sql = "DELETE FROM slider WHERE id = $id"; 
     mysqli_query($con, $sql);
 }
@@ -43,7 +41,6 @@ $total_r = $total_rec['count'];
 
 $total_pages = ceil($total_r / $limit);
 
-// Query to fetch data based on search and pagination
 $sql = "SELECT * FROM slider $search_condition LIMIT $start, $limit";
 $res1 = mysqli_query($con, $sql);
 ?>
@@ -51,20 +48,16 @@ $res1 = mysqli_query($con, $sql);
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <form>
-        <input type="search" name="" width="">
-        <input type="submit" name="" value="search">
-    </form>
+    
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>DataTables</h1>
+                    <h1>slider</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">DataTables</li>
+                        <li class="breadcrumb-item"><a href="slider.php">Home</a></li>
                     </ol>
                 </div>
             </div>
@@ -78,7 +71,7 @@ $res1 = mysqli_query($con, $sql);
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">DataTable with minimal features & hover style</h3>
+                            <h3 class="card-title">slider table</h3>
                         </div>
                         <!-- /.card-header -->
 

@@ -1,46 +1,55 @@
 <?php
 include_once 'header.php';
+
+// Database connection
 $con = mysqli_connect("localhost", "root", "", "blood");
 
 if (!$con) {
-    die("Connection failed: " . mysqli_connect_error());
+  die("Connection failed: " . mysqli_connect_error());
 }
 
 if (isset($_POST['submit'])) {
-    $donor_name = $_POST['donor_name'];
-    $dob = $_POST['dob'];
-    $gender = $_POST['gender'];
-    $contact_number	= $_POST['contact_number'];
-    $email = $_POST['email'];
-    $blood_type = $_POST['blood_type'];
-    $age = $_POST['age'];
+  // Retrieve form data
+  $donor_name = $_POST['donor_name'];
+  $dob = $_POST['dob'];
+  $gender = $_POST['gender'];
+  $contact_number = $_POST['contact_number'];
+  $email = $_POST['email'];
 
-    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-        $image = $_FILES['image']['name'];
-        $image_tmp = $_FILES['image']['tmp_name'];
-        $path = "img/donate_img/" . $image;
+  $age = $_POST['age'];
+  $location = $_POST['location'];
+  $blood_type = $_POST['blood_type'];
 
-        // Move the uploaded file to the specified path
-        if (move_uploaded_file($image_tmp, $path)) {
-            // Prepare the statement to insert donation details
-            $stmt = $con->prepare("INSERT INTO donations (donor_name, dob, gender, contact_number	, email, blood_type, age, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-            if (!$stmt) {
-                die("Prepare failed: " . $con->error);
-            }
+  if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+    $image = $_FILES['image']['name'];
+    $image_tmp = $_FILES['image']['tmp_name'];
+    $path = "img/donate_img/" . $image;
 
-            // Bind parameters
-            $stmt->bind_param("sssssiss", $donor_name, $dob, $gender, $contact_number		, $email, $blood_type, $age, $image);
+    if (move_uploaded_file($image_tmp, $path)) {
 
-            // Execute the statement
-            
+      $stmt = $con->prepare("INSERT INTO donations (donor_name, dob, gender, contact_number, email,age, image, location,blood_type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+      if (!$stmt) {
+        die("Prepare failed: " . $con->error);
+      }
+      $stmt->bind_param("sssssisss", $donor_name, $dob, $gender, $contact_number, $email, $age, $image, $location, $blood_type);
 
-            $stmt->close();
-        } 
-    } 
+      if ($stmt->execute()) {
+        echo "<p>Donation recorded successfully!</p>";
+      } else {
+        echo "<p>Error: " . $stmt->error . "</p>";
+      }
+
+      $stmt->close();
+    } else {
+      echo "<p>Error moving uploaded file.</p>";
+    }
+  } else {
+    echo "<p>Error uploading image.</p>";
+  }
 }
 
 $con->close();
-?>
+?>  
 
 <!-- Your existing HTML form code here -->
 <!-- Make sure the form includes enctype="multipart/form-data" -->
@@ -131,9 +140,9 @@ $con->close();
                 </div>
               </div>
               <div class="row">
-                <!-- <div class="col-12">
-                  <textarea name="address" id="address" cols="10" rows="3" id="" placeholder="Enter Your Location"></textarea>
-                </div> -->
+                <div class="col-12">
+                  <textarea name="location" id="location" cols="10" rows="3" id="" placeholder="Enter Your Location"></textarea>
+                </div>
               </div>
               <button type="submit" name="submit" class="primary__btn border-0 ">Donate Now</button>
             </form>

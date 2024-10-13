@@ -348,29 +348,7 @@ $data= mysqli_fetch_assoc($res);
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                camp plan
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="camp_plan.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>camp plan</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="view_gallery.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p></p>
-                </a>
-              </li>
-            </ul>
-          </li>
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
@@ -418,29 +396,7 @@ $data= mysqli_fetch_assoc($res);
               </li>
             </ul>
           </li>
-           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                service orgenization
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="service_Organization.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p> service orgenization</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="view_service.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>view service orgenization</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+          <!--  -->
           <!-- our client -->
             <li class="nav-item">
             <a href="#" class="nav-link">
@@ -458,7 +414,7 @@ $data= mysqli_fetch_assoc($res);
                 </a>
               </li>
               <li class="nav-item">
-                <a href="view_service.php" class="nav-link">
+                <a href="view_client.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>view client</p>
                 </a>

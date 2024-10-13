@@ -1,47 +1,40 @@
 <?php 
-include ("header.php");
-require_once ('db.php');
-$sql = "select * from blood";
-$res = mysqli_query($con,$sql);
-if(isset($_GET['id']))
-{
-  $id = $_GET['id'];
-  $sql = "delete from blood where id = $id";
-  mysqli_query($con, $sql);
+include("header.php");
+require_once('db.php');
+
+if (isset($_GET['id'])) {
+    $id = intval($_GET['id']);
+    $sql = "DELETE FROM blood WHERE id = $id";
+    mysqli_query($con, $sql);
 }
-  $sql = "select * from blood";
-  mysqli_query($con, $sql);
 
-  // 
-  $limit = 3;
+$limit = 3;
+$total_res = "SELECT * FROM blood";
+$total_rec = mysqli_query($con, $total_res);
+$total_r = mysqli_num_rows($total_rec);
+$total_pages = ceil($total_r / $limit);
 
-    $total_res = "SELECT * FROM blood";
-    $total_rec = mysqli_query($con, $total_res);
-    $total_r = mysqli_num_rows($total_rec);
+if (isset($_GET['page'])) {
+    $page = intval($_GET['page']);
+} else {
+    $page = 1;
+}
 
-    $total_pages = ceil($total_r / $limit);
+$start = ($page - 1) * $limit;
 
-    if(isset($_GET['page'])) 
-    {
-        $page = $_GET['page'];
-    } else 
-    {
-        $page = 1;
-    }
+if (isset($_GET['search'])) {
+    $search = mysqli_real_escape_string($con, $_GET['search']);
+    $sql = "SELECT * FROM blood WHERE bloodname LIKE '%$search%' LIMIT $start, $limit";
+} else {
+    $sql = "SELECT * FROM blood LIMIT $start, $limit";
+}
 
-    $start = ($page - 1) * $limit;
+$res = mysqli_query($con, $sql);
 
-    if(isset($_GET['search'])) 
-    {
-        $search = $_GET['search'];
-        $sql = "SELECT * FROM blood WHERE name LIKE '%$search%' LIMIT $start, $limit";
-    } else 
-    {
-        $sql = "SELECT * FROM blood LIMIT $start, $limit";
-    }   
-
-    $res = mysqli_query($con, $sql);
-
+// Check for errors in the query
+if (!$res) {
+    die("Error executing query: " . mysqli_error($con));
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,98 +42,80 @@ if(isset($_GET['id']))
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | DataTables</title>
-
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <form method="get">
-        <input type="text" name="search">
-        <input type="submit" name="submit" value="search">
+        <input type="text" name="search" placeholder="Search blood name">
+        <input type="submit" name="submit" value="Search">
     </form>
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Slider data view</h1>
+            <h1>Blood Data View</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">blood</li>
+              <li class="breadcrumb-item"><a href="add_blood.php">Home</a></li>
             </ol>
           </div>
         </div>
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
 
-    <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">All dashboard slider Data view</h3>
+                <h3 class="card-title">All Blood Names</h3>
               </div>
-              <!-- /.card-header -->
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                     <tr>
-                      <th>id</th>
-                      <th>bloodname</th>
-                      
+                      <th>ID</th>
+                      <th>Blood Name</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                  <?php while($data = mysqli_fetch_assoc($res)) { ?>
+                  <?php while ($data = mysqli_fetch_assoc($res)) { ?>
                     <tr>
-                      <th><?php echo $data['id'] ?></th> 
-                      
-                      <th><?php echo $data['bloodname']; ?></th>
-                      
-                      <th>
+                      <td><?php echo htmlspecialchars($data['id']); ?></td>
+                      <td><?php echo htmlspecialchars($data['bloodname']); ?></td>
+                      <td>
                         <a href="add_blood.php?id=<?php echo $data['id']; ?>">Edit</a> || 
                         <a href="view_blood.php?id=<?php echo $data['id']; ?>">Delete</a>
-                      </th>
+                      </td>
                     </tr>
                   <?php } ?>
                   </tbody>
                 </table>
-                <div style="margin: 20px 0px  ;" class="btn">
-        
-        <?php if ($page > 1) { ?>
-            <a href="?page=<?php echo ($page - 1); ?>">Prev</a>
-        <?php } ?>
+                <div style="margin: 20px 0;">
+                  <?php if ($page > 1) { ?>
+                    <a href="?page=<?php echo ($page - 1); ?>">Prev</a>
+                  <?php } ?>
 
-        <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
-            <a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
-        <?php } ?>
+                  <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
+                    <a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                  <?php } ?>
 
-          <?php if ($page < $total_pages) { ?>
-            <a href="?page=<?php echo ($page + 1); ?>">Next</a>
-        <?php } ?>
-
-    </div>
+                  <?php if ($page < $total_pages) { ?>
+                    <a href="?page=<?php echo ($page + 1); ?>">Next</a>
+                  <?php } ?>
+                </div>
               </div>
-              <!-- /.card-body -->
-       
             </div>
-            <!-- /.card -->
           </div>
-          <!-- /.col -->
         </div>
-        <!-- /.row -->
       </div>
-      <!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
   </div>
-
+</div>
 </body>
 </html>
 <?php 
