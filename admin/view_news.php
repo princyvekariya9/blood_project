@@ -61,41 +61,28 @@ if (!$res) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>News Tables</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="news.php">Home</a></li>
-                    </ol>
-                </div>
+                    <h1>View News Data</h1>
+                </div> 
             </div>
         </div><!-- /.container-fluid -->
     </section>
 
-    <!-- Main content -->
-    <form method="get">
-        <input type="text" name="search">
-        <input type="submit" name="submit" value="search">
-    </form>
+    <!-- Main content --> 
     <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">news table</h3>
-                        </div>
+                    <div class="card grid_table"> 
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>id</th>
-                                        <th>title</th>
-                                        <th>description</th>
-                                        <th>image</th>
-                                        <th>delete</th>
-                                        <th>edit</th>
+                                        <th>ID</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Image</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -105,13 +92,11 @@ if (!$res) {
                                     <tr>
                                         <td><?php echo $data['id']; ?></td>
                                         <td><?php echo $data['title']; ?></td>
-                                        <td><?php echo $data['description']; ?></td>
+                                        <td ><?php echo $data['description']; ?></td>
                                         <td><img src="image/news_img/<?php echo $data['image']; ?>" width="100px"></td>
-                                        <td>
-                                            <a href="view_news.php?id=<?php echo $data['id']; ?>">delete</a>
-                                        </td>
-                                        <td>
-                                            <a href="news.php?id=<?php echo $data['id']; ?>">edit</a>
+                                        <td class="action_icon d-flex">
+                                            <a href="view_news.php?id=<?php echo $data['id']; ?>"><i  class="fa-solid fa-trash-can "></i></a>
+                                            <a href="news.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-pen-to-square "></i</a>
                                         </td>
                                     </tr>
                                     <?php } ?>                
@@ -119,17 +104,17 @@ if (!$res) {
                                 <tfoot>
                                 </tfoot>
                             </table>
-                            <div style="margin: 20px 0px;" class="btn">
+                            <div style="margin: 20px 0px;" class="pagination">
                                 <?php if ($page > 1) { ?>
-                                    <a href="?page=<?php echo ($page - 1); ?>">Prev</a>
+                                    <a href="?page=<?php echo ($page - 1); ?>"><i class="fa-solid fa-chevron-left"></i></a>
                                 <?php } ?>
-                                
+
                                 <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
-                                    <a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                    <a href="?page=<?php echo $i; ?>"  class="<?php echo ($i == $page) ? 'active' : ''; ?>"><?php echo $i; ?></a>
                                 <?php } ?>
-                                
+
                                 <?php if ($page < $total_pages) { ?>
-                                    <a href="?page=<?php echo ($page + 1); ?>">Next</a>
+                                    <a href="?page=<?php echo ($page + 1); ?>"><i class="fa-solid fa-chevron-right"></i></a>
                                 <?php } ?>
                             </div>
                         </div>

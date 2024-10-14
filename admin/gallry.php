@@ -1,4 +1,4 @@
-<?php 
+<?php
 $con = mysqli_connect("localhost", "root", "", "blood");
 include 'header.php';
 
@@ -19,7 +19,7 @@ if (isset($_GET['id'])) {
 }
 
 if (isset($_POST['submit'])) {
-     $userid = $_SESSION['userid'];
+    $userid = $_SESSION['userid'];
     $image = $_FILES['image']['name'];
     $image_tmp = $_FILES['image']['tmp_name'];
     $path = "image/gallery_img/" . $image;
@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
     } else {
         $sql = "INSERT INTO gallery (image,userid) VALUES (?,?)";
         $stmt = mysqli_prepare($con, $sql);
-        mysqli_stmt_bind_param($stmt, 'ss', $image,$userid);
+        mysqli_stmt_bind_param($stmt, 'ss', $image, $userid);
     }
 
     if (mysqli_stmt_execute($stmt)) {
@@ -55,59 +55,53 @@ if (isset($_POST['submit'])) {
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Gallry Form</h1>
+            <div class="  mb-2">
+                <div class="text-center">
+                    <h1>Add Gallery Photoes</h1>
                 </div>
-                
             </div>
         </div><!-- /.container-fluid -->
     </section>
 
     <!-- Main content -->
     <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <!-- left column -->
-                <div class="col-md-6">
-                    <!-- general form elements -->
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">Gallery Form</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <!-- form start -->
-                        <form method="post" enctype="multipart/form-data">
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label for="image">Image</label>
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="image" name="image">
-                                            <label class="custom-file-label" for="image">Choose file</label>
-                                        </div>
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">Upload</span>
-                                        </div>
-                                    </div>
-                                    <?php if (!empty($data1['image'])): ?>
-                                        <p>Current Image: <img src="image/gallery_img/<?php echo htmlspecialchars($data1['image']); ?>" alt="Current Image" style="max-width: 100px;"></p>
-                                    <?php endif; ?>
+        <div class="d-flex justify-content-center">
+            <!-- general form elements -->
+            <div class="card form_clr">
+                <div class="card-header py-3">
+                    <h3 class="card-title">Gallery Form</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form method="post" enctype="multipart/form-data">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="image">Image</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="image" name="image">
+                                    <label class="custom-file-label" for="image">Choose file</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Upload</span>
                                 </div>
                             </div>
-                            <!-- /.card-body -->
-
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-                            </div>
-                        </form>
+                            <?php if (!empty($data1['image'])): ?>
+                                <p>Current Image: <img
+                                        src="image/gallery_img/<?php echo htmlspecialchars($data1['image']); ?>"
+                                        alt="Current Image" style="max-width: 100px;"></p>
+                            <?php endif; ?>
+                        </div>
                     </div>
-                    <!-- /.card -->
-                </div>
-                <!--/.col (left) -->
+                    <!-- /.card-body -->
+
+                    <div class="card-footer bg-transparent border-top-0 pb-4 pt-0">
+                        <button type="submit" class="btn btn-dark" name="submit">Submit</button>
+                    </div>
+                </form>
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+            <!-- /.card -->
+        </div>
     </section>
     <!-- /.content -->
 </div>

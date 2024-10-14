@@ -44,17 +44,16 @@ if(isset($_POST['submit']))
   <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="css/style.csss">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="index.php"><b>blood bank management</b></a>
+    <a href="index.php"><b>Blood Bank Management System</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
-    <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
-
+    <div class="card-body login-card-body p-4">
       <form method="post">
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email" name="email">
@@ -78,7 +77,7 @@ if(isset($_POST['submit']))
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block" name="submit">Sign In</button>
+            <button type="submit" class="btn btn-danger btn-block" name="submit">Sign In</button>
           </div>
           <!-- /.col -->
         </div>

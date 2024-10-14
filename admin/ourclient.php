@@ -64,30 +64,38 @@ if (isset($_POST['submit'])) {
 }
 ?>
 <div class="content-wrapper">
-    <section class="content">
+     <!-- Content Header (Page header) -->
+     <section class="content-header">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-name">Our Client Form</h3>
+            <div class="  mb-2">
+                <div class="  text-center">
+                    <h1>Add Client Details</h1>
+                </div>
+            </div>
+        </div> 
+    </section>
+    <section class="content">
+        <div class="d-flex justify-content-center"> 
+                    <div class="card form_clr">
+                        <div class="card-header py-3">
+                            <h3 class="card-title">Our Client Form</h3>
                         </div>
                         <form method="post" enctype="multipart/form-data">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" value="<?php echo htmlspecialchars(@$data['name']); ?>">
+                                    <label for="name">Client Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter Client Name" name="name" value="<?php echo htmlspecialchars(@$data['name']); ?>">
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <input type="text" class="form-control" id="description" placeholder="Enter description" name="description" value="<?php echo htmlspecialchars(@$data['description']); ?>">
+                                    <label for="description">Client Review Description</label>
+                                    <input type="text" class="form-control" id="description" placeholder="Enter Review Description" name="description" value="<?php echo htmlspecialchars(@$data['description']); ?>">
                                 </div>
                                 <div class="form-group">
-                                    <label for="role">Role</label>
-                                    <input type="text" class="form-control" id="role" placeholder="Enter role" name="role" value="<?php echo htmlspecialchars(@$data['role']); ?>">
+                                    <label for="role">Client Role</label>
+                                    <input type="text" class="form-control" id="role" placeholder="Enter Client Role" name="role" value="<?php echo htmlspecialchars(@$data['role']); ?>">
                                 </div>
                                 <div class="form-group">
-                                    <label for="image">Image</label>
+                                    <label for="image">Client Image</label>
                                     <div class="input-group">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="image" name="image">
@@ -103,8 +111,8 @@ if (isset($_POST['submit'])) {
                                 </div>
                             </div>
 
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                            <div class="card-footer bg-transparent border-top-0 pb-4 pt-0">
+                                <button type="submit" class="btn btn-dark" name="submit">Submit</button>
                             </div>
                         </form>
                     </div>

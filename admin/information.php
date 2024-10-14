@@ -56,9 +56,9 @@ if (isset($_POST['submit'])) {
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>information Form</h1>
+            <div class="mb-2">
+                <div class="text-center">
+                    <h1>Add Information  </h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -66,15 +66,12 @@ if (isset($_POST['submit'])) {
 
     <!-- Main content -->
     <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <!-- left column -->
-                <div class="col-md-6">
+        <div class="d-flex justify-content-center"> 
                     <!-- general form elements -->
                     <h3><?php echo @$msg; ?></h3>
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">information Form</h3>
+                    <div class="card form_clr">
+                        <div class="card-header py-3">
+                            <h3 class="card-title">Information Form</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
@@ -106,8 +103,8 @@ if (isset($_POST['submit'])) {
                             </div>
                             <!-- /.card-body -->
 
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                            <div class="card-footer bg-transparent border-top-0 pb-4 pt-0">
+                                <button type="submit" class="btn btn-dark" name="submit">Submit</button>
                             </div>
                         </form>
 

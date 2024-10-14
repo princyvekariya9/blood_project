@@ -28,15 +28,7 @@ require_once ('db.php');
       
   }
 
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-
-</head>
+?> 
 <body class="hold-transition sidebar-mini">
 <form method="post" enctype="multipart/form-data">
   <div class="wrapper">
@@ -46,48 +38,41 @@ require_once ('db.php');
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>FAQ Form</h1>
-          </div>
-          <div class="col-sm-6">
-            
-          </div>
+        <div class="  mb-2">
+          <div class="text-center">
+            <h1>Add FAQ</h1>
+          </div> 
         </div>
       </div><!-- /.container-fluid -->
     </section>
 
     <!-- Main content -->
     <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <!-- left column -->
-          <div class="col-md-6">
-            <!-- general form elements -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">faq data</h3>
+      <div class="d-flex justify-content-center"> 
+            <div class="card form_clr" style="width: 40%;">
+              <div class="card-header py-3">
+                <h3 class="card-title">Faq Form</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form method="post" enctype="multipart/form-data">
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">question</label>
-                   <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter question" name="question" value="<?php echo isset($data['question']) ? $data['question'] : ''; ?>">
+                    <label for="exampleInputEmail1">Question</label>
+                   <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Question" name="question" value="<?php echo isset($data['question']) ? $data['question'] : ''; ?>">
 
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">answer</label>
-                   <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter answer" name="answer" value="<?php echo isset($data['answer']) ? $data['answer'] : ''; ?>">
+                    <label for="exampleInputEmail1">Answer</label>
+                   <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Answer" name="answer" value="<?php echo isset($data['answer']) ? $data['answer'] : ''; ?>">
 
                   </div>
 
                  
                 <!-- /.card-body -->
 
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                <div class="card-footer bg-transparent border-top-0 pb-0 pt-0 ps-0">
+                  <button type="submit" class="btn btn-dark" name="submit">Submit</button>
                 </div>
               </form>
             </div>

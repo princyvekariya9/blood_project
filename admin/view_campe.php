@@ -57,30 +57,18 @@ if (!$res) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>DataTables</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="campe.php">Home</a></li>
-                    </ol>
-                </div>
+                    <h1>View Camp Data</h1>
+                </div> 
             </div>
         </div><!-- /.container-fluid -->
     </section>
 
-    <!-- Main content -->
-    <form method="get">
-        <input type="text" name="search" placeholder="Search...">
-        <input type="submit" name="submit" value="Search">
-    </form>
+    <!-- Main content --> 
     <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Camp Table</h3>
-                        </div>
+                    <div class="card grid_table"> 
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example2" class="table table-bordered table-hover">
@@ -92,8 +80,7 @@ if (!$res) {
                                         <th>Description</th>
                                         <th>Image</th>
                                         <th>Time</th>
-                                        <th>Delete</th>
-                                        <th>Edit</th>
+                                        <th>Action</th> 
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -107,27 +94,26 @@ if (!$res) {
                                         <td><?php echo htmlspecialchars($data['description']); ?></td>
                                         <td><img src="image/campe_img/<?php echo htmlspecialchars($data['image']); ?>" width="100px"></td>
                                         <td><?php echo htmlspecialchars($data['time']); ?></td>
-                                        <td>
-                                            <a href="view_campe.php?id=<?php echo $data['id']; ?>">Delete</a>
-                                        </td>
-                                        <td>
-                                            <a href="campe.php?id=<?php echo $data['id']; ?>">Edit</a>
-                                        </td>
+                                        <td class="action_icon d-flex">
+                                            <a href="view_campe.php?id=<?php echo $data['id']; ?>"><i
+                                            class="fa-solid fa-trash-can "></i></a>
+                                            <a href="campe.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-pen-to-square "></i></a>
+                                        </td> 
                                     </tr>
                                     <?php } ?>                
                                 </tbody>
                             </table>
-                            <div style="margin: 20px 0;">
+                            <div style="margin: 20px 0px;" class="pagination">
                                 <?php if ($page > 1) { ?>
-                                    <a href="?page=<?php echo ($page - 1); ?>">Prev</a>
+                                    <a href="?page=<?php echo ($page - 1); ?>"><i class="fa-solid fa-chevron-left"></i></a>
                                 <?php } ?>
-                                
+
                                 <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
-                                    <a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                    <a href="?page=<?php echo $i; ?>"  class="<?php echo ($i == $page) ? 'active' : ''; ?>"><?php echo $i; ?></a>
                                 <?php } ?>
-                                
+
                                 <?php if ($page < $total_pages) { ?>
-                                    <a href="?page=<?php echo ($page + 1); ?>">Next</a>
+                                    <a href="?page=<?php echo ($page + 1); ?>"><i class="fa-solid fa-chevron-right"></i></a>
                                 <?php } ?>
                             </div>
                         </div>

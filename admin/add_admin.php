@@ -39,16 +39,13 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<div class="content-wrapper">
+<div class="content-wrapper ">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>login Form</h1>
-                </div>
-                <div class="col-sm-6">
-                    
+            <div class="  mb-2">
+                <div class="  text-center">
+                    <h1>Add Admin</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -56,14 +53,11 @@ if (isset($_POST['submit'])) {
 
     <!-- Main content -->
     <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <!-- left column -->
-                <div class="col-md-6">
+        <div class="d-flex justify-content-center"> 
                     <!-- general form elements -->
                     <h3><?php echo @$msg; ?></h3>
-                    <div class="card card-primary">
-                        <div class="card-header">
+                    <div class="card form_clr">
+                        <div class="card-header py-3">
                             <h3 class="card-title">Admin Form</h3>
                         </div>
                         <!-- /.card-header -->
@@ -83,7 +77,7 @@ if (isset($_POST['submit'])) {
                                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" value="<?php echo htmlspecialchars(@$data1['password']); ?>">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputFile">File Input</label>
+                                    <label for="exampleInputFile">Profile Picture</label>
                                     <div class="input-group">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="exampleInputFile" name="image">
@@ -97,16 +91,12 @@ if (isset($_POST['submit'])) {
                             </div>
                             <!-- /.card-body -->
 
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                            <div class="card-footer bg-transparent border-top-0 pb-4 pt-0">
+                                <button type="submit" class="btn btn-dark" name="submit">Submit</button>
                             </div>
                         </form>
 
-                    </div>
-                    <!-- /.card -->
-                </div>
-                <!--/.col (left) -->
-            </div>
+                    </div> 
             <!-- /.row -->
         </div><!-- /.container-fluid -->
     </section>
