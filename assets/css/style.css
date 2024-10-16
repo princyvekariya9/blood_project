@@ -2966,17 +2966,7 @@ textarea{
   background-position: center center;
 }
 
-.hm1_hero.hm1 {
-  background: url("../images/hero1.jpg") no-repeat;
-}
-
-.hm1_hero.hm12 {
-  background: url("../images/hm22.jpg") no-repeat;
-}
-
-.hm1_hero.hm13 {
-  background: url("../images/hm33.png") no-repeat;
-}
+ 
 
 @media (max-width: 991px) {
   .hm1_hero {
@@ -3019,9 +3009,10 @@ textarea{
 .slider_contain{
   top: 0%;
   left: 0%;
-  width: 50%;
+  width: 40%;
   height: 100%;
-  background:linear-gradient(to right, rgb(255, 255, 255) , rgba(255, 255, 255, 0) 100%);
+
+  background:linear-gradient(to right, rgba(255, 255, 255, 0.292) , rgba(255, 255, 255, 0) 100%);
   z-index: 1;
   /* background-color: #cccccc5a; */
   display: flex;
@@ -3029,8 +3020,7 @@ textarea{
   flex-direction: column;
   padding-left: 50px;
 }
-
-
+ 
 .hm1_content h3 {
   color: var(--primary-color);
   margin-bottom: 20px;
@@ -3221,7 +3211,7 @@ textarea{
   background: var(--primary-color);
 }
 
-.register_donate_item .donate_item_top {
+.register_donate_item  {
   padding: 15px;
   background: var(--white);
 }
@@ -3885,10 +3875,11 @@ textarea{
   -ms-transform: scale(0);
   transform: scale(0);
 }
-
+.news_content_item{
+  background-color: white;
+}
 .news_content_item .news_content {
   padding: 20px;
-  background: var(--white);
 }
 
 .news_content_item .news_content .meta {
@@ -4188,20 +4179,19 @@ textarea{
 .star h3{
   font-size: 25px;
 }
-.testi_slider .testi_slider_item .testi_content {
+
+.testi_slider .testi_slider_item  {
+  background-color: white;
   height: 100%;
-  background: white;
   -webkit-box-shadow: 0px 0px 13px #dddddd8c;
   box-shadow: 0px 0px 13px #dddddd8c;
-  padding: 30px 25px;
-  margin: 35px 0;
-  margin-top: 20px;
+  padding: 30px 25px; 
   border-radius: 4px;
   position: relative;
 }
 
 .testi_slider .testi_slider_item .testi_content .star {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .testi_slider .testi_slider_item .testi_content .star span {
@@ -6355,4 +6345,24 @@ textarea{
 }
 .total p{
   color: var(--primary-color);
+}
+.info_img{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  z-index: -1;
+  object-fit: cover;
+  opacity: .5;
+
+}
+.information h3{
+  color: var(--primary-color);
+}
+.testi_content {
+  position: relative;
+  z-index: 2s;
+}
+.information.testi_slider_item{
+  background-color: transparent !important;
 }

@@ -1,28 +1,28 @@
 <?php
 include("header.php");
-require_once ('db.php');
+require_once('db.php');
 
-if(isset($_GET['id'])) {
+if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "DELETE FROM admin WHERE id = $id"; 
+    $sql = "DELETE FROM admin WHERE id = $id";
     mysqli_query($con, $sql);
 }
 
 // Pagination logic
 $limit = 5;
 
-if(isset($_GET['search'])) {
+if (isset($_GET['search'])) {
     $search = $_GET['search'];
     $sql = "SELECT * FROM admin WHERE name LIKE '%$search%'";
 } else {
     $sql = "SELECT * FROM admin";
-}   
+}
 
 $res = mysqli_query($con, $sql);
 $total_records = mysqli_num_rows($res);
 $total_pages = ceil($total_records / $limit);
 
-if(isset($_GET['page'])) {
+if (isset($_GET['page'])) {
     $page = $_GET['page'];
 } else {
     $page = 1;
@@ -30,12 +30,12 @@ if(isset($_GET['page'])) {
 
 $start = ($page - 1) * $limit;
 
-if(isset($_GET['search'])) {
+if (isset($_GET['search'])) {
     $search = $_GET['search'];
     $sql = "SELECT * FROM admin WHERE name LIKE '%$search%' LIMIT $start, $limit";
 } else {
     $sql = "SELECT * FROM admin LIMIT $start, $limit";
-}   
+}
 
 $res = mysqli_query($con, $sql);
 
@@ -54,71 +54,67 @@ $res = mysqli_query($con, $sql);
                         <li class="breadcrumb-item"><a href="add_admin.php">Home</a></li>
                         <li class="breadcrumb-item active"></li>
                     </ol>
+
                 </div>
+
             </div>
         </div><!-- /.container-fluid -->
     </section>
 
     <!-- Main content -->
-    <form method="get">
-        <input type="text" name="search">
-        <input type="submit" name="submit" value="search">
-    </form>
+
     <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            
-                        </div>
+                    <div class="card grid_table">
                         <!-- /.card-header -->
-                        <div class="card-body">
+                        <div class="card-body ">
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>id</th>
-                                        <th>name</th>
-                                        <th>email</th>
-                                        <th>image</th>
-                                        <th>delete</th>
-                                        <th>edit</th>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Image</th>
+                                        <th>Action</th>
+                                        <!-- <th>edit</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php 
-                                    while($data= mysqli_fetch_assoc($res)) {
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $data['id']; ?></td>
-                                        <td><?php echo $data['name']; ?></td>
-                                        <td><?php echo $data['email']; ?></td>
-                                        <td><img src="image/admin_img/<?php echo $data['image'] ?>" width="100px"></td>
-                                        <td>
-                                            <a href="view_admin.php?id=<?php echo $data['id']; ?>">delete</a>
-                                        </td>
-                                        <td>
-                                            <a href="add_admin.php?id=<?php echo $data['id']; ?>">edit</a>
-                                        </td>
-                                    </tr>
-                                    <?php } ?>                
+                                    <?php
+                                    while ($data = mysqli_fetch_assoc($res)) {
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $data['id']; ?></td>
+                                            <td><?php echo $data['name']; ?></td>
+                                            <td><?php echo $data['email']; ?></td>
+                                            <td><img src="image/admin_img/<?php echo $data['image'] ?>" width="100px"></td>
+                                            <td class="action_icon">
+                                                <a href="view_admin.php?id=<?php echo $data['id']; ?>"><i  class="fa-solid fa-trash-can "></i></a>
+                                                <a href="add_admin.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-pen-to-square "></i></a>
+                                            </td>
+
+                                        </tr>
+                                    <?php } ?>
                                 </tbody>
                                 <tfoot>
                                 </tfoot>
                             </table>
-                            <div style="margin: 20px 0px  ;" class="btn">
+                            <div style="margin: 20px 0px;" class="pagination">
                                 <?php if ($page > 1) { ?>
-                                    <a href="?page=<?php echo ($page - 1); ?>">Prev</a>
+                                    <a href="?page=<?php echo ($page - 1); ?>"><i class="fa-solid fa-chevron-left"></i></a>
                                 <?php } ?>
-                                
+
                                 <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
-                                    <a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                    <a href="?page=<?php echo $i; ?>"  class="<?php echo ($i == $page) ? 'active' : ''; ?>"><?php echo $i; ?></a>
                                 <?php } ?>
-                                
+
                                 <?php if ($page < $total_pages) { ?>
-                                    <a href="?page=<?php echo ($page + 1); ?>">Next</a>
+                                    <a href="?page=<?php echo ($page + 1); ?>"><i class="fa-solid fa-chevron-right"></i></a>
                                 <?php } ?>
                             </div>
+
                         </div>
                         <!-- /.card-body -->
                     </div>

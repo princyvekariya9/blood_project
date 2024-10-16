@@ -21,7 +21,7 @@ $data= mysqli_fetch_assoc($res);
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | </title>
+  <title>Blood Cloud / Admin Panel </title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -44,6 +44,9 @@ $data= mysqli_fetch_assoc($res);
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/all.min.css">
 </head>
 <script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -158,11 +161,11 @@ $data= mysqli_fetch_assoc($res);
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
         </a>
-      </li>
+      </li> -->
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -170,23 +173,17 @@ $data= mysqli_fetch_assoc($res);
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="image/admin_img/<?php echo $data['image']; ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light"><?php echo $data['name']; ?></span>
+    <a href="index.php" class="brand-link pb-3">
+      <img src="image/admin_img/<?php echo $data['image']; ?>" alt="AdminLTE Logo" class="brand-image  elevation-3">
+      <span class="brand-text font-weight-light ms-3"><?php echo $data['name']; ?></span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        
-        <div class="info">
-          <a href="#" class="d-block"></a>
-        </div>
-      </div>
+    
 
       <!-- SidebarSearch Form -->
-      <div class="form-inline">
+      <div class="form-inline mt-4">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
@@ -205,16 +202,15 @@ $data= mysqli_fetch_assoc($res);
           
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
               <p>
-                admin
+                Admin
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="add_admin.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-circle nav-icon "></i>
                   <p>add admin</p>
                 </a>
               </li>
@@ -229,9 +225,9 @@ $data= mysqli_fetch_assoc($res);
           <!-- blood -->
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
+              
               <p>
-                blood
+                Blood
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -254,9 +250,9 @@ $data= mysqli_fetch_assoc($res);
            
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
+              
               <p>
-                slider
+                Slider
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -280,9 +276,9 @@ $data= mysqli_fetch_assoc($res);
           
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
+              
               <p>
-                camp 
+                Camp Details 
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -304,9 +300,9 @@ $data= mysqli_fetch_assoc($res);
     
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
+              
               <p>
-                news
+                News Details
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -327,9 +323,9 @@ $data= mysqli_fetch_assoc($res);
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
+              
               <p>
-                gallery
+                Gallery 
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -351,9 +347,8 @@ $data= mysqli_fetch_assoc($res);
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
               <p>
-                information
+                Information Details
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -375,9 +370,9 @@ $data= mysqli_fetch_assoc($res);
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
+              
               <p>
-                service
+               All Services
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -400,9 +395,9 @@ $data= mysqli_fetch_assoc($res);
           <!-- our client -->
             <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
+              
               <p>
-                our client
+                Our Client
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -423,7 +418,7 @@ $data= mysqli_fetch_assoc($res);
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
+              
               <p>
                   FAQ
                 <i class="fas fa-angle-left right"></i>

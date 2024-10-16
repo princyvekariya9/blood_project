@@ -5,7 +5,8 @@ require_once('db.php');
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $sql = "DELETE FROM our_client WHERE id = $id";
-    
+
+
     if (!mysqli_query($con, $sql)) {
         die('Error: ' . mysqli_error($con));
     }
@@ -61,93 +62,75 @@ if (!$res) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>DataTables</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="our_client.php">Home</a></li>
-                    </ol>
+
+                    <h1>View Client Data</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
     </section>
 
     <!-- Main content -->
-    <form method="get">
-        <input type="text" name="search">
-        <input type="submit" name="submit" value="search">
-    </form>
+
     <section class="content">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">DataTable with minimal features & hover style</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <table id="example2" class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>id</th>
-                                        <th>title</th>
-                                        <th>description</th>
-                                        <th>image</th>
-                                        <th>delete</th>
-                                        <th>edit</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php 
-                                    while ($data = mysqli_fetch_assoc($res)) {
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $data['id']; ?></td>
-                                        <td><?php echo $data['name']; ?></td>
-                                        <td><?php echo $data['description']; ?></td>
-                                        <td><?php echo $data['role']; ?></td>
+            <div class="card grid_table">
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Client Name</th>
+                                <th>Description</th>
+                                <th>Role</th>
+                                <th>Client Image</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            while ($data = mysqli_fetch_assoc($res)) {
+                                ?>
+                                <tr>
+                                    <td><?php echo $data['id']; ?></td>
+                                    <td><?php echo $data['name']; ?></td>
+                                    <td><?php echo $data['description']; ?></td>
+                                    <td><?php echo $data['role']; ?></td>
 
-                                        <td><img src="image/curclient_img/<?php echo $data['image']; ?>" width="100px"></td>
-                                        <td>
-                                            <a href="view_client.php?id=<?php echo $data['id']; ?>">delete</a>
-                                        </td>
-                                        <td>
-                                            <a href="our_client.php?id=<?php echo $data['id']; ?>">edit</a>
-                                        </td>
-                                    </tr>
-                                    <?php } ?>                
-                                </tbody>
-                                <tfoot>
-                                </tfoot>
-                            </table>
-                            <div style="margin: 20px 0px;" class="btn">
+                                    <td><img src="image/curclient_img/<?php echo $data['image']; ?>" width="100px"></td>
+                                    <td class="action_icon d-flex">
+                                        <a href="view_client.php?id=<?php echo $data['id']; ?>"><i  class="fa-solid fa-trash-can "></i></a>
+                                        <a href="our_client.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-pen-to-square "></i></a>
+                                    </td> 
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                    <div style="margin: 20px 0px;" class="pagination">
                                 <?php if ($page > 1) { ?>
-                                    <a href="?page=<?php echo ($page - 1); ?>">Prev</a>
+                                    <a href="?page=<?php echo ($page - 1); ?>"><i class="fa-solid fa-chevron-left"></i></a>
                                 <?php } ?>
-                                
+
                                 <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
-                                    <a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                    <a href="?page=<?php echo $i; ?>"  class="<?php echo ($i == $page) ? 'active' : ''; ?>"><?php echo $i; ?></a>
                                 <?php } ?>
-                                
+
                                 <?php if ($page < $total_pages) { ?>
-                                    <a href="?page=<?php echo ($page + 1); ?>">Next</a>
+                                    <a href="?page=<?php echo ($page + 1); ?>"><i class="fa-solid fa-chevron-right"></i></a>
                                 <?php } ?>
                             </div>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
                 </div>
-                <!-- /.col -->
+                <!-- /.card-body -->
             </div>
-            <!-- /.row -->
+            <!-- /.card -->
         </div>
-        <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
 <?php
 include("footer.php");
+
 ?>

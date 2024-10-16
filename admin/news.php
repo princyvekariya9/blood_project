@@ -56,27 +56,21 @@ if (isset($_POST['submit'])) {
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>news Form</h1>
-                </div>
-                <div class="col-sm-6">
 
-                </div>
+            <div class="  mb-2">
+                <div class="text-center">
+                    <h1>Add News</h1>
+                </div> 
             </div>
         </div><!-- /.container-fluid -->
     </section>
 
     <!-- Main content -->
     <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <!-- left column -->
-                <div class="col-md-6">
-                    <!-- general form elements -->
+        <div class="d-flex justify-content-center"> 
                     <h3><?php echo @$msg; ?></h3>
-                    <div class="card card-primary">
-                        <div class="card-header">
+                    <div class="card form_clr">
+                        <div class="card-header py-3">
                             <h3 class="card-title">News Form</h3>
                         </div>
                         <!-- /.card-header -->
@@ -84,12 +78,12 @@ if (isset($_POST['submit'])) {
                         <form method="post" enctype="multipart/form-data">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="title">Title</label>
-                                    <input type="text" class="form-control" id="title" placeholder="Enter title" name="title" value="<?php echo htmlspecialchars(@$data1['title']); ?>">
+                                    <label for="title">News Title</label>
+                                    <input type="text" class="form-control" id="title" placeholder="Enter News title" name="title" value="<?php echo htmlspecialchars(@$data1['title']); ?>">
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <textarea class="form-control" id="description" placeholder="Enter description" name="description"><?php echo htmlspecialchars(@$data1['description']); ?></textarea>
+                                    <label for="description">News Description</label>
+                                    <textarea class="form-control" id="description" placeholder="Enter News Description" name="description"><?php echo htmlspecialchars(@$data1['description']); ?></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="image">Image</label>
@@ -109,8 +103,8 @@ if (isset($_POST['submit'])) {
                             </div>
                             <!-- /.card-body -->
 
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                            <div class="card-footer  bg-transparent border-top-0 pb-4 pt-0">
+                                <button type="submit" class="btn btn-dark" name="submit">Submit</button>
                             </div>
                         </form>
 

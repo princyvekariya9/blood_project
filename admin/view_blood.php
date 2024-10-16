@@ -50,17 +50,22 @@ if (!$res) {
         <input type="text" name="search" placeholder="Search blood name">
         <input type="submit" name="submit" value="Search">
     </form>
+ 
+
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>Blood Data View</h1>
+
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="add_blood.php">Home</a></li>
             </ol>
+
           </div>
+          
         </div>
       </div>
     </section>
@@ -69,16 +74,15 @@ if (!$res) {
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">All Blood Names</h3>
-              </div>
+
+            <div class="card grid_table">
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Blood Name</th>
+
+                      <th>Blood Group Name</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -87,25 +91,31 @@ if (!$res) {
                     <tr>
                       <td><?php echo htmlspecialchars($data['id']); ?></td>
                       <td><?php echo htmlspecialchars($data['bloodname']); ?></td>
-                      <td>
-                        <a href="add_blood.php?id=<?php echo $data['id']; ?>">Edit</a> || 
-                        <a href="view_blood.php?id=<?php echo $data['id']; ?>">Delete</a>
+
+                      <td class="action_icon">
+                        <a href="add_blood.php?id=<?php echo $data['id']; ?>"><i
+                        class="fa-solid fa-pen-to-square "></i></a> 
+                        <a href="view_blood.php?id=<?php echo $data['id']; ?>"><i
+                        class="fa-solid fa-trash-can "></i></a>
+
                       </td>
                     </tr>
                   <?php } ?>
                   </tbody>
                 </table>
-                <div style="margin: 20px 0;">
+
+                <div style="margin: 20px 0;" class="pagination">
                   <?php if ($page > 1) { ?>
-                    <a href="?page=<?php echo ($page - 1); ?>">Prev</a>
+                    <a href="?page=<?php echo ($page - 1); ?>"><i class="fa-solid fa-chevron-left"></i></a>
                   <?php } ?>
 
                   <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
-                    <a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                    <a href="?page=<?php echo $i; ?>"  class="<?php echo ($i == $page) ? 'active' : ''; ?>"><?php echo $i; ?></a>
                   <?php } ?>
 
                   <?php if ($page < $total_pages) { ?>
-                    <a href="?page=<?php echo ($page + 1); ?>">Next</a>
+                    <a href="?page=<?php echo ($page + 1); ?>"><i class="fa-solid fa-chevron-right"></i></a>
+
                   <?php } ?>
                 </div>
               </div>

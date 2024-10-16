@@ -1,8 +1,8 @@
-<?php 
+<?php
 $con = mysqli_connect("localhost", "root", "", "blood");
 include 'header.php';
 
-if(isset($_GET['id'])) {
+if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $sql = "SELECT image FROM slider WHERE id = $id";
     $res = mysqli_query($con, $sql);
@@ -10,20 +10,21 @@ if(isset($_GET['id'])) {
     $img_file = $data['image'];
 
     // Delete image file if it exists
-    if(!empty($img_file)) {
-        $img_path = 'image/slider_img/'.$img_file;
-        if(file_exists($img_path)) {
+    if (!empty($img_file)) {
+        $img_path = 'image/slider_img/' . $img_file;
+        if (file_exists($img_path)) {
             unlink($img_path);
         }
     }
-    $sql = "DELETE FROM slider WHERE id = $id"; 
+
+    $sql = "DELETE FROM slider WHERE id = $id";
     mysqli_query($con, $sql);
 }
 
-if(isset($_GET['id'])) {
-  $id = $_GET['id'];
-  $sql = "DELETE FROM slider WHERE id = $id";
-  mysqli_query($con, $sql);
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $sql = "DELETE FROM slider WHERE id = $id";
+    mysqli_query($con, $sql);
 }
 
 $limit = 5;
@@ -48,17 +49,13 @@ $res1 = mysqli_query($con, $sql);
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    
+
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>slider</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="slider.php">Home</a></li>
-                    </ol>
+
+                    <h1>View Slider Data</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -69,62 +66,71 @@ $res1 = mysqli_query($con, $sql);
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">slider table</h3>
                         </div>
                         <!-- /.card-header -->
 
+
                         <div class="card-body">
-            <table id="example2" class="table table-bordered table-hover">
-                 <thead>
-                     <tr>
-                       <th>id</th>
-                        <th>title</th>
-                        <th>description</th>
-                        <th>image</th>
-                        <th>delete</th>
-                        <th>edit</th>
-                        <th>status</th>
-                    </tr>
-                 </thead>
-                    <tbody>
-                      <?php 
-                        while($data= mysqli_fetch_assoc($res1))
-                            {
-                        ?>
-                        <tr>
-                             <td><?php echo $data['id']; ?></td>
-                            <td><?php echo $data['title']; ?></td>
-                          <td><?php echo $data['description']; ?></td>
-                         <td><img src="image/slider_img/<?php echo $data['image']; ?> " width="100px"></td>
-                 
-                            <td>
-                                <a href="view_slider.php?id=<?php echo $data['id'];  ?>">delete</a>
-                            </td>
-                             <td>
-                             <a href="slider.php?id=<?php echo $data['id'];  ?>">edit</a>
-                            </td>
-                                     <td>
-                <input type="checkbox" attr-value="<?php if($data['status']==0) { echo "1"; }else{ echo "0"; }?>"  class="check" attr-id="<?php echo $data['id']; ?>" <?php if($data['status']==1) { echo "checked"; } ?>>
-            </td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-                <tfoot>
-                </tfoot>
-            </table>
-                            <div style="margin: 20px 0px  ;" class="btn">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Image</th>
+                                        <th>Action</th> 
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    while ($data = mysqli_fetch_assoc($res1)) {
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $data['id']; ?></td>
+                                            <td><?php echo $data['title']; ?></td>
+                                            <td><?php echo $data['description']; ?></td>
+                                            <td><img src="image/slider_img/<?php echo $data['image']; ?> " width="100px">
+                                            </td>
+
+                                            <td class="action_icon">
+                                                <a href="view_slider.php?id=<?php echo $data['id']; ?>"><i
+                                                class="fa-solid fa-trash-can "></i></a>
+                                                <a href="slider.php?id=<?php echo $data['id']; ?>"><i
+                                                class="fa-solid fa-pen-to-square "></i></a>
+                                            </td> 
+                                            <td>
+                                                <input type="checkbox"
+                                                    attr-value="<?php if ($data['status'] == 0) {
+                                                        echo "1";
+                                                    } else {
+                                                        echo "0";
+                                                    } ?>"
+                                                    class="check" attr-id="<?php echo $data['id']; ?>" <?php if ($data['status'] == 1) {
+                                                           echo "checked";
+                                                       } ?>>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
+                            </table>
+                            <div style="margin: 20px 0px;" class="pagination">
                                 <?php if ($page > 1) { ?>
-                                    <a href="?page=<?php echo ($page - 1); ?>">Prev</a>
+                                    <a href="?page=<?php echo ($page - 1); ?>"><i class="fa-solid fa-chevron-left"></i></a>
                                 <?php } ?>
 
                                 <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
-                                    <a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                    <a href="?page=<?php echo $i; ?>"  class="<?php echo ($i == $page) ? 'active' : ''; ?>"><?php echo $i; ?></a>
                                 <?php } ?>
 
                                 <?php if ($page < $total_pages) { ?>
-                                    <a href="?page=<?php echo ($page + 1); ?>">Next</a>
+                                    <a href="?page=<?php echo ($page + 1); ?>"><i class="fa-solid fa-chevron-right"></i></a>
                                 <?php } ?>
                             </div>
                         </div>
@@ -140,7 +146,7 @@ $res1 = mysqli_query($con, $sql);
     </section>
     <!-- /.content -->
 </div>
-    
+
 <!-- /.content-wrapper -->
 <?php
 include("footer.php");
@@ -148,19 +154,19 @@ include("footer.php");
 ?>
 <script type="text/javascript">
 
-    $(document).ready(function(){
+    $(document).ready(function () {
 
-        $(document).on('click' , '.check' ,function(){
+        $(document).on('click', '.check', function () {
 
             var status = $(this).attr('attr-value');
             var id = $(this).attr('attr-id');
 
             $.ajax({
-                type:"POST",
-                url:"ajax.php",
-                data:{"status":status,"id":id},
+                type: "POST",
+                url: "ajax.php",
+                data: { "status": status, "id": id },
 
-                success:function(res){
+                success: function (res) {
                     $('#ans').html(res);
                 }
             })

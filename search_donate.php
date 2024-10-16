@@ -57,7 +57,7 @@ $res1 = mysqli_query($con, $sql);
                 ?>
                 <div class="tab-pane fade total" id="<?php echo $bloodName; ?>-tab-pane" role="tabpanel"
                     aria-labelledby="<?php echo $bloodName; ?>-tab" tabindex="0">
-                    <p class="mb-4">Total Donations: <?php echo $totalDonations; ?></p> <!-- Display total donations -->
+                    <p class="mb-4 mt-4">Total Donations: <?php echo $totalDonations; ?></p> 
 
                     <div class="row">
                         <?php
