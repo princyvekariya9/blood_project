@@ -72,7 +72,10 @@ $res1 = mysqli_query($con, $sql);
                             <h3 class="card-title">slider table</h3>
                         </div>
                         <!-- /.card-header -->
-
+                        <form method="get">
+        <input type="text" name="search">
+        <input type="submit" name="submit" value="search">
+    </form>
 
                         <div class="card-body">
                             <table id="example2" class="table table-bordered table-hover">

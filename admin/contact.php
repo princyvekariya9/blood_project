@@ -110,7 +110,7 @@ if (!$res) {
                                         <td><?php echo $data['message']; ?></td>
                                         
                                         <td>
-                                            <a href="contact.php?id=<?php echo $data['id']; ?>">delete</a>
+                                           <a href="contact.php?id=<?php echo $data['id']; ?>"><i  class="fa-solid fa-trash-can "></i></a>
                                         </td>
                                       
                                     </tr>

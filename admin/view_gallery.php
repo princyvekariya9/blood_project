@@ -86,7 +86,7 @@ $res = mysqli_query($con, $sql);
                                         <td><img src="image/gallery_img/<?php echo $data['image'] ?>" width="100px"></td>
                                         <td class="action_icon">
                                             <a href="view_gallery.php?id=<?php echo $data['id']; ?>"><i  class="fa-solid fa-trash-can "></i></a>
-                                            <a href="gallery.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-pen-to-square "></i></a>
+                                            <a href="gallry.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-pen-to-square "></i></a>
                                         </td> 
                                     </tr>
                                     <?php } ?>                

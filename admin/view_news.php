@@ -67,7 +67,10 @@ if (!$res) {
             </div>
         </div><!-- /.container-fluid -->
     </section>
-
+<form method="get">
+        <input type="text" name="search">
+        <input type="submit" name="submit" value="search">
+    </form>
     <!-- Main content --> 
     <section class="content">
         <div class="container-fluid">

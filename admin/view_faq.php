@@ -84,7 +84,7 @@ $res = mysqli_query($con, $sql);
                       <td><?php echo $data['question']; ?></t>
                       <td><?php echo $data['answer']; ?></td>
                       <td class="action_icon d-flex">
-                        <a href="add_faq.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-pen-to-square "></i></a>
+                        <a href="faq.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-pen-to-square "></i></a>
                         <a href="view_faq.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-trash-can "></i></a>
                       </td>
                     </tr>
