@@ -24,13 +24,7 @@ $client= mysqli_query($con,$sql);
 
 
 ?>
-<style>
-  .slider_img{
-    width: 100% !important;
-    height: 500px !important;
-    object-fit: cover;
-  }
-</style>
+
 
 <!-- ----------- slider start -------- -->
 
@@ -41,7 +35,7 @@ $client= mysqli_query($con,$sql);
       while($data= mysqli_fetch_assoc($res)){
       ?>
       <div class="hm1_content position-relative carousel-item active">
-        <img src="admin/image/slider_img/<?php echo $data['image']?>" alt="" class="img-fluid slider_img">
+        <img src="admin/image/slider_img/<?php echo $data['image']?>" alt="" class="img-fluid">
         <div class="slider_contain position-absolute ">
           <h3><?php echo $data['title']?></h3>
           <h1><?php echo $data['description'] ?></h1>
@@ -187,7 +181,7 @@ $client= mysqli_query($con,$sql);
 <section class="service ptb-115">
   <div class="container">
     <div class="row mb-5 ">
-      <div class="col-12 ">
+      <div class="col-12">
         <div class="common_title text-center">
           <p>What We do</p>
           <h2>our best services</h2>
@@ -228,7 +222,7 @@ $client= mysqli_query($con,$sql);
           <ul class="d-flex gap-4 justify-content-center flex-wrap">
             <li>
               <span><i class="fa-solid fa-envelope"></i></span>
-              <a href="mailto:cloudblood261@gmail.com">cloudblood261@gmail.com</a>
+              <a href="mailto:company@domin.com">Donate@gmail.com</a>
             </li>
 
           </ul>
@@ -259,7 +253,8 @@ $client= mysqli_query($con,$sql);
           <div class="row g-0">
             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12 col-5 ">
               <div class="campaign_img">
-                <img src="admin/image/campe_img/<?php echo $data['image'] ;?>" alt=""> 
+                <img src="admin/image/campe_img/<?php echo $data['image'] ;?>" alt="">
+                <a href="campaign-details.php">Read More</a>
               </div>
             </div>
             <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-12">
@@ -267,7 +262,7 @@ $client= mysqli_query($con,$sql);
                 <div class="meta_date">
                   <span><i class="fa-regular fa-calendar-days me-2"></i><?php echo $data['date'] ;?></span>
                 </div>
-                <a href="javascript:void(0)">
+                <a href="campaign-details.php">
                   <h6><?php echo $data['title'] ;?></h6>
                 </a>
                 <p class="three-line-ellipsis"><?php echo $data['description'] ;?></p>
@@ -356,7 +351,7 @@ $client= mysqli_query($con,$sql);
   </div>
 </section>
 <!--our news start -->
-<section class="news gray ptb-115 ">
+<section class="news gray ptb-115 pt-0">
   <div class="container">
     <div class="row mb-5">
       <div class="col-12">

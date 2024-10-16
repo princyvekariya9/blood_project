@@ -4,7 +4,7 @@ require_once('db.php');
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "DELETE FROM information WHERE id = $id";
+    $sql = "DELETE FROM contact WHERE id = $id";
     
     if (!mysqli_query($con, $sql)) {
         die('Error: ' . mysqli_error($con));
@@ -16,9 +16,9 @@ $limit = 5;
 
 if (isset($_GET['search'])) {
     $search = $_GET['search'];
-    $sql = "SELECT * FROM information WHERE title LIKE '%$search%'";
+    $sql = "SELECT * FROM contact WHERE name LIKE '%$search%'";
 } else {
-    $sql = "SELECT * FROM information";
+    $sql = "SELECT * FROM contact";
 }
 
 $res = mysqli_query($con, $sql);
@@ -41,9 +41,9 @@ $start = ($page - 1) * $limit;
 
 if (isset($_GET['search'])) {
     $search = $_GET['search'];
-    $sql = "SELECT * FROM information WHERE title LIKE '%$search%' LIMIT $start, $limit";
+    $sql = "SELECT * FROM contact WHERE name LIKE '%$search%' LIMIT $start, $limit";
 } else {
-    $sql = "SELECT * FROM information LIMIT $start, $limit";
+    $sql = "SELECT * FROM contact LIMIT $start, $limit";
 }
 
 $res = mysqli_query($con, $sql);
@@ -61,11 +61,11 @@ if (!$res) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>information</h1>
+                    <h1>contact</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="information.php">Home</a></li>
+                        <li class="breadcrumb-item"><a href="contact.php">Home</a></li>
                     </ol>
                 </div>
             </div>
@@ -91,11 +91,11 @@ if (!$res) {
                                 <thead>
                                     <tr>
                                         <th>id</th>
-                                        <th>title</th>
-                                        <th>description</th>
-                                        <th>image</th>
+                                        <th>name</th>
+                                        <th>lastname</th>
+                                        <th>email</th>
+                                        <th>massage</th>
                                         <th>delete</th>
-                                        <th>edit</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -104,15 +104,15 @@ if (!$res) {
                                     ?>
                                     <tr>
                                         <td><?php echo $data['id']; ?></td>
-                                        <td><?php echo $data['title']; ?></td>
-                                        <td><?php echo $data['description']; ?></td>
-                                        <td><img src="image/information_img/<?php echo $data['image']; ?>" width="100px"></td>
+                                        <td><?php echo $data['name']; ?></td>
+                                        <td><?php echo $data['last_name']; ?></td>
+                                        <td><?php echo $data['email']; ?></td>
+                                        <td><?php echo $data['message']; ?></td>
+                                        
                                         <td>
-                                            <a href="view_information.php?id=<?php echo $data['id']; ?>">delete</a>
+                                            <a href="contact.php?id=<?php echo $data['id']; ?>">delete</a>
                                         </td>
-                                        <td>
-                                            <a href="information.php?id=<?php echo $data['id']; ?>">edit</a>
-                                        </td>
+                                      
                                     </tr>
                                     <?php } ?>                
                                 </tbody>

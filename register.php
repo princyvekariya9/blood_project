@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
     $password = mysqli_real_escape_string($con, $_POST['password']);
     
     // Hash the password before storing it
-    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+    // $hashed_password = password_hash($password, PASSWORD_BCRYPT);
     
     // Prepare an SQL statement
     $stmt = $con->prepare("INSERT INTO user_ragister (name, location, email, password) VALUES (?, ?, ?, ?)");
@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
         die("Prepare failed: " . htmlspecialchars($con->error));
     }
     
-    $stmt->bind_param("ssss", $name, $location, $email, $hashed_password);
+    $stmt->bind_param("ssss", $name, $location, $email, $password);
     
     // Execute the statement
     if ($stmt->execute()) {

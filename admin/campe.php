@@ -57,15 +57,48 @@ if (isset($_POST['submit'])) {
     mysqli_stmt_close($stmt);
 }
 ?>
-<div class="content-wrapper">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | General Form Elements</title>
+
+</head>
+<body class="hold-transition sidebar-mini">
+<form method="post" enctype="multipart/form-data">
+  <div class="wrapper">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>campe Form</h1>
+          </div>
+          <div class="col-sm-6">
+           
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
     <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">Camp Form</h3>
-                        </div>
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">camp form</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+             
                         <form method="post" enctype="multipart/form-data">
                             <div class="card-body">
                                 <div class="form-group">
@@ -88,15 +121,15 @@ if (isset($_POST['submit'])) {
                                     <div class="input-group">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="image" name="image">
-                                            <?php if (!empty($data['image'])): ?>
-                                                <span><?php echo htmlspecialchars($data['image']); ?></span>
-                                            <?php endif; ?>
                                             <label class="custom-file-label" for="image">Choose file</label>
                                         </div>
                                         <div class="input-group-append">
                                             <span class="input-group-text">Upload</span>
                                         </div>
                                     </div>
+                                    <?php if (!empty($data1['image'])): ?>
+                                        <p>Current Image: <img src="image/news_img/<?php echo htmlspecialchars($data1['image']); ?>" alt="Current Image" style="max-width: 100px;"></p>
+                                    <?php endif; ?>
                                 </div>
 
                                 <div class="form-group">
@@ -114,13 +147,19 @@ if (isset($_POST['submit'])) {
                                 <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                             </div>
                         </form>
-                    </div>
-                </div>
             </div>
+            <!-- /.card -->
         </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
     </section>
-</div>
-
-<?php
-include("footer.php");
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+</form>
+  
+</body>
+</html>
+<?php 
+  include ("footer.php");
 ?>

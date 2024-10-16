@@ -159,7 +159,11 @@ $res=mysqli_query($con,$sql);
           <ul class="d-flex gap-4 justify-content-center flex-wrap">
             <li>
               <span><i class="fa-solid fa-envelope"></i></span>
-              <a href="mailto:company@domin.com">Donate@gmail.com</a>
+              <a href="mailto:
+cloudblood261@gmail.com
+">
+cloudblood261@gmail.com
+</a>
             </li>
           </ul>
         </div>

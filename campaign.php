@@ -44,7 +44,7 @@ $res= mysqli_query($con,$sql);
               <a href="campaign-details.php">
                 <img class="w-100" src="admin/image/campe_img/<?php echo $data['image']?>" alt="images not found" />
               </a>
-              <span class="data-tags d-flex justify-content-center align-items-center">
+              <span class=" d-flex justify-content-center align-items-center">
               </span>
             </div>
             <div class="km__post__content">

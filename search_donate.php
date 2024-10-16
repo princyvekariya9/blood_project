@@ -37,9 +37,9 @@ $res1 = mysqli_query($con, $sql);
                     <?php } ?>
                 </ul>
             </div>
-            <div class="">
+            <!-- <div class="">
                 <input type="" name="" id="" class="s_location" placeholder="Search Near Location">
-            </div>
+            </div> -->
         </div>
 
         <div class="tab-content" id="myTabContent">
@@ -73,6 +73,7 @@ $res1 = mysqli_query($con, $sql);
                                         <p class="fw-bold text-black"><?php echo $donor['donor_name']; ?></p>
                                         <a
                                             href="tel:+<?php echo $donor['contact_number']; ?>"><?php echo $donor['contact_number']; ?></a>
+                                            <p><?php echo $donor['location']; ?></p>
                                     </div>
                                     <div class="call ms-auto">
                                         <b><?php echo $donor['blood_type']; ?></b>

@@ -1,5 +1,6 @@
 <?php 
 require 'db.php';
+session_start();
 $userid=$_SESSION['userid'];
 if(isset($_POST['submit']))
 {

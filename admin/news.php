@@ -6,8 +6,7 @@ if (mysqli_connect_errno()) {
     die("Failed to connect to MySQL: " . mysqli_connect_error());
 }
 
-// Fetch existing data if ID is provided
-if (isset($_GET['id'])) {
+    if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
     $sql = "SELECT * FROM news WHERE id = ?";
     $stmt = mysqli_prepare($con, $sql);
@@ -62,10 +61,7 @@ if (isset($_POST['submit'])) {
                     <h1>news Form</h1>
                 </div>
                 <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Add Data</li>
-                    </ol>
+
                 </div>
             </div>
         </div><!-- /.container-fluid -->

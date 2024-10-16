@@ -3,7 +3,7 @@ include("header.php");
 require_once('db.php');
 
 if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+    $id = intval($_GET['id']);
     $sql = "DELETE FROM news WHERE id = $id";
     
     if (!mysqli_query($con, $sql)) {
@@ -15,8 +15,8 @@ if (isset($_GET['id'])) {
 $limit = 5;
 
 if (isset($_GET['search'])) {
-    $search = $_GET['search'];
-    $sql = "SELECT * FROM news WHERE name LIKE '%$search%'";
+    $search = mysqli_real_escape_string($con, $_GET['search']);
+    $sql = "SELECT * FROM news WHERE title LIKE '%$search%'"; // Changed 'name' to 'title'
 } else {
     $sql = "SELECT * FROM news";
 }
@@ -32,7 +32,7 @@ $total_records = mysqli_num_rows($res);
 $total_pages = ceil($total_records / $limit);
 
 if (isset($_GET['page'])) {
-    $page = $_GET['page'];
+    $page = intval($_GET['page']);
 } else {
     $page = 1;
 }
@@ -40,8 +40,7 @@ if (isset($_GET['page'])) {
 $start = ($page - 1) * $limit;
 
 if (isset($_GET['search'])) {
-    $search = $_GET['search'];
-    $sql = "SELECT * FROM news WHERE name LIKE '%$search%' LIMIT $start, $limit";
+    $sql = "SELECT * FROM news WHERE title LIKE '%$search%' LIMIT $start, $limit"; // Changed 'name' to 'title'
 } else {
     $sql = "SELECT * FROM news LIMIT $start, $limit";
 }
@@ -53,6 +52,7 @@ if (!$res) {
     die('Error: ' . mysqli_error($con));
 }
 
+// Rest of your code remains unchanged...
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -61,12 +61,11 @@ if (!$res) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>DataTables</h1>
+                    <h1>News Tables</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">DataTables</li>
+                        <li class="breadcrumb-item"><a href="news.php">Home</a></li>
                     </ol>
                 </div>
             </div>
@@ -84,7 +83,7 @@ if (!$res) {
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">DataTable with minimal features & hover style</h3>
+                            <h3 class="card-title">news table</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -149,4 +148,4 @@ if (!$res) {
 <!-- /.content-wrapper -->
 <?php
 include("footer.php");
-?>
+?>    <!-- /.sidebar -->    

@@ -31,16 +31,16 @@ if (isset($_POST['submit'])) {
 
 <style>
     .km__form__box {
-        background: #fff; /* Background color */
-        padding: 30px; /* Padding around the form */
-        border-radius: 10px; /* Rounded corners */
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        background: #fff; 
+     padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); 
     }
     .main_loginbox {
-        max-width: 400px; /* Set a max width */
-        margin: auto; /* Center the box */
-        border: 1px solid #dc3545; /* Border color matching button */
-        border-radius: 10px; /* Rounded corners for the box */
+        max-width: 400px;
+        margin: auto; 
+        border: 1px solid #dc3545;
+        border-radius: 10px; 
         padding: 20px;
         margin: 100px auto;
     }
@@ -49,12 +49,12 @@ if (isset($_POST['submit'])) {
   color:var(--primary-color);
 }
     .login_btn {
-        background-color: #dc3545; /* Custom color for the button */
-        color: white; /* Text color */
-        width: 100%; /* Full-width button */
+        background-color: #dc3545; 
+        color: white;
+        width: 100%;
     }
     .register_link {
-        text-decoration: underline; /* Underline for the link */
+        text-decoration: underline; 
     }
 </style>
 
@@ -99,5 +99,5 @@ if (isset($_POST['submit'])) {
 
 <?php
 include 'footer.php';
-ob_end_flush(); // Flush the output buffer
+ob_end_flush(); 
 ?>

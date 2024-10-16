@@ -50,10 +50,10 @@ $con->close();
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10 col-12 text-center">
-        <h2>Blog details fullwidth</h2>
+        <h2>Blog details</h2>
         <ul>
-          <li><a href="index-2.php">Home</a></li>
-          <li class="active">Blog details fullwidth</li>
+          <li><a href="index.php">Home</a></li>
+          <li class="active">Blog details</li>
         </ul>
       </div>
     </div>

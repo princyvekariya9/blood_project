@@ -29,22 +29,31 @@ if(isset($_POST['submit']))
  ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>service Form</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
     <!-- Main content -->
     <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <!-- left column -->
-          <div class="col-md-6">
-            <!-- general form elements -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-service">service form</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              
-              <form method="post" enctype="multipart/form-data" >
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-6">
+                    <!-- general form elements -->
+                    <h3><?php echo @$msg; ?></h3>
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">service Form</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                       <form method="post" enctype="multipart/form-data" >
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">service</label>
@@ -52,7 +61,7 @@ if(isset($_POST['submit']))
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">description</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="description" value="<?php echo @$data['description'] ?>">
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter service" name="description" value="<?php echo @$data['description'] ?>">
                   </div>
                   
                 </div>
@@ -63,40 +72,15 @@ if(isset($_POST['submit']))
                 </div>
               </form>
 
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!--/.col (left) -->
             </div>
-            <!-- /.card -->
-
-            <!-- general form elements -->
-           
-            <!-- /.card -->
-
-            <!-- Input addon -->
-            
-            <!-- /.card -->
-            <!-- Horizontal Form -->
-            
-            <!-- /.card -->
-
-          </div>
-          <!--/.col (left) -->
-          <!-- right column -->
-          <div class="col-md-6">
-          
-            <!-- general form elements disabled -->
-            
-            <!-- /.card -->
-            <!-- general form elements disabled -->
-            
-            <!-- /.card -->
-          </div>
-          <!--/.col (right) -->
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
- <?php
-  include("footer.php");
- ?>
+</div>
+<!-- /.content-wrapper -->
+<?php include("footer.php"); ?>
