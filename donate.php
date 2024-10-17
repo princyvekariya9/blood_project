@@ -88,8 +88,7 @@ $con->close();
     </div>
     <div class="row justify-content-center ">
       <div class="col-xl-8 col-lg-8 col-md-11 col-12">
-        <div class="km__donate__form">
-          <h6 class="mb-30">Details</h6>
+        <div class="km__donate__form"> 
           <div class="km__form__donat">
             <form action="" method="POST" enctype="multipart/form-data"> <!-- Added enctype -->
               <div class="row g-4">
