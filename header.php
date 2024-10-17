@@ -1,5 +1,8 @@
 <?php
-
+// Start session only if it's not already started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 
 <!DOCTYPE html>
@@ -69,9 +72,15 @@
                 </ul>
               </li> 
               <li><a href="contact.php">Contact</a></li>
-              <li><a href="login.php">
-                <button class="btn p-0 login_btn" data-bs-target="" data-bs-toggle="modal">Login</button>
+              <?php if (isset($_SESSION['userid'])): ?>
+              <li><a href="logout.php">
+                <button class="btn p-0 login_btn">Logout</button>
               </a></li>
+            <?php else: ?>
+              <li><a href="login.php">
+                <button class="btn p-0 login_btn">Login</button>
+              </a></li>
+            <?php endif; ?>
             </ul>
           </div>
           
