@@ -227,7 +227,7 @@ $client = mysqli_query($con, $sql);
           <ul class="d-flex gap-4 justify-content-center flex-wrap">
             <li>
               <span><i class="fa-solid fa-envelope"></i></span>
-              <a href="mailto:company@domin.com">Donate@gmail.com</a>
+              <a href="mailto:cloudblood261@gmail.com">cloudblood261@gmail.com</a>
             </li>
 
           </ul>
@@ -356,7 +356,7 @@ $client = mysqli_query($con, $sql);
   </div>
 </section>
 <!--our news start -->
-<section class="news gray ptb-115 pt-0">
+<section class="news gray ptb-115 ">
   <div class="container">
     <div class="row mb-5">
       <div class="col-12">

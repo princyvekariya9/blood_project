@@ -87,9 +87,7 @@ if (isset($_POST['submit'])) {
                     <div class="col-xl-7">
                         <div class="km__box__form">
                             <h4 class="mb-40">Get In Touch</h4>
-                            <p class="mb-30">
-                                On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and
-                                demoralized by the charms
+                            <p class="mb-30">Have questions or want to learn more about blood donations? Reach out to us for any inquiries, support, or information on how you can help save lives.
                             </p>
                             <form action="" method="post" class="km__main__form"> <!-- Added method and action -->
                                 <div class="row">
