@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
 
 // Pagination logic
 $limit = 5;
-
+$search = "";
 if (isset($_GET['search'])) {
     $search = $_GET['search'];
     $sql = "SELECT * FROM service WHERE service LIKE '%$search%'";
@@ -63,12 +63,19 @@ if (!$res) {
                 <div class="col-sm-6">
                     <h1>View Sevices Data</h1>
                 </div>
+                <div class="col-sm-6 d-flex justify-content-end">
+                    <form method="get" class="d-flex gap-2">
+                        <input type="text" name="search" placeholder="Search Services Name" class="form-control"
+                            value="<?php echo htmlspecialchars($search); ?>">
+                        <input type="submit" name="submit" value="Search" class="btn btn-dark">
+                    </form>
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="service.php" class="btn btn-dark rounded-pill ms-2"><i  class="fa-solid fa-plus"></i></a></li>
+                    </ol>
+                </div>
             </div>
         </div><!-- /.container-fluid -->
-    </section>
-<form method="get">
-        <input type="text" name="search">
-        <input type="submit" name="submit" value="search">
+    </section> 
     </form>
     <!-- Main content -->
     <section class="content">

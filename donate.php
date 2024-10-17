@@ -83,8 +83,8 @@ $con->close();
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center">
-        </div>
+
+      
         <div class="row justify-content-center">
             <div class="col-xl-8 col-lg-8 col-md-11 col-12">
                 <div class="km__donate__form">
@@ -144,7 +144,7 @@ $con->close();
                         </form>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
     </div>
 </div>

@@ -65,34 +65,30 @@ $res= mysqli_query($con,$sql);
   </section>
   <!-- faq section start -->
 
-  <!-- call now start -->
-  <section class="hm1_counter call_now">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 ">
-          <div class="call_content text-center">
-            <span class="call_over"><i class="fa-solid fa-phone"></i></span>
-            <p>START DONATING</p>
-            <a href="tell:3335559090">
-              <h2>Call Now: <span>333 555 9090</span></h2>
-            </a>
-            <ul class="d-flex gap-4 justify-content-center flex-wrap">
-              <li>
-                <span><i class="fa-solid fa-location-dot"></i></span>
-                <span>New York - 1075 Firs Avenue</span>
-              </li>
-              <li>
-                <span><i class="fa-solid fa-envelope"></i></span>
-                <a href="mailto:company@domin.com">Donate@gmail.com</a>
-              </li>
+<!-- call now start -->
+<section class="hm1_counter call_now">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 ">
+        <div class="call_content text-center">
+          <span class="call_over"><i class="fa-solid fa-phone"></i></span>
+          <p>START DONATING</p>
+          <a href="tel:+7048531207">
+            <h2>Call Now: <span>70485 31207</span></h2>
+          </a>
+          <ul class="d-flex gap-4 justify-content-center flex-wrap">
+            <li>
+              <span><i class="fa-solid fa-envelope"></i></span>
+              <a href="mailto:cloudblood261@gmail.com">cloudblood261@gmail.com</a>
+            </li>
 
-            </ul>
-          </div>
+          </ul>
         </div>
       </div>
     </div>
-  </section>
-  <!-- call now end -->
+  </div>
+</section>
+<!-- call now end -->
 
   <!-- submit area start -->
  

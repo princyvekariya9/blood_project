@@ -17,7 +17,7 @@ if (session_status() === PHP_SESSION_NONE) {
   <title>Cloud Blood - Blood Donation</title>
 
   <!-- Favicon Icon -->
-  <link rel="shortcut icon" href="assets/images/favicon.php">
+  <link rel="shortcut icon" href="assets/images/favicon.png">
 
   <!-- CSS Files -->
   <link rel="stylesheet" href="assets/css/animate.css">

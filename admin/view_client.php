@@ -14,7 +14,7 @@ if (isset($_GET['id'])) {
 
 // Pagination logic
 $limit = 5;
-
+$search = "";
 if (isset($_GET['search'])) {
     $search = $_GET['search'];
     $sql = "SELECT * FROM our_client WHERE name LIKE '%$search%'";
@@ -61,18 +61,23 @@ if (!$res) {
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
-
+                <div class="col-sm-6"> 
                     <h1>View Client Data</h1>
+                </div>
+                <div class="col-sm-6 d-flex justify-content-end">
+                    <form method="get" class="d-flex gap-2">
+                        <input type="text" name="search" placeholder="Search client name" class="form-control"
+                            value="<?php echo htmlspecialchars($search); ?>">
+                        <input type="submit" name="submit" value="Search" class="btn btn-dark">
+                    </form>
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="ourclient.php" class="btn btn-dark rounded-pill ms-2"><i  class="fa-solid fa-plus"></i></a></li>
+                    </ol>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
     </section>
-
-    <!-- Main content -->
-<form method="get">
-        <input type="text" name="search">
-        <input type="submit" name="submit" value="search">
+  
     </form>
     <section class="content">
         <div class="container-fluid">

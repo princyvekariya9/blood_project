@@ -102,3 +102,14 @@ h1,h2,h3,h4,h5,h6{
   background-color: #343A40; /* Change this color as needed */
   color: white;  
 }
+
+.box_bg{
+  background-color: #e0869b57;
+  color: rgb(0, 0, 0);
+}
+.font_6{
+  font-size: 15px !important; 
+}
+ .icon i{
+  color: #d600321f;
+ }
