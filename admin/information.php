@@ -56,6 +56,7 @@ if (isset($_POST['submit'])) {
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
+
             <div class="mb-2">
                 <div class="text-center">
                     <h1>Add Information  </h1>

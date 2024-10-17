@@ -348,7 +348,6 @@ $data= mysqli_fetch_assoc($res);
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              
               <p>
                 Information Details
                 <i class="fas fa-angle-left right"></i>
@@ -437,6 +436,24 @@ $data= mysqli_fetch_assoc($res);
                 <a href="view_faq.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>view faq</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                contact
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              
+              <li class="nav-item">
+                <a href="contact.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>view contact</p>
                 </a>
               </li>
             </ul>

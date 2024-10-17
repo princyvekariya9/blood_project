@@ -16,6 +16,7 @@ if (isset($_GET['id'])) {
             unlink($img_path);
         }
     }
+
     $sql = "DELETE FROM slider WHERE id = $id";
     mysqli_query($con, $sql);
 }
@@ -53,6 +54,7 @@ $res1 = mysqli_query($con, $sql);
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
+
                     <h1>View Slider Data</h1>
                 </div>
             </div>
@@ -64,7 +66,17 @@ $res1 = mysqli_query($con, $sql);
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="card grid_table">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">slider table</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <form method="get">
+        <input type="text" name="search">
+        <input type="submit" name="submit" value="search">
+    </form>
+
                         <div class="card-body">
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>

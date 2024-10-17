@@ -61,17 +61,22 @@ if (!$res) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
+
                     <h1>View News Data</h1>
                 </div> 
             </div>
         </div><!-- /.container-fluid -->
     </section>
-
+<form method="get">
+        <input type="text" name="search">
+        <input type="submit" name="submit" value="search">
+    </form>
     <!-- Main content --> 
     <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+
                     <div class="card grid_table"> 
                         <!-- /.card-header -->
                         <div class="card-body">

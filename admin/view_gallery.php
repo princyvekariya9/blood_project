@@ -47,6 +47,7 @@ $res = mysqli_query($con, $sql);
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
+
                     <h1>View Gallery Photoes </h1>
                 </div> 
             </div>
@@ -59,7 +60,13 @@ $res = mysqli_query($con, $sql);
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="card grid_table"> 
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Gallry table</h3>
+                        </div>
+=
+
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example2" class="table table-bordered table-hover">
@@ -79,7 +86,7 @@ $res = mysqli_query($con, $sql);
                                         <td><img src="image/gallery_img/<?php echo $data['image'] ?>" width="100px"></td>
                                         <td class="action_icon">
                                             <a href="view_gallery.php?id=<?php echo $data['id']; ?>"><i  class="fa-solid fa-trash-can "></i></a>
-                                            <a href="gallery.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-pen-to-square "></i></a>
+                                            <a href="gallry.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-pen-to-square "></i></a>
                                         </td> 
                                     </tr>
                                     <?php } ?>                

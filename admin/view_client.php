@@ -6,6 +6,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $sql = "DELETE FROM our_client WHERE id = $id";
 
+
     if (!mysqli_query($con, $sql)) {
         die('Error: ' . mysqli_error($con));
     }
@@ -16,7 +17,7 @@ $limit = 5;
 
 if (isset($_GET['search'])) {
     $search = $_GET['search'];
-    $sql = "SELECT * FROM our_client WHERE title LIKE '%$search%'";
+    $sql = "SELECT * FROM our_client WHERE name LIKE '%$search%'";
 } else {
     $sql = "SELECT * FROM our_client";
 }
@@ -41,7 +42,7 @@ $start = ($page - 1) * $limit;
 
 if (isset($_GET['search'])) {
     $search = $_GET['search'];
-    $sql = "SELECT * FROM our_client WHERE title LIKE '%$search%' LIMIT $start, $limit";
+    $sql = "SELECT * FROM our_client WHERE name LIKE '%$search%' LIMIT $start, $limit";
 } else {
     $sql = "SELECT * FROM our_client LIMIT $start, $limit";
 }
@@ -61,6 +62,7 @@ if (!$res) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
+
                     <h1>View Client Data</h1>
                 </div>
             </div>
@@ -68,6 +70,10 @@ if (!$res) {
     </section>
 
     <!-- Main content -->
+<form method="get">
+        <input type="text" name="search">
+        <input type="submit" name="submit" value="search">
+    </form>
     <section class="content">
         <div class="container-fluid">
             <div class="card grid_table">
@@ -97,7 +103,7 @@ if (!$res) {
                                     <td><img src="image/curclient_img/<?php echo $data['image']; ?>" width="100px"></td>
                                     <td class="action_icon d-flex">
                                         <a href="view_client.php?id=<?php echo $data['id']; ?>"><i  class="fa-solid fa-trash-can "></i></a>
-                                        <a href="our_client.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-pen-to-square "></i></a>
+                                        <a href="ourclient.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-pen-to-square "></i></a>
                                     </td> 
                                 </tr>
                             <?php } ?>
@@ -129,4 +135,5 @@ if (!$res) {
 <!-- /.content-wrapper -->
 <?php
 include("footer.php");
+
 ?>

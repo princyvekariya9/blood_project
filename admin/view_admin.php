@@ -1,45 +1,40 @@
 <?php
 include("header.php");
-require_once('db.php');
+require_once ('db.php');
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $sql = "DELETE FROM admin WHERE id = $id";
+// Delete logic (ensure $id is sanitized to prevent SQL injection)
+if(isset($_GET['id'])) {
+    $id = (int)$_GET['id']; // Cast to integer to sanitize
+    $sql = "DELETE FROM admin WHERE id = $id"; 
     mysqli_query($con, $sql);
 }
 
-// Pagination logic
+// Pagination and search logic
 $limit = 5;
+$search = "";
+$search_sql = "";
 
-if (isset($_GET['search'])) {
-    $search = $_GET['search'];
-    $sql = "SELECT * FROM admin WHERE name LIKE '%$search%'";
-} else {
-    $sql = "SELECT * FROM admin";
+// Handle search functionality
+if(isset($_GET['search'])) {
+    $search = mysqli_real_escape_string($con, $_GET['search']);
+    $search_sql = "WHERE name LIKE '%$search%'";
 }
 
-$res = mysqli_query($con, $sql);
-$total_records = mysqli_num_rows($res);
+// Get the total number of records for pagination
+$sql_total = "SELECT * FROM admin $search_sql";
+$res_total = mysqli_query($con, $sql_total);
+$total_records = mysqli_num_rows($res_total);
 $total_pages = ceil($total_records / $limit);
 
-if (isset($_GET['page'])) {
-    $page = $_GET['page'];
-} else {
-    $page = 1;
-}
-
+// Handle pagination
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $start = ($page - 1) * $limit;
 
-if (isset($_GET['search'])) {
-    $search = $_GET['search'];
-    $sql = "SELECT * FROM admin WHERE name LIKE '%$search%' LIMIT $start, $limit";
-} else {
-    $sql = "SELECT * FROM admin LIMIT $start, $limit";
-}
-
+// Fetch records based on search and pagination
+$sql = "SELECT * FROM admin $search_sql LIMIT $start, $limit";
 $res = mysqli_query($con, $sql);
-
 ?>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -47,28 +42,29 @@ $res = mysqli_query($con, $sql);
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>View Admin Details</h1>
+                    <h1>Admin</h1>
                 </div>
-                <div class="col-sm-6 justify-content-end d-flex">
-                    <form method="get" class="search_input">
-                        <input type="text" name="search">
-                        <input type="submit" name="submit" value="search">
-                    </form>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="add_admin.php">Home</a></li>
+                        <li class="breadcrumb-item active"></li>
+                    </ol>
                 </div>
-
             </div>
         </div><!-- /.container-fluid -->
     </section>
 
     <!-- Main content -->
-
     <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <div class="card grid_table">
-                        <!-- /.card-header -->
                         <div class="card-body ">
+                            <form method="get">
+                                <input type="text" name="search" value="<?php echo htmlspecialchars($search); ?>">
+                                <input type="submit" name="submit" value="search">
+                            </form>
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
@@ -77,7 +73,6 @@ $res = mysqli_query($con, $sql);
                                         <th>Email</th>
                                         <th>Image</th>
                                         <th>Action</th>
-                                        <!-- <th>edit</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -90,44 +85,37 @@ $res = mysqli_query($con, $sql);
                                             <td><?php echo $data['email']; ?></td>
                                             <td><img src="image/admin_img/<?php echo $data['image'] ?>" width="100px"></td>
                                             <td class="action_icon">
-                                                <a href="view_admin.php?id=<?php echo $data['id']; ?>"><i  class="fa-solid fa-trash-can "></i></a>
-                                                <a href="add_admin.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-pen-to-square "></i></a>
+                                                <a href="view_admin.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-trash-can"></i></a>
+                                                <a href="add_admin.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                                             </td>
-
                                         </tr>
                                     <?php } ?>
                                 </tbody>
-                                <tfoot>
-                                </tfoot>
                             </table>
                             <div style="margin: 20px 0px;" class="pagination">
+                                <!-- Previous page link -->
                                 <?php if ($page > 1) { ?>
-                                    <a href="?page=<?php echo ($page - 1); ?>"><i class="fa-solid fa-chevron-left"></i></a>
+                                    <a href="?page=<?php echo ($page - 1); ?>&search=<?php echo htmlspecialchars($search); ?>"><i class="fa-solid fa-chevron-left"></i></a>
                                 <?php } ?>
 
+                                <!-- Pagination numbers -->
                                 <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
-                                    <a href="?page=<?php echo $i; ?>"  class="<?php echo ($i == $page) ? 'active' : ''; ?>"><?php echo $i; ?></a>
+                                    <a href="?page=<?php echo $i; ?>&search=<?php echo htmlspecialchars($search); ?>" class="<?php echo ($i == $page) ? 'active' : ''; ?>"><?php echo $i; ?></a>
                                 <?php } ?>
 
+                                <!-- Next page link -->
                                 <?php if ($page < $total_pages) { ?>
-                                    <a href="?page=<?php echo ($page + 1); ?>"><i class="fa-solid fa-chevron-right"></i></a>
+                                    <a href="?page=<?php echo ($page + 1); ?>&search=<?php echo htmlspecialchars($search); ?>"><i class="fa-solid fa-chevron-right"></i></a>
                                 <?php } ?>
                             </div>
 
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
 </div>
-<!-- /.content-wrapper -->
 <?php
 include("footer.php");
 ?>

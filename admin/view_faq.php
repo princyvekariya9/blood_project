@@ -27,7 +27,6 @@ if (isset($_GET['page'])) {
 }
 
 $start = ($page - 1) * $limit;
-
 if (isset($_GET['search'])) {
   $search = $_GET['search'];
   $sql = "SELECT * FROM faq WHERE question LIKE '%$search%' LIMIT $start, $limit";
@@ -49,7 +48,7 @@ $res = mysqli_query($con, $sql);
 </head>
 
 <body class="hold-transition sidebar-mini">
-  <div class="wrapper">
+<  <div class="wrapper">
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <section class="content-header">
@@ -85,7 +84,7 @@ $res = mysqli_query($con, $sql);
                       <td><?php echo $data['question']; ?></t>
                       <td><?php echo $data['answer']; ?></td>
                       <td class="action_icon d-flex">
-                        <a href="add_faq.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-pen-to-square "></i></a>
+                        <a href="faq.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-pen-to-square "></i></a>
                         <a href="view_faq.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-trash-can "></i></a>
                       </td>
                     </tr>

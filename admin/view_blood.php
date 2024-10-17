@@ -36,16 +36,34 @@ if (!$res) {
     die("Error executing query: " . mysqli_error($con));
 }
 ?>
- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | DataTables</title>
+</head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <div class="content-wrapper">
-    
+    <form method="get">
+        <input type="text" name="search" placeholder="Search blood name">
+        <input type="submit" name="submit" value="Search">
+    </form>
+ 
+
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>Blood Data View</h1>
+
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="add_blood.php">Home</a></li>
+            </ol>
+
           </div>
           
         </div>
@@ -56,13 +74,14 @@ if (!$res) {
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
+
             <div class="card grid_table">
-            
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                     <tr>
                       <th>ID</th>
+
                       <th>Blood Group Name</th>
                       <th>Action</th>
                     </tr>
@@ -72,16 +91,19 @@ if (!$res) {
                     <tr>
                       <td><?php echo htmlspecialchars($data['id']); ?></td>
                       <td><?php echo htmlspecialchars($data['bloodname']); ?></td>
+
                       <td class="action_icon">
                         <a href="add_blood.php?id=<?php echo $data['id']; ?>"><i
                         class="fa-solid fa-pen-to-square "></i></a> 
                         <a href="view_blood.php?id=<?php echo $data['id']; ?>"><i
                         class="fa-solid fa-trash-can "></i></a>
+
                       </td>
                     </tr>
                   <?php } ?>
                   </tbody>
                 </table>
+
                 <div style="margin: 20px 0;" class="pagination">
                   <?php if ($page > 1) { ?>
                     <a href="?page=<?php echo ($page - 1); ?>"><i class="fa-solid fa-chevron-left"></i></a>
@@ -93,6 +115,7 @@ if (!$res) {
 
                   <?php if ($page < $total_pages) { ?>
                     <a href="?page=<?php echo ($page + 1); ?>"><i class="fa-solid fa-chevron-right"></i></a>
+
                   <?php } ?>
                 </div>
               </div>

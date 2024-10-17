@@ -32,6 +32,7 @@ $client = mysqli_query($con, $sql);
   <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false"
     data-bs-interval="4000">
     <div class="carousel-inner">
+
       <?php
       while ($data = mysqli_fetch_assoc($res)) {
         ?>
@@ -41,6 +42,7 @@ $client = mysqli_query($con, $sql);
             <h3><?php echo $data['title'] ?></h3>
             <h1><?php echo $data['description'] ?></h1>
           </div>
+
         </div>
       <?php } ?>
     </div>
@@ -225,7 +227,7 @@ $client = mysqli_query($con, $sql);
           <ul class="d-flex gap-4 justify-content-center flex-wrap">
             <li>
               <span><i class="fa-solid fa-envelope"></i></span>
-              <a href="mailto:cloudblood261@gmail.com">cloudblood261@gmail.com</a>
+              <a href="mailto:company@domin.com">Donate@gmail.com</a>
             </li>
 
           </ul>
@@ -249,6 +251,7 @@ $client = mysqli_query($con, $sql);
       </div>
 
       <div class="campaign_slider slider-spacing  ">
+
         <?php
         while ($data = mysqli_fetch_assoc($result)) {
           ?>
@@ -353,7 +356,7 @@ $client = mysqli_query($con, $sql);
   </div>
 </section>
 <!--our news start -->
-<section class="news gray ptb-115 ">
+<section class="news gray ptb-115 pt-0">
   <div class="container">
     <div class="row mb-5">
       <div class="col-12">

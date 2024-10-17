@@ -58,9 +58,12 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
+
+
 <body class="hold-transition sidebar-mini">
   <form method="post" enctype="multipart/form-data">
     <div class="wrapper">
+
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
