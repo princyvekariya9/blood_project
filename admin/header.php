@@ -442,7 +442,6 @@ $data= mysqli_fetch_assoc($res);
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
               <p>
                 contact
                 <i class="fas fa-angle-left right"></i>

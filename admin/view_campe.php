@@ -1,11 +1,11 @@
 <?php
 include("header.php");
-require_once ('db.php');
+require_once('db.php');
 
 // Delete logic
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']); // Use intval to ensure $id is an integer
-    $sql = "DELETE FROM campe WHERE id = $id"; 
+    $sql = "DELETE FROM campe WHERE id = $id";
     mysqli_query($con, $sql);
 }
 
@@ -19,7 +19,7 @@ if (isset($_GET['search'])) {
     $search = mysqli_real_escape_string($con, $_GET['search']);
     $sql = "SELECT * FROM campe WHERE title LIKE '%$search%'";
 } else {
-    $sql = "SELECT * FROM campe"; 
+    $sql = "SELECT * FROM campe";
 }
 
 $res = mysqli_query($con, $sql);
@@ -56,9 +56,15 @@ if (!$res) {
                 <div class="col-sm-6">
                     <h1>view campe details</h1>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 d-flex justify-content-end ">
+                    <form method="get" class="d-flex gap-2">
+                        <input type="text" name="search" class="form-control"
+                            value="<?php echo htmlspecialchars($search); ?>" placeholder="Search Camp Title" />
+                        <input type="submit" name="submit" value="Search" class="btn btn-dark" />
+                    </form>
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="campe.php">Home</a></li>
+                        <li class="breadcrumb-item"><a href="add_blood.php" class="btn btn-dark rounded-pill ms-2"><i
+                                    class="fa-solid fa-plus"></i></a></li>
                     </ol>
                 </div>
             </div>
@@ -66,21 +72,14 @@ if (!$res) {
     </section>
 
     <!-- Search Form -->
-    <form method="get" style="margin: 20px;">
-        <input type="text" name="search" value="<?php echo htmlspecialchars($search); ?>" placeholder="Search..." />
-        <input type="submit" name="submit" value="Search" />
-    </form>
+
 
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Camp Table</h3>
-                        </div>
-
+                    <div class="card grid_table"> 
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example2" class="table table-bordered table-hover">
@@ -104,13 +103,16 @@ if (!$res) {
                                                 <td><?php echo htmlspecialchars($data['title']); ?></td>
                                                 <td><?php echo htmlspecialchars($data['date']); ?></td>
                                                 <td><?php echo htmlspecialchars($data['description']); ?></td>
-                                                <td><img src="image/campe_img/<?php echo htmlspecialchars($data['image']); ?>" width="100px"></td>
+                                                <td><img src="image/campe_img/<?php echo htmlspecialchars($data['image']); ?>"
+                                                        width="100px"></td>
                                                 <td><?php echo htmlspecialchars($data['time']); ?></td>
                                                 <td class="action_icon">
-                                                    <a href="view_campe.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-trash-can"></i></a>
+                                                    <a href="view_campe.php?id=<?php echo $data['id']; ?>"><i
+                                                            class="fa-solid fa-trash-can"></i></a>
                                                 </td>
                                                 <td class="action_icon">
-                                                    <a href="campe.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                    <a href="campe.php?id=<?php echo $data['id']; ?>"><i
+                                                            class="fa-solid fa-pen-to-square"></i></a>
                                                 </td>
                                             </tr>
                                         <?php } ?>
@@ -125,15 +127,20 @@ if (!$res) {
                             <!-- Pagination -->
                             <div style="margin: 20px 0px;" class="pagination">
                                 <?php if ($page > 1) { ?>
-                                    <a href="?page=<?php echo ($page - 1); ?>&search=<?php echo htmlspecialchars($search); ?>"><i class="fa-solid fa-chevron-left"></i></a>
+                                    <a
+                                        href="?page=<?php echo ($page - 1); ?>&search=<?php echo htmlspecialchars($search); ?>"><i
+                                            class="fa-solid fa-chevron-left"></i></a>
                                 <?php } ?>
 
                                 <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
-                                    <a href="?page=<?php echo $i; ?>&search=<?php echo htmlspecialchars($search); ?>" class="<?php echo ($i == $page) ? 'active' : ''; ?>"><?php echo $i; ?></a>
+                                    <a href="?page=<?php echo $i; ?>&search=<?php echo htmlspecialchars($search); ?>"
+                                        class="<?php echo ($i == $page) ? 'active' : ''; ?>"><?php echo $i; ?></a>
                                 <?php } ?>
 
                                 <?php if ($page < $total_pages) { ?>
-                                    <a href="?page=<?php echo ($page + 1); ?>&search=<?php echo htmlspecialchars($search); ?>"><i class="fa-solid fa-chevron-right"></i></a>
+                                    <a
+                                        href="?page=<?php echo ($page + 1); ?>&search=<?php echo htmlspecialchars($search); ?>"><i
+                                            class="fa-solid fa-chevron-right"></i></a>
                                 <?php } ?>
                             </div>
 

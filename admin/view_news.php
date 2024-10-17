@@ -5,7 +5,7 @@ require_once('db.php');
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
     $sql = "DELETE FROM news WHERE id = $id";
-    
+
     if (!mysqli_query($con, $sql)) {
         die('Error: ' . mysqli_error($con));
     }
@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
 
 // Pagination logic
 $limit = 5;
-
+$search = "";
 if (isset($_GET['search'])) {
     $search = mysqli_real_escape_string($con, $_GET['search']);
     $sql = "SELECT * FROM news WHERE title LIKE '%$search%'"; // Changed 'name' to 'title'
@@ -61,23 +61,30 @@ if (!$res) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-
                     <h1>View News Data</h1>
-                </div> 
+                </div>
+                <div class="col-sm-6 d-flex justify-content-end">
+                    <form method="get" class="d-flex gap-2">
+                        <input type="text" name="search" placeholder="Search News Title" class="form-control"
+                            value="<?php echo htmlspecialchars($search); ?>">
+                        <input type="submit" name="submit" value="Search" class="btn btn-dark">
+                    </form>
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="news.php" class="btn btn-dark rounded-pill ms-2"><i
+                                    class="fa-solid fa-plus"></i></a></li>
+                    </ol>
+                </div>
             </div>
         </div><!-- /.container-fluid -->
     </section>
-<form method="get">
-        <input type="text" name="search">
-        <input type="submit" name="submit" value="search">
-    </form>
-    <!-- Main content --> 
+
+    <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
 
-                    <div class="card grid_table"> 
+                    <div class="card grid_table">
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example2" class="table table-bordered table-hover">
@@ -91,20 +98,22 @@ if (!$res) {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php 
+                                    <?php
                                     while ($data = mysqli_fetch_assoc($res)) {
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $data['id']; ?></td>
-                                        <td><?php echo $data['title']; ?></td>
-                                        <td ><?php echo $data['description']; ?></td>
-                                        <td><img src="image/news_img/<?php echo $data['image']; ?>" width="100px"></td>
-                                        <td class="action_icon d-flex">
-                                            <a href="view_news.php?id=<?php echo $data['id']; ?>"><i  class="fa-solid fa-trash-can "></i></a>
-                                            <a href="news.php?id=<?php echo $data['id']; ?>"><i class="fa-solid fa-pen-to-square "></i</a>
-                                        </td>
-                                    </tr>
-                                    <?php } ?>                
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $data['id']; ?></td>
+                                            <td><?php echo $data['title']; ?></td>
+                                            <td><?php echo $data['description']; ?></td>
+                                            <td><img src="image/news_img/<?php echo $data['image']; ?>" width="100px"></td>
+                                            <td class="action_icon d-flex">
+                                                <a href="view_news.php?id=<?php echo $data['id']; ?>"><i
+                                                        class="fa-solid fa-trash-can "></i></a>
+                                                <a href="news.php?id=<?php echo $data['id']; ?>"><i
+                                                        class="fa-solid fa-pen-to-square "></i< /a>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
                                 </tbody>
                                 <tfoot>
                                 </tfoot>
@@ -115,7 +124,8 @@ if (!$res) {
                                 <?php } ?>
 
                                 <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
-                                    <a href="?page=<?php echo $i; ?>"  class="<?php echo ($i == $page) ? 'active' : ''; ?>"><?php echo $i; ?></a>
+                                    <a href="?page=<?php echo $i; ?>"
+                                        class="<?php echo ($i == $page) ? 'active' : ''; ?>"><?php echo $i; ?></a>
                                 <?php } ?>
 
                                 <?php if ($page < $total_pages) { ?>
@@ -138,4 +148,4 @@ if (!$res) {
 <!-- /.content-wrapper -->
 <?php
 include("footer.php");
-?>    <!-- /.sidebar -->    
+?> <!-- /.sidebar -->

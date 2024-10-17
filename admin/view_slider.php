@@ -53,9 +53,17 @@ $res1 = mysqli_query($con, $sql);
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
-
+                <div class="col-sm-6 ">
                     <h1>View Slider Data</h1>
+                </div>
+                <div class="col-sm-6 d-flex justify-content-end">
+                    <form method="get" class="d-flex gap-2">
+                        <input type="text" name="search" class="form-control" placeholder="Search slider title" value="<?php echo $search; ?>">
+                        <input type="submit" name="submit" value="search" class="btn btn-dark">
+                    </form>
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="add_slider.php" class="btn btn-dark rounded-pill ms-2"><i  class="fa-solid fa-plus"></i></a></li>
+                    </ol>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -66,17 +74,7 @@ $res1 = mysqli_query($con, $sql);
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">slider table</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <form method="get">
-        <input type="text" name="search">
-        <input type="submit" name="submit" value="search">
-    </form>
-
+                    <div class="card grid_table">
                         <div class="card-body">
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
@@ -85,7 +83,7 @@ $res1 = mysqli_query($con, $sql);
                                         <th>Title</th>
                                         <th>Description</th>
                                         <th>Image</th>
-                                        <th>Action</th> 
+                                        <th>Action</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -100,22 +98,20 @@ $res1 = mysqli_query($con, $sql);
                                             <td><img src="image/slider_img/<?php echo $data['image']; ?> " width="100px">
                                             </td>
 
-                                            <td class="action_icon">
-                                                <a href="view_slider.php?id=<?php echo $data['id']; ?>"><i
-                                                class="fa-solid fa-trash-can "></i></a>
+                                            <td class="action_icon d-flex">
                                                 <a href="slider.php?id=<?php echo $data['id']; ?>"><i
-                                                class="fa-solid fa-pen-to-square "></i></a>
-                                            </td> 
+                                                        class="fa-solid fa-pen-to-square "></i></a>
+                                                <a href="view_slider.php?id=<?php echo $data['id']; ?>"><i
+                                                        class="fa-solid fa-trash-can "></i></a>
+                                            </td>
                                             <td>
-                                                <input type="checkbox"
-                                                    attr-value="<?php if ($data['status'] == 0) {
-                                                        echo "1";
-                                                    } else {
-                                                        echo "0";
-                                                    } ?>"
-                                                    class="check" attr-id="<?php echo $data['id']; ?>" <?php if ($data['status'] == 1) {
-                                                           echo "checked";
-                                                       } ?>>
+                                                <input type="checkbox" attr-value="<?php if ($data['status'] == 0) {
+                                                    echo "1";
+                                                } else {
+                                                    echo "0";
+                                                } ?>" class="check" attr-id="<?php echo $data['id']; ?>" <?php if ($data['status'] == 1) {
+                                                        echo "checked";
+                                                    } ?>>
                                             </td>
                                         </tr>
                                     <?php } ?>
@@ -129,7 +125,8 @@ $res1 = mysqli_query($con, $sql);
                                 <?php } ?>
 
                                 <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
-                                    <a href="?page=<?php echo $i; ?>"  class="<?php echo ($i == $page) ? 'active' : ''; ?>"><?php echo $i; ?></a>
+                                    <a href="?page=<?php echo $i; ?>"
+                                        class="<?php echo ($i == $page) ? 'active' : ''; ?>"><?php echo $i; ?></a>
                                 <?php } ?>
 
                                 <?php if ($page < $total_pages) { ?>

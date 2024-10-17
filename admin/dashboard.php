@@ -62,7 +62,7 @@ if ($result_total_donations) {
             <div class="row">
                 <!-- Box for total donations -->
                 <div class="col-lg-3 col-6">
-                    <div class="small-box bg-success">
+                    <div class="small-box box_bg">
                         <div class="inner">
                             <h3><?php echo $total_donations; ?></h3>
                             <p>Total Donations</p>
@@ -77,10 +77,10 @@ if ($result_total_donations) {
                 <?php foreach ($donation_counts as $blood_type => $count): ?>
                     <!-- Small box for each blood type donation -->
                     <div class="col-lg-3 col-6">
-                        <div class="small-box bg-info">
+                        <div class="small-box box_bg">
                             <div class="inner">
                                 <h3><?php echo $count; ?></h3>
-                                <p>Donations with Blood Type <?php echo htmlspecialchars($blood_type); ?></p>
+                                <p class="font_6">Donations with Blood Type <?php echo htmlspecialchars($blood_type); ?></p>
                             </div>
                             <div class="icon">
                                 <i class="fas fa-tint"></i>
